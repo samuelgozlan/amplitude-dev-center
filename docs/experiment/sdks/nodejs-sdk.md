@@ -50,7 +50,7 @@ Install the Node.js Server SDK with npm or yarn.
     import { Experiment } from '@amplitude/experiment-node-server';
 
     // (1) Initialize the experiment client
-    const experiment = Experiment.initializeRemote('<DEPLOYMENT_KEY>', config: {
+    const experiment = Experiment.initializeRemote('<DEPLOYMENT_KEY>', {
         fetchTimeoutMillis: 500,
         fetchRetries: 1,
         fetchRetryBackoffMinMillis: 0,
