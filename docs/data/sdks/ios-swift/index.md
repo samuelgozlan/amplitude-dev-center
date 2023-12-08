@@ -993,6 +993,27 @@ Implements a customized `loggerProvider` class from the LoggerProvider, and pass
     Amplitude* amplitude = [Amplitude initWithConfiguration:configuration];
     ```
 
+--8<-- "includes/sdk-ios/sdk-ios-security-set-instance-name.md"
+
+=== "Objective-C"
+
+    ```obj-c
+    AMPConfiguration* configuration = [AMPConfiguration initWithApiKey:@"API-KEY"
+                                                        instanceName:@"my-unqiue-instance-name"];
+    Amplitude* amplitude = [Amplitude instanceWithConfiguration:configuration];
+    ```
+
+=== "Swift"
+
+    ```swift
+    let amplitude = Amplitude(
+        configuration: Configuration(
+            apiKey: "API-KEY",
+            instanceName: "my-unqiue-instance-name"
+        )
+    )
+    ```
+
 ### More resources
 
 If you have any problems or issues with the SDK, [create a GitHub issue](https://github.com/amplitude/Amplitude-Swift/issues/new) or submit a request on [Amplitude Help](https://help.amplitude.com/hc/en-us/requests/new).
