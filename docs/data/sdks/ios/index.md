@@ -1230,6 +1230,20 @@ You can find examples for [Objective-C](https://github.com/amplitude/ampli-exam
 
 Learn more about [Middleware](../../sdk-middleware).
 
+--8<-- "includes/sdk-ios/sdk-ios-security-set-instance-name.md"
+
+=== "Objective-C"
+
+    ```obj-c
+    Amplitude* amplitude = [Amplitude instanceWithName:@"my-unqiue-instance-name"];
+    ```
+
+=== "Swift"
+
+    ```swift
+    var amplitude = Amplitude.instanceWithName("my-unqiue-instance-name")
+    ```
+
 ### More resources
 
 If you have any problems or issues with the SDK, [create a GitHub issue](https://github.com/amplitude/Amplitude-iOS/issues/new) or submit a request on [Amplitude Help](https://help.amplitude.com/hc/en-us/requests/new).
