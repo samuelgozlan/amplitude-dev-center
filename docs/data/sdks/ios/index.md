@@ -1241,7 +1241,7 @@ Learn more about [Middleware](../../sdk-middleware).
 === "Swift"
 
     ```swift
-    var amplitude = Amplitude.instanceWithName("my-unqiue-instance-name")
+    let amplitude = Amplitude.instanceWithName("my-unqiue-instance-name")
     ```
 
 ### More resources
