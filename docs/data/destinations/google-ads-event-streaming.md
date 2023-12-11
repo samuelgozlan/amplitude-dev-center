@@ -54,7 +54,7 @@ The final step is enabling the destination. You must enable the destination to s
 
 1. **Accurate Conversion Tracking:** The integration allows you to track conversions more accurately by sending Amplitude event data directly to Google Ads. This ensures that you can attribute conversions to specific user actions and events, helping you understand which aspects of your campaigns are driving results.
 2. **Optimizing Campaigns:** With real-time data from Amplitude, you can optimize your Google Ads campaigns based on user behavior and engagement. This means you can make data-driven decisions to allocate your budget to the most effective keywords, ad creatives, and targeting options.
-3. **Personalization:** By leveraging Amplitude's event data, you can create highly personalized ad campaigns. For example, you can use the data to target users who have completed specific actions on your website or app with tailored ad messages or offers.
+3. **Personalization:** With Amplitude's event data, you can create highly personalized ad campaigns. For example, you can use the data to target users who have completed specific actions on your website or app with tailored ad messages or offers.
 
 ## Common issues
 
