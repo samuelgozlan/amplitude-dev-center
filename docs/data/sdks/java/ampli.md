@@ -141,8 +141,8 @@ Initialize Ampli in your code. The `load()` method accepts configuration option 
 |-|-|
 |`LoadOptions`| Required. Specifies configuration options for the Ampli Wrapper.|
 |`disabled`|Optional. Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
-|`client`| <span class="required">Required if `apiKey` isn't set</span>. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
-|`apiKey`| <span class="required">Required if `client` isn't set</span>. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
+|`client.instance`| <span class="required">Required if `client.apiKey` isn't set</span>. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
+|`client.apiKey`| <span class="required">Required if `client.instance` isn't set</span>. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
 
 ### Identify
 
