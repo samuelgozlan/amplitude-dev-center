@@ -111,14 +111,13 @@ ampli.Instance.Load(ampli.LoadOptions{
 
 | <div class ="big-column">Arg of LoadOptions</div> | Description |
 |-|-|
-|`Environment`| Required. String. Specifies the environment the Ampli Wrapper is running in. For example,  `EnvironmentProduction` or `EnvironmentDevelopment`. Create, rename, and manage environments in Amplitude Data.<br /><br />Environment determines which API token is used when sending events.<br /><br />If a `Client.ApiKey` or `Client.Instance` is provided, `Environment` is ignored, and can be omitted.|
+|`Instance`| <span class="required">Required if `APIKey` isn't set</span>. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
+|`APIKey`| <span class="required">Required if `Instance` isn't set</span>. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
 |`Disabled`|Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
 |`Client`| A instance of LoadClientOptions specifies configuration options for the Amplitude core SDK client.|
 
 | <div class ="big-column">Arg of LoadClientOptions</div> | Description |
 |-|-|
-|`Instance`| Specifies an Amplitude instance. By default Ampli creates an instance for you.|
-|`APIKey`| Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
 |`Configuration`| Specifies the Amplitude configuration. This option overrides the default configuration.|
 
 ### Identify

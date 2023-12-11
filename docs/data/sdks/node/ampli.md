@@ -128,10 +128,9 @@ The `load()` function requires an options object to configure the SDK's behavior
 
 | <div class="big-column">Option</div> |Type|Required|Description|
 |---------------------------------|------------------| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|`environment`| Required. String. Specifies the environment the Ampli Wrapper is running in e.g. `production` or `development`. Environments can be created, renamed, and managed in Amplitude Data.<br /><br />Environment determines which API token is used when sending events.<br /><br />If an `client.apiKey` or `client.instance` is provided, `environment` will be ignored, and can be omitted.|
 |`disabled`| `Boolean`| optional | Specifies whether the Ampli Wrapper does any work. When `true`, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.                                                                                                                                                 |
-|`client.apiKey`| `String`| optional |Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
-|`client.instance`| `AmplitudeClient` | optional | Specifies an Amplitude instance. By default Ampli creates an instance for you.|
+|`client.instance`| `AmplitudeClient` | required if `client.apiKey` isn't set | Specifies an Amplitude instance. By default Ampli creates an instance for you.|
+|`client.apiKey`| `String`| required if `client.instance` isn't set | Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
 |`client.options`| `Amplitude.Options` | optional | Overrides the default configuration for the AmplitudeClient.|
 
 ### Identify
