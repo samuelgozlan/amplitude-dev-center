@@ -3,9 +3,6 @@ title: Send Cohorts to Sendgrid
 description: Send audiences from Amplitude to Sendgrid to create more personalized campaigns.
 ---
 
-!!!alpha 
-    This integration is currently in Alpha and is in active development. If you have any feedback to improve or have suggestions around this documentation, email <integrations@amplitude.com>. 
-
 [SendGrid](https://sendgrid.com/) is a proven cloud-based customer communication platform that successfully delivers over 45 billion emails each month.
 
 This SendGrid integration allows you to send audiences from Amplitude to SendGrid to create more personalized campaigns. 
