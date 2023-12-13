@@ -355,6 +355,7 @@ nav:
         - MoEngage: data/destinations/moengage-cohort.md
         - Netcore Cloud: data/destinations/netcore-cohort.md
         - Notivize: data/destinations/notivize-cohort.md
+        - Optimizely: data/destinations/optimizely-cohort.md
         - OneSignal: data/destinations/onesignal-cohort.md
         - Plotline: data/destinations/plotline-cohort.md
         - Pushwoosh: data/destinations/pushwoosh-cohort.md

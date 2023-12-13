@@ -35,6 +35,7 @@
 - :moengage: [MoEngage](../data/destinations/moengage-cohort.md)
 - :netcore: [Netcore Cloud](../data/destinations/netcore-cohort.md)
 - :onesignal: [OneSignal](../data/destinations/onesignal-cohort.md)
+- :optimizely: [Optimizely](../data/destinations/optimizely-cohort.md)
 - :notivize: [Notivize](../data/destinations/notivize-cohort.md)
 - :plotline: [Plotline](../data/destinations/plotline-cohort.md)
 - :productboard: [Productboard](../data/destinations/productboard-cohort.md)
