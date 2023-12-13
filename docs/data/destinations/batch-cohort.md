@@ -7,7 +7,7 @@ description: Sync cohorts from Amplitude to Batch
 
     This integration is maintained by Batch. Contact the Batch support team for support with this integration. 
 
-[Batch](https://batch.com/)  is a customer engagement platform that allows publishers to personalize push notifications and emails across multiple mobile platforms and web browsers. It is offered as a SaaS solution, integrating with clients' apps and websites via an SDK. This integration lets you sync cohorts from Amplitude to Batch.  
+[Batch](https://batch.com/)  is a customer engagement platform that allows publishers to personalize push notifications and emails across multiple mobile platforms and web browsers. Batch offers a SaaS solution, integrating with clients' apps and websites via an SDK. This integration lets you sync cohorts from Amplitude to Batch.  
 
 ## Considerations
 
