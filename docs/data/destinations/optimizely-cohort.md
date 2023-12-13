@@ -13,8 +13,7 @@ description: Sync cohorts from Amplitude to Optimizely
 
 - This integration is only available for customers who have paid plans with Amplitude.
 - You must enable this integration in each Amplitude project you want to use it in.
-- You will also need to have a paid Optimizely plan to enable this integration.
-- Optimizely only accepts email addresses as the identifier. This means the User_ID or user property you select in Amplitude must contain an email address.
+- This integration requires a paid Optimizely plan.
 
 ## Setup
 
@@ -28,9 +27,10 @@ description: Sync cohorts from Amplitude to Optimizely
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
 2. In the Cohort section, click **Optimizely**.
-3. Click Add another destination.
+3. Click **Add another destination**.
 4. Enter **Name** and paste in the **API key** you copied from **Optimizely**.
-5. Map the Amplitude User ID field to the Optimizely User ID field
+5. Map the Amplitude User ID field to the Optimizely User ID field.
+6. Save when finished.
 
 ## Send a cohort
 
