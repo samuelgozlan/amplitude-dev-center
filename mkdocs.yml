@@ -173,6 +173,7 @@ nav:
     - data/index.md
     - Overview: data/index.md
     - Getting Started: "getting-started.md"
+    - Warehouse-native Amplitude: data/warehouse-native/index.md
     - Sources:
       - Overview: data/sources.md
       - Client-side vs Server-side: data/sources/client-side-vs-server-side.md
