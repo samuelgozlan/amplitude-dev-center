@@ -1210,6 +1210,22 @@ Don't send push notification events client-side via the iOS SDK. Because a user 
 
 You can use [mobile marketing automation partners](https://amplitude.com/integrations?category=mobile-marketing-automation) or the [HTTP API V2](https://developers.amplitude.com/docs/http-api-v2) to send push notification events to Amplitude.
 
+--8<-- "includes/sdk-set-offline.md"
+
+=== "Objective-C"
+
+    ```obj-c
+    [[Amplitude instance] setOffline:YES]; // enables offline mode
+    [[Amplitude instance] setOffline:NO]; // disables offline mode
+    ```
+
+=== "Swift"
+
+    ```swift
+    Amplitude.instance().setOffline(true); // enables offline mode
+    Amplitude.instance().setOffline(false) // disables offline mode
+    ```
+
 ### Middleware
 
 Middleware lets you extend Amplitude by running a sequence of custom code on every event. This pattern is flexible and can be used to support event enrichment, transformation, filtering, routing to third-party destinations, and more.

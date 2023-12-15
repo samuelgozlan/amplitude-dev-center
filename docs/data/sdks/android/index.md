@@ -1112,6 +1112,22 @@ The Amplitude Android SDK allows the app to set a callback (version 2.32.2+). Cr
     client.setLogCallback(callback);
     ```
 
+--8<-- "includes/sdk-set-offline.md"
+
+=== "Java"
+
+    ```java
+    client.setOffline(true); // enables offline mode
+    client.setOffline(false); // disables offline mode
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    client.setOffline(true); // enables offline mode
+    client.setOffline(false); // disables offline mode
+    ```
+
 ### Middleware
 
 Middleware lets you extend Amplitude by running a sequence of custom code on every event.
