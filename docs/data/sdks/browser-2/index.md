@@ -190,7 +190,7 @@ amplitude.init(AMPLITUDE_API_KEY, {
 #### Tracking marketing attribution
 
 Amplitude tracks marketing attribution by default. 
-Browser SDK 2.0 captures UTM parameters, referrer information and click IDs as user properties.
+Browser SDK 2.0 captures UTM parameters, referrer information, and click IDs as user properties.
 
 ???info "Attribution Overview"
     --8<-- "includes/sdk-ts-browser/marketing-analytics-overview.md"
