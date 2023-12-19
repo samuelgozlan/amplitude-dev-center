@@ -51,7 +51,7 @@ You can also add the code directly to the `<head>` of your site.
 
 ```html
 <script src="https://cdn.amplitude.com/libs/analytics-browser-2.1.3-min.js.gz"></script>
-<script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-0.6.13-min.js.gz"></script>
+<script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-0.10.1-min.js.gz"></script>
 <script>
 window.amplitude.init(API_KEY)
 const sessionReplayTracking = window.sessionReplay.plugin();
