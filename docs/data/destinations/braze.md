@@ -45,7 +45,7 @@ _This applies to both event and user forwarding. Transformed user properties are
     - [**External ID**](https://www.braze.com/docs/api/basics/#user-ids): Any unique identifier for each user in Braze.
     - [**Braze ID**](https://www.braze.com/docs/api/basics/#user-ids): A unique identifier provided by Braze for each user.
     - [**User Alias**](https://www.braze.com/docs/api/objects_filters/user_alias_object): An alternative unique identifier for each user in Braze.
-    - [**Email**](https://www.braze.com/docs/api/endpoints/user_data/post_user_track/#frequently-asked-questions): Using email as the identifier without an External ID or Braze ID may lead to unexpected behavior. 
+    - [**Email**](https://www.braze.com/docs/api/endpoints/user_data/post_user_track/#frequently-asked-questions): Using email as the identifier without an External ID or Braze ID may lead to unexpected behavior. For example, if Amplitude sends a user to Braze with an ID and the same email, Braze doesn't merge them, resulting in two separate users. For instructions to avoid this case, see Braze’s [User Profiles](https://www.braze.com/docs/user_guide/engagement_tools/segments/user_profiles/) documentation. Braze also provides a [Merge User API](https://www.braze.com/docs/api/endpoints/user_data/post_users_merge/) for merging users, offering you more flexibility and control.
 
 ### Configure event forwarding
 
