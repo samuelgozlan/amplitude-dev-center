@@ -35,7 +35,7 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 
 ### Initialize the SDK
 
---8<-- "includes/sdk-httpv2-notice.md"
+--8<-- "includes/sdk-httpv2-notice-ts.md"
 
 --8<-- "includes/sdk-ts-browser/init.md"
 
