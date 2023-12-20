@@ -23,13 +23,19 @@ With event streaming, you gain access to user-friendly, configuration-based tool
 
 ### What's the difference between Cohort syncing and Event Streaming?
 
-- **Cohort Syncing** provides a valuable mechanism for syncing cohort membership data from Amplitude to third-party tools such as SFMC or Braze. This empowers you to delve into behavioral targeting and comprehensively analyze the effects of your targeting strategies. However, it's important to note that Cohort Syncing primarily focuses on data synchronization and behavioral analysis, without involving the creation or maintenance of users within the third-party tool.
-- **Event Streaming** is more than just syncing cohorts. When you set up Event Streaming, you get the advantage of having a single Amplitude setup that sends data and events smoothly to different platforms. This saves you from constantly having to make technical adjustments. Event Streaming also gives you precise control. You can choose specific events, users, or properties to send to a destination platform, ensuring that only the important data reaches its intended destination. Moreover, Event Streaming allows you to use conversion events in real time. For example, in a tool like SFMC, these events can trigger actions in marketing workflows or journey plans. This strategic integration helps you optimize your targeting, making your initiatives more effective.
+- **Cohort Syncing:** Cohort Syncing is a valuable tool for transferring cohort data from Amplitude to third-party tools like SFMC or Braze. It enables you to explore behavioral targeting and thoroughly analyze the impact of your targeting strategies. However, it's important to note that Cohort Syncing focuses on data syncing and behavioral analysis and does not handle user creation or management in third-party tools.
+- **Event Streaming:** Event Streaming offers more than just cohort syncing. It simplifies your data setup by allowing you to use a single Amplitude configuration to smoothly send data to various platforms, eliminating the need for constant technical adjustments. With Event Streaming, you have precise control, choosing which events, users, or properties to send to each platform, ensuring only important data reaches its destination. Additionally, it enables real-time conversion events, triggering actions in tools like Braze, Customer.io, or SFMC to optimize your targeting and enhance the effectiveness of your initiatives.
 
 ### What are some examples of how customers are using Event streaming?
 
 1. **Marco Polo:** Used Event Streaming to power a real-time 'Welcome' email campaign by streaming sign-up events from Amplitude to Braze.
 2. **Invoice Simple:** Leveraged Event Streaming for a robust engagement campaign, customizing messaging based on a series of events to enhance engagement effectiveness.
+
+### What happens if I don't see an Event streaming destination on Amplitude Catalog?
+
+1. **Webhook streaming** - You can use [Webhook Event streaming](https://www.docs.developers.amplitude.com/data/destinations/webhooks-streaming/) integration to send your Amplitude events and user data to custom webhooks. This allows you to send data to a URL of your choice for various use cases. 
+2. **Vendor Switch:** Consider switching to a vendor already integrated with Amplitude, which offers similar functionalities. You can find more information in the Amplitude Catalog.
+3. **Self-Build or Vendor Request:** You have the option to build the integration yourself using the Amplitude Integration Portal or request the vendor to create it through our integration portal. Click [here](https://www.docs.developers.amplitude.com/partners/event-streaming-integration-guide/) to learn more about the Amplitude Integration Portal.
 
 ### What's the IP range of your service?
 
