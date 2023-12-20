@@ -9,10 +9,10 @@ With event streaming, you gain access to user-friendly, configuration-based tool
 
 ## Considerations
 
-- **Billing efficiency:** Amplitude tracks event volume based on distinct events streamed out. If you send the same event to multiple event streaming destinations, it's counted once for billing.
-- **Latency target:** Amplitude aims for an end-to-end p95 latency of 60 seconds, with monitoring and alerts in place to support this target.
-- **Retry mechanism:** Amplitude addresses intermittent errors through in-memory retries with exponential backoff for initial sends. A robust retry pipeline attempts up to 10 times within a 4-hour window to handle retry errors. Amplitude applies this mechanism to all Event Streaming destinations.
-- **Streamlined monitoring and management:** The Event Streaming Debugger UI in Amplitude Data allows users to monitor pending retries and their progress. Expired payloads that exhaust retry attempts are shown within Amplitude. The UI provides insights into error categories and also offers samples of failed payloads for analysis.
+- **Billing efficiency:** Amplitude tracks event volume based on distinct events sent. If the same event is sent to multiple Event Streaming destinations, it's counted only once for billing.
+- **Latency target:** Amplitude aims for an end-to-end p95 latency of 60 seconds, monitored and supported by alerts.
+- **Retry mechanism:** Intermittent errors are addressed through in-memory retries with exponential backoff for initial sends. A robust retry pipeline attempts up to 10 times within a 4-hour window. This mechanism applies to all Event Streaming destinations.
+- S**treamlined monitoring and management:** The Event Streaming Debugger UI in Amplitude Data enables users to monitor pending retries, progress, and expired payloads. Insights into error categories and failed payload samples are provided for analysis.
 
 ## Limitations
 
@@ -37,7 +37,8 @@ With event streaming, you gain access to user-friendly, configuration-based tool
 
 1. **Webhook streaming** - You can use [Webhook Event streaming](https://www.docs.developers.amplitude.com/data/destinations/webhooks-streaming/) integration to send your Amplitude events and user data to custom webhooks. This allows you to send data to a URL of your choice for various use cases. 
 2. **Vendor Switch:** Consider switching to a vendor already integrated with Amplitude, which offers similar functionalities. You can find more information in the Amplitude Catalog.
-3. **Self-Build or Vendor Request:** You have the option to build the integration yourself using the Amplitude Integration Portal or request the vendor to create it through our integration portal. Click [here](https://www.docs.developers.amplitude.com/partners/event-streaming-integration-guide/) to learn more about the Amplitude Integration Portal.
+3. **Self-Build or Vendor Request:** You can either build the integration yourself using the Amplitude Integration Portal or request the vendor to create it through the integration portal. Learn more about the Amplitude Integration Portal [here](https://www.docs.developers.amplitude.com/partners/event-streaming-integration-guide/).
+4. **Submit a feature request**: If you have specific feature requests, you can submit them in this public portal [here](https://portal.productboard.com/amplitude/7-amplitude-data-integrations-2024). 
 
 ### What's the IP range of your service?
 
