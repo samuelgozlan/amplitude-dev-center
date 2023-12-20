@@ -12,12 +12,12 @@ With event streaming, you gain access to user-friendly, configuration-based tool
 - **Billing efficiency:** Amplitude tracks event volume based on distinct events sent. If the same event is sent to multiple Event Streaming destinations, it's counted only once for billing.
 - **Latency target:** Amplitude aims for an end-to-end p95 latency of 60 seconds, monitored and supported by alerts.
 - **Retry mechanism:** Intermittent errors are addressed through in-memory retries with exponential backoff for initial sends. A robust retry pipeline attempts up to 10 times within a 4-hour window. This mechanism applies to all Event Streaming destinations.
-- S**treamlined monitoring and management:** The Event Streaming Debugger UI in Amplitude Data enables users to monitor pending retries, progress, and expired payloads. Insights into error categories and failed payload samples are provided for analysis.
+- **Streamlined monitoring and management:** The Event Streaming Debugger UI in Amplitude Data enables users to monitor pending retries, progress, and expired payloads. Insights into error categories and failed payload samples are provided for analysis.
 
 ## Limitations
 
 - **Forwarding transformed data:** Amplitude event streaming only supports raw (untransformed) events, event properties, and user properties. [Transformed](https://help.amplitude.com/hc/en-us/articles/5913315221915-Transformations-Retroactively-modify-your-event-data-structure) events and properties (such as merged properties) aren't supported.
-- **User properties format:** All forwarded user properties are currently sent as strings except for the [Braze streaming](https://www.docs.developers.amplitude.com/data/destinations/braze/) and [Iterable streaming](https://www.docs.developers.amplitude.com/data/destinations/iterable/) destinations
+- **Format for User properties:** All forwarded user properties are currently sent as strings except for the [Braze streaming](https://www.docs.developers.amplitude.com/data/destinations/braze/) and [Iterable streaming](https://www.docs.developers.amplitude.com/data/destinations/iterable/) destinations
 - **Reserved keywords:** Specific keywords, including "_all" and "_identify," can't be used as event names when streaming events from Amplitude.
 - **Historical data:** Amplitude's streaming integrations focus on data from the setup point forward. Historical data isn't included in this process, which ensures that Amplitude transmits only events captured post-configuration.
 
