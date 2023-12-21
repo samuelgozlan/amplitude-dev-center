@@ -12,7 +12,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Browser"
 
-    The Browser SDK lets you send events to Amplitude. See the [Browser SDK documentation](../typescript-browser/) for additional configurations and advanced topics.
+    The Browser SDK lets you send events to Amplitude. See the [Browser SDK documentation](../browser-2/) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library)
