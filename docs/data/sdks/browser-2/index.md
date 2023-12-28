@@ -413,3 +413,9 @@ amplitude.init(AMPLITUDE_API_KEY, {
 #### Disable cookies
 
 You can opt-out of using cookies by setting `identityStorage` to `localStorage` so that the SDK will use `LocalStorage` instead. `LocalStorage` is a great alternative, but because access to `LocalStorage` is restricted by subdomain, you can't track anonymous users across subdomains of your product (for example: `www.amplitude.com` vs `analytics.amplitude.com`).
+
+```ts
+amplitude.init("api-key", null, {
+  identityStorage: "localStorage",
+});
+```
