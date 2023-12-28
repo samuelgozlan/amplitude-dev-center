@@ -1681,6 +1681,8 @@ A failed request returns a `404 Bad Request` status and an error message.
 }
 ```
 
+Note that Taxonomy API requires your account to be on the **Enterprise plan** or have the **Govern add-on** enabled, so if your subscription does not qualify, the call will result in a `404 Bad Request`. 
+
 ### Update user property
 
 Update a user property.
