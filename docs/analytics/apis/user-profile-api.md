@@ -40,6 +40,7 @@ The User Profile API serves Amplitude user profiles, which include user properti
 
 **Throttling errors**
 
+- Amplitude orgs have a limit of 600 all API requests per minute. If you go above this limit, contact Support with the use case and required limit.
 - Amplitude orgs have a limit of 100,000 recommendation requests per minute. If you go above this limit, the API returns the following error response:
     - `{"error":"Number of requests per minute exceeds system limit. Contact Support if you need this limit raised"}`
 - For batch recommendation use cases, consider rate limiting your requests so you don't go above this limit.
