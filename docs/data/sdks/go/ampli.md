@@ -148,6 +148,7 @@ ampli.Instance.Identify(
     },
 )
 ```
+
 ### Groups
 
 The Amplitude Go SDK and Go Ampli Wrapper don't support Groups. If you're interested in this feature, submit a feature request through the widget on the Amplitude dashboard, or through a [support ticket](https://support.amplitude.com).
