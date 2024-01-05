@@ -148,40 +148,9 @@ ampli.Instance.Identify(
     },
 )
 ```
+### Groups
 
-### Group Identify
-
---8<-- "includes/editions-growth-enterprise-with-accounts.md"
-
-Call `GroupIdentify()` to identify a group in your app and set/update group properties.
-
-Just as Ampli creates types for events and their properties, it creates types for group properties.
-
-The `GroupIdentify()` function accepts a string `groupType`, a string `groupName`, a Group event instance, and optional `EventOptions`.
-
-For example your tracking plan contains a group `sport:football` has a property called `totalMember`. The property's type is a int.
-
-```Go
-ampli.Instance.GroupIdentify(
-    "sport",
-    "football",
-    ampli.Group.Builder().TotalMember(23).Build(),
-)
-```
-
-### Set group
-
-Call `SetGroup()` to associate a user with their group (for example, their department or company). The `SetGroup()` function accept `userID` `groupType`, `groupName` and optional EventOptions.
-
-```Go
-ampli.Instance.SetGroup("user-id", "sport", []string{"football"})
-```
-
-Multiple group names can be set at once.
-
-```Go
-ampli.Instance.SetGroup("user-id", "sport", []string{"football", "basketball"})
-```
+Groups are not yet supported with the Amplitude Go SDK or Go Ampli Wrapper. If you'd like Groups to be added as a feature, please submit a feature request via the widget in your dashboard or through a ticket at this [link](https://support.amplitude.com).
 
 ### Track
 
