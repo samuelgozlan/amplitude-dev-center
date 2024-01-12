@@ -39,7 +39,7 @@ To get started, you need to do the following:
 Here are the high-level steps to having your integration listed within the Amplitude app. 
 
 1. **Go to the Integration Portal**: In Amplitude, navigate to the **My Settings** page and click **Integration Portal**. If you don't see this option, send an email to integrations@amplitude.com with your [Org ID](https://help.amplitude.com/hc/en-us/articles/235649848-The-Settings-page), and Amplitude will provide you access.
-2. **Configure your integration**: After you've submitted your integration, it notifies the Amplitude Engineering team to review your integration.
+2. **Configure your integration**: Once you have finalized your testing, click **Submit** via the Integration Portal as it will notify the Amplitude Engineering team to review your integration.
 3. **Amplitude Engineering team reviews integration**: During the review process, the Amplitude team validates the integration which could take up to 2 weeks. During this process, Amplitude may reach out to you if the team has questions.
     - **Cohort destination integration:** Please provide a test account to integrations@amplitude.com. Typically the Amplitude team will sync a test cohort from Amplitude to your platform as part of the validation process.
     - **Streaming destination integration:** Please provide a test account to integrations@amplitude.com. Typically the Amplitude team will send a test event from Amplitude to your platform as part of the validation process.
