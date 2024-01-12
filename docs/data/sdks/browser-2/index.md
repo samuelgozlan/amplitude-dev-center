@@ -64,7 +64,7 @@ amplitude.init(AMPLITUDE_API_KEY, 'user@amplitude.com', options);
     |`storageProvider`| `Storage<Event[]>`. Sets a custom implementation of `Storage<Event[]>` to persist unsent events. | `LocalStorage` |
     |`userId` | `number`. Sets an identifier for the user being tracked. Must have a minimum length of 5 characters unless overridden with the `minIdLength` option. | `undefined` |
     |`trackingOptions` | `TrackingOptions`. Configures tracking of additional properties. Please refer to `Optional tracking` section for more information. | Enable all tracking options by default. |
-    |`transport` | `string`. Sets request API to use by name. Options include `fetch` fro fetch, `xhr` for `XMLHttpRequest`, or  `beacon` for `navigator.sendBeacon`. | `fetch` |
+    |`transport` | `string`. Sets request API to use by name. Options include `fetch` for fetch, `xhr` for `XMLHttpRequest`, or  `beacon` for `navigator.sendBeacon`. | `fetch` |
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
@@ -157,7 +157,7 @@ Starting version 1.9.1, Browser SDK now tracks default events. Browser SDK can b
     |<div class="big-column">Name</div>|Value|Description|
     |-|-|-|
     `config.defaultTracking.attribution` | Optional. `boolean` | Enables/disables marketing attribution tracking. If value is `true`, Amplitude tracks marketing attribution events otherwise marketing attribution tracking is disabled. Default value is `true`.<br /><br />|
-    `config.defaultTracking.pageViews` | Optional. `boolean` | Enables/disables default page view tracking. If value is `true`, Amplitude tracks page view events on initialization otherwise  page view tracking is disabled. Default value is `true`.<br /><br />Event properties tracked includes: `[Amplitude] Page Domain`, `[Amplitude] Page Location`, `[Amplitude] Page Path`, `[Amplitude] Page Title`, `[Amplitude] Page URL`<br /><br />See [Tracking page views](#tracking-page-views) for more information.|
+    `config.defaultTracking.pageViews` | Optional. `boolean` | Enables/disables default page view tracking. If value is `true`, Amplitude tracks page view events on initialization otherwise page view tracking is disabled. Default value is `true`.<br /><br />Event properties tracked includes: `[Amplitude] Page Domain`, `[Amplitude] Page Location`, `[Amplitude] Page Path`, `[Amplitude] Page Title`, `[Amplitude] Page URL`<br /><br />See [Tracking page views](#tracking-page-views) for more information.|
     `config.defaultTracking.sessions` | Optional. `boolean` | Enables/disables session tracking. If value is `true`, Amplitude tracks session start and session end events otherwise session tracking is disabled. Default value is `true`.<br /><br />See [Tracking sessions](#tracking-sessions) for more information.|
     `config.defaultTracking.formInteractions` | Optional. `boolean` | Enables/disables form interaction tracking. If value is `true`, Amplitude tracks form start and form submit events otherwise form interaction tracking is disabled. Default value is `true`.<br /><br />Event properties tracked includes: `[Amplitude]  Form ID`, `[Amplitude] Form Name`, `[Amplitude] Form Destination`<br /><br />See [Tracking form interactions](#tracking-form-interactions) for more information.|
     `config.defaultTracking.fileDownloads` | Optional. `boolean` | Enables/disables file download tracking. If value is `true`, Amplitude tracks file download events otherwise file download tracking is disabled. Default value is `true`.<br /><br />Event properties tracked includes: `[Amplitude] File Extension`, `[Amplitude] File Name`, `[Amplitude] Link ID`, `[Amplitude] Link Text`, `[Amplitude] Link URL`<br /><br />See [Tracking file downloads](#tracking-file-downloads) for more information.|
@@ -212,7 +212,7 @@ You can also use advanced configuration for better control of how marketing attr
 ???config "Marketing attribution options"
     |<div class="big-column">Name</div>|Value|Description|
     |-|-|-|
-    `config.defaultTracking.attribution.excludeReferrers` | Optional. Array of `string` or `RegExp` | Sets rules to determine which referrers are excluded from being tracked as traffic source. Use string values for exact matching and RegExp values for pattern matching against the referring domain. By default the current domain (and all its subdomain) are excluded referrers. |
+    `config.defaultTracking.attribution.excludeReferrers` | Optional. Array of `string` or `RegExp` | Sets rules to determine which referrers are excluded from being tracked as traffic source. Use string values for exact matching and RegExp values for pattern matching against the referring domain. By default the current domain (and all its subdomains) are excluded referrers. |
     `config.defaultTracking.attribution.initialEmptyValue` | Optional. `string` | Sets the value to represent undefined/no initial campaign parameter for first-touch attribution. The default value is `"EMPTY`. |
     `config.defaultTracking.attribution.resetSessionOnNewCampaign` | Optional. `boolean` | Configures Amplitude to start a new session if any campaign parameter changes. The default value is `false`. |
 
