@@ -104,5 +104,3 @@ Another common case is simple overlooked implementation error. For example, the 
 ## Remove users who variant jumped from experiment analysis
 
 As you analyze results, be careful when you remove data, as you may introduce bias in your results. It's better to understand the cause of variant jumping and fix any implementation bugs, so this doesn't happen again in future  experiments. If you feel that removing users who jumped variants is the best course of action, enable **Exclude users who variant jumped**.
-
-
