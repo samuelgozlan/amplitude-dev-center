@@ -1,6 +1,7 @@
 ---
 title: Migrate from Adobe to Amplitude
 description: This document explains the process of migrating from Adobe to Amplitude.
+status: new
 ---
 Amplitude offers a set of features, customization options, and scalability that provides a solid foundation for data-driven decision making. This guide explains the process, best practices, and key factors to consider as you transition your product analytics stack.
 
