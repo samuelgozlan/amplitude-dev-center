@@ -65,7 +65,7 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Braz
 
 Under **Send Users**, make sure the toggle is enabled ("Users updates are sent to Braze") if you want to stream user and property updates to Braze. When enabled, users are automatically created or updated in Braze when they are created or updated in Amplitude via [HTTP V2 API](https://www.docs.developers.amplitude.com/analytics/apis/http-v2-api/) or [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/). Users aren't sent on a schedule or on-demand using this integration.
 
-(optional) In **Select additional properties**, select any user properties you want to send to Braze. If you don't select any properties here, Amplitude doesn't send any. Whenever these properties are updated, they are sent to Braze as [Braze custom attributes](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_attributes/). _Transformed user properties aren't supported._
+(optional) In **Select additional properties**, select any user properties you want to send to Braze. If you don't select any properties here, Amplitude doesn't send any. Whenever these properties are updated in Amplitude, they are sent to Braze as [Braze custom attributes](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_attributes/). _Transformed user properties aren't supported._
 
 ### Enable sync
 
