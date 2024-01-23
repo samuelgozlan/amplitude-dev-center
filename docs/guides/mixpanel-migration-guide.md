@@ -145,6 +145,46 @@ Along with the ingestion methods above, here are some features or areas to consi
 * [User Privacy API](https://www.docs.developers.amplitude.com/analytics/apis/user-privacy-api/) - API to delete all data for a set of known Amplitude IDs or User IDs.
 * [Amplitude’s Stance on Security & Privacy](https://amplitude.com/amplitude-security-and-privacy)
 
+## The Mixpanel import tool
+
+Amplitude provides a tool that can import historical Mixpanel events into your Amplitude project. When you add your Mixpanel project's API key or service account credentials, this tool uses [Mixpanel's Export API](https://developer.mixpanel.com/reference/raw-event-export) to export event data from Mixpanel, and import it to your Amplitude project. The integration doesn't support user profile information.
+
+If you need to import user profile information, Amplitude provides the following options:
+
+* Export your data from Mixpanel with the Mixpanel [Export](https://developer.mixpanel.com/reference/raw-event-export) and [Engage](https://developer.mixpanel.com/reference/engage-query) APIs, and import it to Amplitude with the [Batch Event Upload API](/analytics/apis/batch-event-upload-api/).
+* If you host your data in another external source, use the [Batch Event Upload API](/analytics/apis/batch-event-upload-api/) directly.
+* Contact [Amplitude Support](mailto:support@amplitude.com) or your Amplitude account manager for custom services lead by Amplitude's Professional Services team.
+
+### Troubleshooting
+
+#### The import tool responds with an authentication error
+
+Make sure you provide the correct authentication to the Mixpanel import tool.
+
+If you use your Mixpanel project's API key, be sure to reference the correct project. Each project in Mixpanel has its own API key.
+
+If you use a [Mixpanel service account](https://developer.mixpanel.com/reference/service-accounts), ensure you enter the credentials as follows:
+
+| Service account value | Amplitude field                       |
+| --------------------- | ------------------------------------- |
+| Username              | The username field in the import tool |
+| Password              | The API Key field                     |
+| Project ID            | The Project ID field                  |
+
+If you don't have the username and password for your Mixpanel project's service account, create a new service account associated with your project, and copy the values.
+
+Ensure your Mixpanel service account has the necessary permissions to access the information you need. Test your credentials with [Mixpanel's Download Data page](https://developer.mixpanel.com/reference/raw-event-export). If the page responds with a `200` status, your service account has the necessary permissions.
+
+#### The import tool doesn't complete or responds with a generic error
+
+The data set may be too large to process. Try again with a more narrow time range.
+
+#### The tool imports fewer transactions than it should
+
+* Amplitude detects and excludes duplicate events. If your data contains a large number of duplicates, the events that Amplitude imports may be fewer than expected.
+
+* Some Mixpanel events may not be compatible with Amplitude events due to missing information. If your Mixpanel instrumentation doesn't capture fields like `name`, `date`, or `device ID`, Amplitude may not import them.
+
 ## GDPR INFORMATION
 
 Amplitude is fully GDPR compliant.
