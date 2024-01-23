@@ -60,13 +60,9 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Iter
 
 ### Configure user forwarding
 
-Under **Send Users**, make sure the toggle is enabled ("Users are sent to Iterable") if you want to stream users and their properties to Iterable. When enabled, users are automatically created or updated in Iterable when an event is sent to Amplitude. [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) calls are also forwarded to Iterable. Users aren't sent on a schedule or on-demand using this integration.
+Under **Send Users**, make sure the toggle is enabled ("Users updates are sent to Iterable") if you want to stream user and property updates to Iterable. When enabled, users are automatically created or updated in Iterable when they are created or updated in Amplitude via [HTTP V2 API](https://www.docs.developers.amplitude.com/analytics/apis/http-v2-api/) or [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/). Users aren't sent on a schedule or on-demand using this integration.
 
 (optional) In **Select additional properties**, select any more user properties you want to send to Iterable. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Iterable as [Iterable data fields](https://support.iterable.com/hc/en-us/articles/208183076-Field-Data-Types). _Transformed user properties aren't supported._
-
-!!!note "User Forwarding Volumes"
-    When Send Users is enabled, all [Amplitude Identify calls](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) and event calls that update user properties will trigger a call to be sent to Iterable, even if the updated property
-    isn't selected in **Select additional properties**.
 
 ### Enable sync
 
