@@ -68,7 +68,7 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Cust
 
 Under **Send Users**, make sure the toggle is enabled ("Users updates are sent to Customer.io") if you want to stream user and property updates to Customer.io. When enabled, users are automatically created or updated in Customer.io when they are created or updated in Amplitude via [HTTP V2 API](https://www.docs.developers.amplitude.com/analytics/apis/http-v2-api/) or [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/). Users aren't sent on a schedule or on-demand using this integration.
 
-(optional) In **Select additional properties**, select any user properties you want to send to Braze. If you don't select any properties here, Amplitude doesn't send any. Whenever these properties are updated, they are sent to Customer.io as [Customer.io user attributes](https://www.customer.io/docs/attributes/). _Transformed user properties aren't supported._
+(optional) In **Select additional properties**, select any user properties you want to send to Customer.io. If you don't select any properties here, Amplitude doesn't send any. Whenever these properties are updated, they are sent to Customer.io as [Customer.io user attributes](https://www.customer.io/docs/attributes/). _Transformed user properties aren't supported._
 
 !!!note "User Forwarding Volumes"
     When Send Users is enabled, all [Amplitude Identify calls](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) and event calls that update user properties will trigger a call to be sent to Customer.io, even if the updated property
