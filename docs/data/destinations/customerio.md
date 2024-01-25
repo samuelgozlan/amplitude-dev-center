@@ -66,13 +66,9 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Cust
 
 ### Configure user forwarding
 
-Under **Send Users**, make sure the toggle is enabled ("Users updates are sent to Customer.io") if you want to stream user and property updates to Customer.io. When enabled, users are automatically created or updated in Customer.io when they are created or updated in Amplitude via [HTTP V2 API](https://www.docs.developers.amplitude.com/analytics/apis/http-v2-api/) or [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/). Users aren't sent on a schedule or on-demand using this integration.
+To stream user and property updates to Customer.io, enable **Send Users**. This setting creates or updates users in Customer.io when you update them in Amplitude with the [HTTP V2 API](/analytics/apis/http-v2-api/) or [Identify API](/analytics/apis/identify-api/). This integration doesn't support scheduled or on-demand updates.
 
-(optional) In **Select additional properties**, select any user properties you want to send to Customer.io. If you don't select any properties here, Amplitude doesn't send any. Whenever these properties are updated, they are sent to Customer.io as [Customer.io user attributes](https://www.customer.io/docs/attributes/). _Transformed user properties aren't supported._
-
-!!!note "User Forwarding Volumes"
-    When Send Users is enabled, all [Amplitude Identify calls](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) and event calls that update user properties will trigger a call to be sent to Customer.io, even if the updated property
-    isn't selected in **Select additional properties**.
+You can optionally select user properties to send to Customer.io in the **Select additional properties** field. Amplitude sends only the properties you select and only when one of them is updated. Amplitude sends these properties as [Customer.io user attributes](https://www.customer.io/docs/attributes/). _This integration doesn't support transformed user properties_.
 
 ### Enable sync
 

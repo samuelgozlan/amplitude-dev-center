@@ -59,13 +59,9 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Goog
 
 ### Configure user forwarding
 
-Under **Send Users**, make sure the toggle is enabled ("Users are sent to Google Analytics 4") if you want to stream users and their properties to Google Analytics 4. When enabled, users are automatically created or updated in Google Analytics 4 when an event is sent to Amplitude. [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) calls are also forwarded to Google Analytics 4. Users aren't sent on a schedule or on-demand using this integration.
+To stream user and property updates to Google Analytics 4, enable **Send Users**. This setting creates or updates users in Google Analytics 4 when you update them in Amplitude with the [HTTP V2 API](/analytics/apis/http-v2-api/) or [Identify API](/analytics/apis/identify-api/). This integration doesn't support scheduled or on-demand updates.
 
-(optional) In **Select additional properties**, select any more user properties you want to send to Google Analytics 4. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Google Analytics 4 as [Google Analytics 4 User Properties](https://developers.google.com/analytics/devguides/collection/protocol/ga4/user-properties?client_type=firebase). _Transformed user properties aren't supported._
-
-!!!note "User Forwarding Volumes"
-    When Send Users is enabled, all [Amplitude Identify calls](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) and event calls that update user properties will trigger a call to be sent to Google Analytics 4, even if the updated property
-    isn't selected in **Select additional properties**.
+You can optionally select user properties to send to Google Analytics 4 in the **Select additional properties** field. Amplitude sends only the properties you select and only when one of them is updated. Amplitude sends these properties as [Google Analytics 4 User Properties](https://developers.google.com/analytics/devguides/collection/protocol/ga4/user-properties?client_type=firebase). _This integration doesn't support transformed user properties_.
 
 ### Enable sync
 

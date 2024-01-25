@@ -75,9 +75,9 @@ If you don't want Amplitude to store these events, use Amplitude's [block or dro
 
 ### Configure user forwarding
 
-Under **Send Users**, make sure the toggle is enabled ("Users updates are sent to Intercom") if you want to stream user and property updates to Intercom. When enabled, users are automatically created or updated in Intercom when they are created or updated in Amplitude via [HTTP V2 API](https://www.docs.developers.amplitude.com/analytics/apis/http-v2-api/) or [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/). Users aren't sent on a schedule or on-demand using this integration. Each user is created as an [Intercom contact](https://developers.intercom.com/intercom-api-reference/reference/the-contact-model).
+To stream user and property updates to Intercom, enable **Send Users**. This setting creates or updates users in Intercom when you update them in Amplitude with the [HTTP V2 API](/analytics/apis/http-v2-api/) or [Identify API](/analytics/apis/identify-api/). This integration doesn't support scheduled or on-demand updates. Each user is created as an [Intercom contact](https://developers.intercom.com/intercom-api-reference/reference/the-contact-model).
 
-(optional) In **Select additional properties**, select any user properties you want to send to Intercom. If you don't select any properties here, Amplitude doesn't send any. Whenever these properties are updated in Amplitude, they are sent to Intercom as [Intercom custom attributes](https://www.intercom.com/help/en/articles/179-send-custom-user-attributes-to-intercom/). Custom attributes must exist in Intercom. _Transformed user properties aren't supported._
+You can optionally select user properties to send to Intercom in the **Select additional properties** field. Amplitude sends only the properties you select and only when one of them is updated. Amplitude sends these properties as [Intercom custom attributes](https://www.intercom.com/help/en/articles/179-send-custom-user-attributes-to-intercom/). _This integration doesn't support transformed user properties_.
 
 ### Enable sync
 
