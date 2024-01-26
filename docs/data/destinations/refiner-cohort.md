@@ -11,7 +11,7 @@ description: Sync cohorts from Amplitude to Refiner
 
 ## Considerations
 
-- This integration is only available for customers who have paid plans with Amplitude.
+- This integration is available to customers with paid Amplitude plans.
 - You must enable this integration in each Amplitude project you want to use it in.
 - You need a paid Refiner plan to enable this integration.
 
