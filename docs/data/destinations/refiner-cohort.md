@@ -45,4 +45,4 @@ To sync your first cohort, follow these steps:
 
 1. **User Onboarding Improvement:** Identify struggling user cohorts in Amplitude and send them to Refiner for targeted feedback. Use this data to optimize your onboarding process, resulting in higher user satisfaction and retention.
 2. **Feature Prioritization:** Segment users based on feature engagement in Amplitude and send cohorts to Refiner. Gather feedback to guide feature development priorities, ensuring alignment with user preferences and needs.
-3. **Churn Prevention:** Spot potential churn risk cohorts in Amplitude, send them to Refiner and collect feedback. Proactively address user concerns to prevent churn and enhance overall customer satisfaction and retention strategies.
+3. **Churn Prevention:** Spot potential churn risk cohorts in Amplitude, send them to Refiner and collect feedback. Proactively address user concerns to prevent churn and enhance customer satisfaction and retention strategies.
