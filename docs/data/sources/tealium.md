@@ -13,7 +13,7 @@ There are two ways customers can send data to Amplitude:
 
 !!!tip
 
-    This integration is maintained by Tealium. Contact the [Tealium support team](mailto:[support@datazoom.io](https://support.tealiumiq.com) with any questions about this integration.
+    This integration is maintained by Tealium. Contact the [Tealium support team](https://support.tealiumiq.com) with any questions about this integration.
 
 ## Tealium iQ and tag management (TIQ)
 
