@@ -31,7 +31,7 @@ To set up a recurring export of your Amplitude data to Snowflake, follow these s
       - **Account Name**: This is the account name on your Snowflake account. It's the first part of your Snowflake URL, after 'https://' and before 'snowflakecomputing.com'. For example, if your Snowflake URL is 'http://amplitude.snowflakecomputing.com', then you should enter 'amplitude'.
       - **Org Name**: This is the name of your Snowflake organization.
 4. Choose which data to include in this export: *Raw events every 5 minutes*, *Merged IDs every hour*, or both.
-4. Click **Next**, enter the name of this Snowflake export and click Finish.
+5. Click **Next**, enter the name of this Snowflake export and click Finish.
 
 When complete, Amplitude sends all future events to Snowflake with Data Share.
 
