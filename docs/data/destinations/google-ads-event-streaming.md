@@ -72,4 +72,9 @@ Keep in mind, **Manager Account Customer ID** is different from the **Customer I
 Amplitude's Google Ads Event Streaming integration requires that your Google Ads Manager account has administrator privileges. This level of permission allows Amplitude to add and remove users from specific user lists in Google Ads.
 For Google Ads, Amplitude adds and removes users from a specific user list. As a result, Amplitude needs appropriate permissions to create and delete Google Ads account data.
 For more information, see [About access levels in your Google Ads Account
-](https://support.google.com/google-ads/answer/9978556) in Google's documentation. 
+](https://support.google.com/google-ads/answer/9978556) in Google's documentation.
+
+## Use Cases
+
+1. **Enhanced Conversion Tracking:** By linking Amplitude events to Google Ads, you can track conversions more effectively. This is particularly useful for understanding how users who click on your Google Ads interact with your product or service. For instance, if a user clicks an ad and then completes a significant action (like signing up or making a purchase) tracked in Amplitude, this integration allows you to attribute that action back to the specific ad click.
+2. **Data-Driven Advertising Decisions:** The integration helps in making more informed decisions about your advertising strategies. By analyzing which ads lead to meaningful user actions, you can optimize ad spend, focusing on the most effective campaigns and channels.
