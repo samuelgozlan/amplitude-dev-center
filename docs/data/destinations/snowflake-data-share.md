@@ -33,7 +33,7 @@ To set up a recurring export of your Amplitude data to Snowflake, follow these s
 4. Choose which data to include in this export: *Raw events every 5 minutes*, *Merged IDs every hour*, or both.
 4. Click **Next**, enter the name of this Snowflake export and click Finish.
 
-All future events are automatically sent to your Snowflake via Data Share.
+When complete, Amplitude sends all future events to Snowflake with Data Share.
 
 From here, Amplitude generates micro-batch files at five-minute intervals and loads them to Amplitude's Snowflake account every 5 minutes, then data share with customer's Snowflake account.
 
