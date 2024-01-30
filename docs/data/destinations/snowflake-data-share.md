@@ -11,9 +11,32 @@ Amplitude supports [Snowflake’s Data Share](https://docs.snowflake.com/en/user
 
     Amplitude's Snowflake Data Share Export is a paid add on to your Amplitude contract.
 
-## Setup
+## Limits
 
-To enable or disable Amplitude’s Snowflake Data Share Integration, reach out to your Account Manager at Amplitude or contact Amplitude Support.
+Snowflake only supports data share within same region and same cloud. Amplitude's Snowflake is in US West (Oregon) region and using Amazon Web Services. To enable cross region cross cloud data share, reach out to your Account Manager at Amplitude or contact Amplitude Support.
+
+## Set up a recurring data export to Snowflake via Data Share
+
+Creating a recurring data export is a simple process you can handle yourself.
+This method also lets you watch jobs.
+
+To set up a recurring export of your Amplitude data to Snowflake, follow these steps:
+
+!!!info "Required user permissions"
+
+    You need admin/manager privileges in Amplitude, as well as a role that allows you to enable resources in Snowflake.
+
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Warehouse Destinations section, click **Snowflake Data Share**.
+3. Under *Access Data via Snowflake Data Share*, enter the following information:
+      - **Account Name**: This is the account name on your Snowflake account. It's the first part of your Snowflake URL, after 'https://' and before 'snowflakecomputing.com'. For example, if your Snowflake URL is 'http://amplitude.snowflakecomputing.com', then you should enter 'amplitude'.
+      - **Org Name**: This is the name of your Snowflake organization.
+4. Choose which data you'd like to include in this export: *Raw events every 5 minutes*, *Merged IDs every hour*, or export both.
+4. Click **Next**, enter the name of this Snowflake export and click Finish.
+
+All future events are automatically sent to your Snowflake via Data Share.
+
+From here, Amplitude generates micro-batch files at five-minute intervals and loads them to Amplitude's Snowflake account every 5 minutes, then data share with customer's Snowflake account.
 
 ### Backfill data
 
