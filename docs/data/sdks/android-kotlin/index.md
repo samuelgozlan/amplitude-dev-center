@@ -36,6 +36,7 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
+    | `deviceId` | `String?`. The device ID to use for this device. If no deviceID is provided one will be generated automatically (default). | `null` |
     | `flushIntervalMillis` | `Int`. The amount of time SDK will attempt to upload the unsent events to the server or reach `flushQueueSize` threshold. The value is in milliseconds. | `30000` |
     | `flushQueueSize` | `Int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach `flushIntervalMillis` interval.  | `30` |
     | `flushMaxRetries` | `Int`. Maximum retry times.  | `5` |
@@ -645,6 +646,40 @@ You can define your own session expiration time. The default session expiration 
     configuration.setMinTimeBetweenSessionsMillis(10000);
 
     Amplitude amplitude = new Amplitude(configuration);
+    ```
+
+--8<-- "includes/sdk-out-of-session-events-next-gen.md"
+
+=== "Kotlin"
+
+    ```kotlin
+    val outOfSessionOptions = EventOptions().apply {
+        sessionId = -1
+    }
+    amplitude.identify(
+        Identify().set("user-prop", true),
+        outOfSessionOptions
+    )
+    amplitude.track(
+        BaseEvent().apply { eventType = "test event" },
+        outOfSessionOptions
+    )
+    ```
+
+=== "Java"
+
+    ```java
+    EventOptions outOfSessionOptions = new EventOptions();
+    outOfSessionOptions.setSessionId(-1L);
+    
+    amplitude.identify(
+        new Identify().set("user-prop", true),
+        outOfSessionOptions
+    );
+    
+    BaseEvent event = new BaseEvent();
+    event.eventType = "test event";
+    amplitude.track(event, outOfSessionOptions);
     ```
 
 ### Set custom user ID

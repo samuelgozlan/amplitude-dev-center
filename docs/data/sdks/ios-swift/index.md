@@ -728,6 +728,38 @@ By default, Amplitude sends `[Amplitude] Start Session` and `[Amplitude] End Ses
 !!!note
     `trackingSessionEvents` is deprecated and replaced with `defaultTracking.sessions`.
 
+--8<-- "includes/sdk-out-of-session-events-next-gen.md"
+
+=== "Swift"
+
+    ```swift
+    let outOfSessionOptions = EventOptions(sessionId: -1)
+
+    amplitude.identify(
+        event: Identify().set(property: "user-prop", value: true),
+        options: outOfSessionOptions
+    )
+
+    amplitude.track(
+        event: BaseEvent(eventType: "Button Clicked"),
+        options: outOfSessionOptions
+    )
+    ```
+
+=== "Objective-C"
+
+    ```obj-c
+    AMPEventOptions* outOfSessionOptions = [AMPEventOptions new];
+    outOfSessionOptions.sessionId = -1;
+
+    AMPIdentify* identify = [AMPIdentify new];
+    [identify set:@"user-prop" value:YES];
+    [amplitude identify:identify options:outOfSessionOptions];
+
+    AMPBaseEvent* event = [AMPBaseEvent initWithEventType:@"Button Clicked"];
+    [amplitude track:event options:outOfSessionOptions];
+    ```
+
 ### Set custom user ID
 
 If your app has its login system that you want to track users with, you can call `setUserId` at any time.
