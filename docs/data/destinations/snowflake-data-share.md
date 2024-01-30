@@ -18,7 +18,6 @@ Snowflake only supports data share within same region and same cloud. Amplitude'
 ## Set up a recurring data export to Snowflake with Data Share
 
 Creating a recurring data export is a simple process you can handle yourself.
-This method also lets you watch jobs.
 
 To set up a recurring export of your Amplitude data to Snowflake, follow these steps:
 
