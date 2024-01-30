@@ -15,7 +15,7 @@ Amplitude supports [Snowflake’s Data Share](https://docs.snowflake.com/en/user
 
 Snowflake only supports data share within same region and same cloud. Amplitude's Snowflake is in US West (Oregon) region and using Amazon Web Services. To enable cross region cross cloud data share, reach out to your Account Manager at Amplitude or contact Amplitude Support.
 
-## Set up a recurring data export to Snowflake via Data Share
+## Set up a recurring data export to Snowflake with Data Share
 
 Creating a recurring data export is a simple process you can handle yourself.
 This method also lets you watch jobs.
