@@ -39,7 +39,7 @@ To set up a recurring export of your Amplitude data to Snowflake, follow these s
 
 !!!info "Required user permissions"
 
-    You need admin privileges in Amplitude, as well as a role that allows you to enable resources in Snowflake.
+    You need admin/manager privileges in Amplitude, as well as a role that allows you to enable resources in Snowflake.
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
 2. In the Warehouse Destinations section, click **Snowflake**.
