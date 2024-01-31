@@ -17,8 +17,6 @@ Snowflake only supports data share within same region and same cloud. Amplitude'
 
 ## Set up a recurring data export to Snowflake with Data Share
 
-Creating a recurring data export is a simple process you can handle yourself.
-
 To set up a recurring export of your Amplitude data to Snowflake, follow these steps:
 
 !!!info "Required user permissions"
@@ -34,8 +32,6 @@ To set up a recurring export of your Amplitude data to Snowflake, follow these s
 5. Click **Next**, enter the name of this Snowflake export and click Finish.
 
 When complete, Amplitude sends all future events to Snowflake with Data Share.
-
-From here, Amplitude generates micro-batch files at five-minute intervals and loads them to Amplitude's Snowflake account every 5 minutes, then data share with customer's Snowflake account.
 
 ### Backfill data
 
