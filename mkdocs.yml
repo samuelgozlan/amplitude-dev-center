@@ -442,6 +442,8 @@ nav:
       - SDKs:
         - Browser SDK Plugin: session-replay/sdks/plugin.md
         - Standalone SDK: session-replay/sdks/standalone.md
+      - Ingestion Monitor: session-replay/ingestion-monitor.md
+
 - Guides:
   - guides/index.md
   - Accounts Guide: guides/accounts-instrumentation-guide.md
