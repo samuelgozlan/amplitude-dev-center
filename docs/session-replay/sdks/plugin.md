@@ -151,6 +151,8 @@ Session Replay supports attaching to a single instance of the Amplitude SDK. If 
 
 ## Troubleshooting
 
+For more information about individual statuses and errors, see the [Session Replay Ingestion Monitor](/session-replay/ingestion-monitor).
+
 ### Captured sessions contain limited information
 
 Session Replay requires that the Browser SDK send Session Start and Session End events, at a minimum. If you instrument events outside of the Browser SDK, Amplitude doesn't tag those events as part of the session replay. This means you can't use tools like Funnel, Segmentation, or Journeys charts to find session replays. You can find session replays with the User Sessions chart or through User Lookup.

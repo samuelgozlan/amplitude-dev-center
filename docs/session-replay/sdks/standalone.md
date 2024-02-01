@@ -125,6 +125,8 @@ if (nonEUCountryFlagEnabled) {
 
 ## Troubleshooting
 
+For more information about individual statuses and errors, see the [Session Replay Ingestion Monitor](/session-replay/ingestion-monitor).
+
 ### Session replays don't appear in Amplitude 
 
 Session replays may not appear in Amplitude due to:
