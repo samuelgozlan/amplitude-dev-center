@@ -62,11 +62,11 @@ Once complete, these steps ensure your Azure environment is ready to receive sec
 
 ## Set up a Recurring Data Export to Azure Blob Storage
 
-To export your Amplitude data to Azure Blob Storage, follow these steps:
+To export your Amplitude data to Azure Blob Storage:
 
 1. In Amplitude, navigate to **Data -> Manage -> Destinations -> Add Destination**.
 2. Select **Azure Blob Storage - Events & Merged Users**.
-3. On the **Getting Started** tab, select the data you'd like to export. Options include *Export events ingested today and moving forward*, *Export all merged Amplitude IDs*, or both.
+3. On the **Getting Started** tab, select the data to export. Options include *Export events ingested today and moving forward*, *Export all merged Amplitude IDs*, or both.
 
     !!!note
 
@@ -74,21 +74,21 @@ To export your Amplitude data to Azure Blob Storage, follow these steps:
 
 4. Review the Event table and Merge IDs table schemas and click **Next**.
 5. In the *Set Up Credentials* section, enter the `tenantId`, `clientId`, and `clientSecret` from the service principal you created.
-6. After entering the credentials, fill out the Azure Blob Storage container details in the *Azure Blob Storage Container Details* section.
+6. Complete the Azure Blob Storage container details in the *Azure Blob Storage Container Details* section. Click **Next**.
 7. Click **Next**. Amplitude attempts a test upload to check that the entered credentials work. If the upload is successful, click **Finish** to complete the Azure Blob Storage destination configuration and activation.
 
-All future events/merged users are automatically sent to your Azure Blob Storage. Amplitude exports files to your Azure account every hour.
+When complete, Amplitude sends all future events/merged users to your Azure Blob Storage once per hour.
 
 ## Run a manual export
 
-You can backfill historical data to Azure Blob Storage by manually exporting data.
+Complete a manual export to backfill and send historical data to Azure Blob Storage.
 
-1. Go to the Azure Blob Storage export connection page created in the section above.
+1. Open the instance of the Azure Blob Storage destination you created above. Navigate to the Export Connection page.
 2. Go to **Backfills** tab.
-3. Select the desired date range.
+3. Select the date range to export.
 4. Click **Start Backfill**.
 
-If the backfill range overlaps with the range of previously exported data, Amplitude will de-duplicate overlapping data.
+If the backfill range overlaps with the range of previously exported data, Amplitude de-duplicates any overlapping data.
 
 **![screenshot of the export data modal](../../assets/images/integrations-gcs-export-manual-export.png)**
 
@@ -96,7 +96,7 @@ If the backfill range overlaps with the range of previously exported data, Ampli
 
 ### Raw event file and data format
 
-Data is exported hourly as zipped archive JSON files, and partitioned by the hour with one or multiple files per hour. Each file contains one event JSON object per line.
+Amplitude exports data hourly as a zipped archive of JSON files, partitioned by the hour with one or more files per hour. Each file contains one event JSON object per line.
 
 File names have the following syntax, where the time represents when the data was uploaded to Amplitude servers in UTC (for example, `server_upload_time`):
 
@@ -106,7 +106,7 @@ For example, the first partition of data uploaded to this project, on Jan 25, 20
 
 `187520_2020-01-25_17#1.json.gz`
 
-Here is the exported data JSON object schema:
+The exported data JSON object schema is:
 
 ```json
 {
@@ -164,7 +164,7 @@ Here is the exported data JSON object schema:
 
 ### Merged Amplitude IDs file and data format
 
-Data is exported hourly as zipped archive JSON files. Each file contains one merged Amplitude ID JSON object per line.
+Amplitude exports data as a zipped archive of JSON files. Each file contains one merged Amplitude ID JSON object per line.
 
 File names have the following syntax, where the time represents when the data was uploaded to Amplitude servers in UTC (for example `server_upload_time`):
 
@@ -174,7 +174,7 @@ For example, data uploaded to this project, on Jan 25, 2020, between 5 PM and 6 
 
 `-189524_2020-01-25_17.json.gz`
 
-Merged ID JSON objects have the following schema:
+The exported data JSON object schema is:
 
 ```json
 {
