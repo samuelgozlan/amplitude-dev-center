@@ -57,7 +57,7 @@ Before you can export data from Amplitude to Azure Blob Storage, ensure your Azu
 
     - [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security)
 
-Completing these steps ensures that your Azure environment is properly configured and ready to securely receive data exports from Amplitude.
+Once complete, these steps ensure your Azure environment is ready to receive secure data exports from Amplitude.
 
 
 ## Set up a Recurring Data Export to Azure Blob Storage
