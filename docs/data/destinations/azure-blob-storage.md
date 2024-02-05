@@ -8,7 +8,7 @@ Amplitude's Azure Blob Storage destination enables you to export Amplitude event
 
 ## Azure Prerequisites for Amplitude Data Export
 
-Before you can export data from Amplitude to Azure Blob Storage, there are several prerequisites that need to be met in your Azure environment.
+Before you can export data from Amplitude to Azure Blob Storage, ensure your Azure environment meets the following prerequisites:
 
 1. **Set Up Azure Storage Account and Container:**
 
