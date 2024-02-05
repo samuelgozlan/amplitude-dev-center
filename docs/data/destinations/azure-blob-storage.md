@@ -19,7 +19,7 @@ Before you can export data from Amplitude to Azure Blob Storage, ensure your Azu
 
 2. **Create an Azure Service Principal**:
 
-    Create a service principal in Azure for Amplitude to use when accessing your Blob Storage. Take note of the `tenantId`, `clientId`, and `clientSecret`, as these will be needed for setting up the connection in Amplitude. Follow this guide for creating a service principal:
+    Create a service principal in Azure for Amplitude to use to access your Blob Storage. Copy the `tenantId`, `clientId`, and `clientSecret`, Amplitude requires these details to set up the connection with Azure. Follow this guide to create a service principal:
 
     - [Create a service principal in Azure](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal)
 
