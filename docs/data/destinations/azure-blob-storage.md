@@ -3,7 +3,7 @@ title: Send Amplitude Event Data to Azure Blob Storage
 description: Export Amplitude event data and merged user data to your Azure Blob Storage container.
 ---
 
-Amplitude users can now export Amplitude event data and merged user data to their Azure Blob Storage container. Azure Blob Storage's container policies allow you to manage and programmatically export this data into an Azure container. Using the Amplitude UI, you can set up recurring syncs as often as once per hour.
+Amplitude's Azure Blob Storage destination enables you to export Amplitude event data and merged user data to your Azure Blob Storage container. You can use Azure Blob Storage's container policies to manage and export this data programmatically into an Azure container. Amplitude allows recurring syncs as often as once per hour.
 --8<-- "includes/editions-all-editions.md"
 
 ## Azure Prerequisites for Amplitude Data Export
