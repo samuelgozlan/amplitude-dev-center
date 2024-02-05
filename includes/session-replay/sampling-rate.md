@@ -5,7 +5,7 @@
 ```js
 // This configuration samples 40% of all sessions
 await sessionReplay.init(AMPLITUDE_API_KEY, {
-  sampleRate: 0.4
+  sampleRate: 0.01
 }).promise;
 ```
 
