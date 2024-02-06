@@ -29,7 +29,9 @@ Before you can export data from Amplitude to Azure Blob Storage, ensure your Azu
 
     !!!note
        
-        Read permissions required for ensuring data exported only once during recurring export. Delete permissions required for deduplication during manual export (a.k.a. backfill export).
+        Amplitude requires the following permissions in Azure:
+        - `read` to ensure data isn't exported more than once for recurring exports.
+        - `delete` to enable deduplication during a manual export, for example when you export backfill data.
 
     - `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
     - `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
