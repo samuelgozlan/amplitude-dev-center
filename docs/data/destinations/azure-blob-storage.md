@@ -6,7 +6,7 @@ description: Export Amplitude event data and merged user data to your Azure Blob
 Amplitude's Azure Blob Storage destination enables you to export Amplitude event data and merged user data to your Azure Blob Storage container. You can use Azure Blob Storage's container policies to manage and export this data programmatically into an Azure container. Amplitude allows recurring syncs as often as once per hour.
 --8<-- "includes/editions-all-editions.md"
 
-## Azure Prerequisites for Amplitude Data Export
+## Azure prerequisites for Amplitude Data Export
 
 Before you can export data from Amplitude to Azure Blob Storage, ensure your Azure environment meets the following prerequisites:
 
@@ -30,7 +30,7 @@ Before you can export data from Amplitude to Azure Blob Storage, ensure your Azu
     !!!note
        
         Amplitude requires the following permissions in Azure:
-        
+
         - `read` to ensure data isn't exported more than once for recurring exports.
         - `delete` to enable deduplication during a manual export, for example when you export backfill data.
 
@@ -62,8 +62,7 @@ Before you can export data from Amplitude to Azure Blob Storage, ensure your Azu
 
 Once complete, these steps ensure your Azure environment is ready to receive secure data exports from Amplitude.
 
-
-## Set up a Recurring Data Export to Azure Blob Storage
+## Set up a recurring data export to Azure Blob Storage
 
 To export your Amplitude data to Azure Blob Storage:
 
@@ -91,7 +90,7 @@ Complete a manual export to backfill and send historical data to Azure Blob Stor
 3. Select the date range to export.
 4. Click **Start Backfill**.
 
-If the backfill range overlaps with the range of previously exported data, Amplitude de-duplicates any overlapping data.
+If the backfill date range overlaps with the date range of already exported data, Amplitude de-duplicates any overlapping data.
 
 **![screenshot of the export data modal](../../assets/images/integrations-gcs-export-manual-export.png)**
 
