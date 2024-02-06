@@ -127,6 +127,13 @@ if (nonEUCountryFlagEnabled) {
 
 For more information about individual statuses and errors, see the [Session Replay Ingestion Monitor](/session-replay/ingestion-monitor).
 
+### CSS styling doesn't appear in replay
+
+When Amplitude captures a replay, it doesn't download and store CSS files or other static assets that are part of your application or site. Session Replay stores references to these files, and uses those references while it reconstructs the replay. In some situations, the styling present in the replay may differ from your application for the following reasons:
+
+- Assets on your site move or change name. This can happen when you deploy a new version of your application.
+- Assets on your site are behind access controls that prevent Amplitude from fetching them.
+
 ### Session replays don't appear in Amplitude 
 
 Session replays may not appear in Amplitude due to:

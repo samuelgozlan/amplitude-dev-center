@@ -153,6 +153,13 @@ Session Replay supports attaching to a single instance of the Amplitude SDK. If 
 
 For more information about individual statuses and errors, see the [Session Replay Ingestion Monitor](/session-replay/ingestion-monitor).
 
+### CSS styling doesn't appear in replay
+
+When Amplitude captures a replay, it doesn't download and store CSS files or other static assets that are part of your application or site. Session Replay stores references to these files, and uses those references while it reconstructs the replay. In some situations, the styling present in the replay may differ from your application for the following reasons:
+
+- Assets on your site move or change name. This can happen when you deploy a new version of your application.
+- Assets on your site are behind access controls that prevent Amplitude from fetching them.
+
 ### Captured sessions contain limited information
 
 Session Replay requires that the Browser SDK send Session Start and Session End events, at a minimum. If you instrument events outside of the Browser SDK, Amplitude doesn't tag those events as part of the session replay. This means you can't use tools like Funnel, Segmentation, or Journeys charts to find session replays. You can find session replays with the User Sessions chart or through User Lookup.
