@@ -2,6 +2,9 @@
 title: Session Replay Browser SDK Plugin
 ---
 
+!!!note "Session Replay Insrumentation"
+    Session Replay isn't enabled by default, and requires setup beyond the standard Amplitude instrumentation.
+
 This article covers the installation of Session Replay using the Browser SDK plugin. If your site is already instrumented with Amplitude, use this option. If you use a provider other than Amplitude for in-product analytics, choose the [standalone implementation](/session-replay/sdks/standalone).
 
 --8<-- "includes/session-replay/performance.md"

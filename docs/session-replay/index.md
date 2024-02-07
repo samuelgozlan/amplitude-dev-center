@@ -4,6 +4,12 @@ title: Amplitude Session Replay Overview
 
 This page provides links to documentation that explains how to instrument Session Replay in your web application.
 
+!!!note
+    Session Replay isn't enabled by default, and requires setup beyond the standard Amplitude instrumentation. For more information, see:
+
+    - The [Plugin](/session-replay/sdks/plugin/) instrumentation instructions, if you use Amplitude's Browser SDK.
+    - The [Standalone](/session-replay/sdks/standalone/) SDK instructions, if you use another third-party analytics tool.
+
 ## SDKs
 
 Amplitude provides a plugin for use with Amplitude's Browser SDK and a standalone SDK for use with third-party analytics providers.
