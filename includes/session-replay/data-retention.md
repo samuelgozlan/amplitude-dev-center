@@ -1,7 +1,10 @@
 ## Data retention, deletion, and privacy
 
 Session replay uses existing Amplitude tools and APIs to handle privacy and deletion requests.
-
+<!--vale off-->
+!!!note "Consent management and Session Replay"
+    While privacy laws and regulations vary across states and countries, certain constants exist, including the requirements to disclose in a privacy notice the categories of personal information you are collecting, the purposes for its use, and the categories of third parties with which personal information is shared. When implementing a session replay tool, you should review your privacy notice to make sure your disclosures remain accurate and complete. And as a best practice, review your notice with legal counsel to make sure it complies with the constantly evolving privacy laws and requirements applicable to your business and personal information data practices.
+<!--vale on-->
 ### Retention period
 
 By default, Amplitude retains raw replay data for 90 days from the date of ingestion. If your use case requires a more strict policy, Amplitude can set the value to 30 days by request.
