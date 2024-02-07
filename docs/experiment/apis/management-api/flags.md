@@ -774,7 +774,7 @@ A successful request returns a `200 OK` response and `OK` text.
 DELETE https://experiment.amplitude.com/api/1/flags/{id}/variants/{variantKey}/bulk-delete-users
 ```
 
-Bulk remove inclusions (users or devices) from flag's variant. Limited to 100 per request.
+Bulk remove users or devices from flag's variant. Limited to 100 per request.
 
 ### Path variables
 
@@ -787,7 +787,7 @@ Bulk remove inclusions (users or devices) from flag's variant. Limited to 100 pe
 
 |<div class="med-big-column">Name</div>|Requirement|Type|Description|
 |---|---|---|---|
-|`inclusions`| Required | object | Contains an string array of user or device ids. |
+|`users`| Required | object | Contains an string array of user or device ids. |
 
 ### Response
 
@@ -799,7 +799,7 @@ A successful request returns a `200 OK` response and `OK` text.
       --url 'https://experiment.amplitude.com/api/1/flags/<id>/variants/<variantKey>/bulk-delete-users' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>' \
-      --data '{"inclusions":<["id1", "id2", "id3"]>}'
+      --data '{"users":<["id1", "id2", "id3"]>}'
     ```
 
 ------
