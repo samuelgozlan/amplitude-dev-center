@@ -55,7 +55,6 @@ To sync your first cohort, follow these steps:
 2. Once you’ve completed the above, find the Synced Amplitude Behavioral cohorts in the CMS Visitor Groups UI and the Experimentation Audience Builder.
 
 
-![screenshot of the new SFDC group mapping](../../assets/images/OPTIMIZELY-CMS-Visitor-Groups-UI.png)
 
 ### Use cases
 
