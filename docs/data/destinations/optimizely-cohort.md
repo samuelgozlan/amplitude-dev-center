@@ -9,7 +9,7 @@ description: Sync cohorts from Amplitude to Optimizely
 
 [Optimizely](https://www.optimizely.com/) allows advertisers to access a wide range of digital advertising inventory, including display ads, video ads, mobile ads, native ads, and more. Advertisers can use the platform to target specific audiences based on various parameters such as demographics, interests, browsing behavior, and location. The platform also offers real-time bidding capabilities, allowing advertisers to bid on ad placements in real-time auctions.
 
-The Amplitude Behavioral Cohort Optimizely destination allows you to easily connect your Amplitude Cohorts to Optimizely Experimentation audiences (Web and Feature experimentation) and Optimizely CMS Visitor Groups. This will allow you to target your cohorts with experiments and personalized website experiences leveraging your valuable Amplitude data. 
+The Amplitude Behavioral Cohort Optimizely destination  connects your Amplitude Cohorts to Optimizely Experimentation audiences (Web and Feature experimentation) and Optimizely CMS Visitor Groups. This allows you to target your cohorts with experiments and personalized website experiences leveraging your valuable Amplitude data. 
 
 ## Considerations
 
