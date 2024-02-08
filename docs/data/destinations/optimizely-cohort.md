@@ -52,7 +52,7 @@ To sync your first cohort, follow these steps:
     - [Advanced Audience Targeting Web Experimentation](https://docs.developers.optimizely.com/web-experimentation/docs/configure-odp-audience-targeting#configure-advanced-audience-targeting)
     - [Advanced Audience Targeting Feature Experimentation](https://docs.developers.optimizely.com/feature-experimentation/docs/advanced-audience-targeting#implement-the-advanced-audience-targeting-integration)
   
-2. Once you’ve completed the above you will find your Synced Amplitude Behavioral cohorts in the CMS Visitor Groups UI as well as the Experimentation Audience Builder. See below
+2. Once you’ve completed the above, find the Synced Amplitude Behavioral cohorts in the CMS Visitor Groups UI and the Experimentation Audience Builder.
 
 ![screenshot of the new SFDC group mapping](../../assets/images/OPTIMIZELY-Experimentation-Audience-Builder.png)
 
