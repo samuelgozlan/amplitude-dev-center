@@ -31,7 +31,7 @@ The Amplitude Behavioral Cohort Optimizely destination  connects your Amplitude 
 2. In the Cohort section, click **Optimizely**.
 3. Click **Add another destination**.
 4. Enter **Name** and paste in the **Bearer Token** you copied from **Optimizely**.
-5. Map the Amplitude **User ID** field to the Optimizely User ID field. Note the **User ID** you select must be the same **User ID** you’re targeting with experimentation and/or visitor groups. 
+5. Map the Amplitude **User ID** field to the Optimizely User ID field. The **User ID** you select must be the same **User ID** you target with experimentation and/or visitor groups. 
 6. Save when finished.
 
 ## Send a cohort
