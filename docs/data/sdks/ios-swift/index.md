@@ -71,6 +71,7 @@ You must initialize the SDK before you can instrument. The API key for your Ampl
     | `trackingOptions` |  Options to control the values tracked in SDK. | `enable` |
     | `enableCoppaControl` |  Whether to enable COPPA control for tracking options. | `false` |
     | `migrateLegacyData` | Available in `0.4.7`+. Whether to migrate [maintenance SDK](../ios) data (events, user/device ID). | `true`|
+    | `offline` | Available in `1.2.0+`. Whether the SDK is connected to network. Learn more [here](./#offline-mode). | `false` |
 
 ### `track`
 
@@ -1043,6 +1044,36 @@ Implements a customized `loggerProvider` class from the LoggerProvider, and pass
         )
     )
     ```
+
+### Offline mode
+
+Beginning with version 1.3.0, the Amplitude iOS Swift SDK supports offline mode. The SDK checks network connectivity every time it tracks an event. If the device is connected to network, the SDK schedules a flush. If not, it saves the event to storage. The SDK also listens for changes in network connectivity and flushes all stored events when the device reconnects.
+
+To disable offline mode, add `offline: NetworkConnectivityCheckerPlugin.Disabled` on initialization as shown below.
+
+=== "Swift"
+
+    ```swift
+    let amplitude = Amplitude(
+        configuration: Configuration(
+            apiKey: "API-KEY",
+            offline: NetworkConnectivityCheckerPlugin.Disabled
+        )
+    )
+    ```
+
+=== "Objective-C"
+
+    ```obj-c
+    AMPConfiguration* configuration = [AMPConfiguration initWithApiKey:AMPLITUDE_API_KEY];
+    configuration.offline = AMPNetworkConnectivityCheckerPlugin.Disabled;
+    Amplitude* amplitude = [Amplitude initWithConfiguration:configuration];
+    ```
+
+You can also implement you own offline logic:
+
+1. Disable the default offline logic as above.
+2. Toggle `amplitude.configuration.offline` by yourself.
 
 ### More resources
 
