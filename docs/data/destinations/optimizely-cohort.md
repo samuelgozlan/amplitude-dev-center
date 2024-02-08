@@ -46,7 +46,7 @@ To sync your first cohort, follow these steps:
 
 ## Locate your cohort in Optimizely
 
-1. First, ensure your CMS Visitor Groups and/or Advanced Audience Targeting Experimentation integration(s) are configured. Here are relevant instructions for the one-time setup: 
+1. First, configure the relevant CMS Visitor Groups and/or Advanced Audience Targeting Experimentation integrations. See the one-time setup instructions below: 
  
     - [CMS Visitor Groups](https://nuget.optimizely.com/package/?id=UNRVLD.ODP.VisitorGroups)
     - [Advanced Audience Targeting Web Experimentation](https://docs.developers.optimizely.com/web-experimentation/docs/configure-odp-audience-targeting#configure-advanced-audience-targeting)
