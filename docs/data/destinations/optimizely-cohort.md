@@ -23,7 +23,7 @@ The Amplitude Behavioral Cohort Optimizely destination  connects your Amplitude 
 
 1. Within your Optimizely Data Platform environment navigate to the app directory via the ‘boxes and +’ icon in the top right.
 2. Click the **Amplitude** tile at the top and click **Install** in the top left.
-3. Once installed, click the **Settings** tab, click **Generate Token**, and copy the resulting token to your clipboard.
+3. Once installed, navigate to the **Settings** tab, click **Generate Token**, and copy the resulting token to your clipboard.
 
 ### Amplitude setup
 
