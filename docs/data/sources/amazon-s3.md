@@ -57,7 +57,7 @@ For each Amplitude project, AWS S3 import can ingest:
 
 ### Deduplication with `insert_id`
 
-Amplitude uses a unique identifier, `insert_id`, to match against incoming events to prevent duplicates. If a new event with a specific `insert_id` is uploaded to Amplitude within 7 days of a previous event with the same `insert_id`, Amplitude drops the new event.
+Amplitude uses a unique identifier, `insert_id`, to match against incoming events and prevent duplicates. If within the same project, Amplitude receives an event with `insert_id` and `device_id` values that match the `insert_id` and `device_id` of a different event received within the last 7 days, Amplitude drops the most recent event.
 
 Amplitude highly recommends that you set a custom `insert_id` for each event to prevent duplication. To set a custom `insert_id`, create a field that holds unique values, like random alphanumeric strings, in your dataset. Map the field as an additional property named `insert_id` in the guided converter configuration.
 
