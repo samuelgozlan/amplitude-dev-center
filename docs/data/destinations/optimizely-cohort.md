@@ -44,7 +44,7 @@ To sync your first cohort, follow these steps:
 4. Choose the sync cadence.
 5. When finished, save your work.
 
-## Locating your cohort in Optimizely
+## Locate your cohort in Optimizely
 
 1. First, ensure your CMS Visitor Groups and/or Advanced Audience Targeting Experimentation integration(s) are configured. Here are relevant instructions for the one-time setup: 
  
