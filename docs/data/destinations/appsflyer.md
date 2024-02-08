@@ -18,7 +18,7 @@ Amplitude CDP's AppsFlyer streaming integration enables you to forward your Ampl
 
 To configure streaming from Amplitude to AppsFlyer, you need the following information from AppsFlyer.
 
-- **AppsFlyer Dev Key**: The AppsFlyer Dev Key used for authentication. See the [AppsFlyer documentation](https://support.appsflyer.com/hc/en-us/articles/211719806-App-settings-#sdk-authentication-dev-key) for help locating your Dev Key.
+- **AppsFlyer S2S Key**: The AppsFlyer S2S Key used for authentication. See the [AppsFlyer documentation](https://support.appsflyer.com/hc/en-us/articles/360004562377-Managing-API-and-Server-to-server-S2S-tokens) for help locating your S2S Key.
 - **AppsFlyer App ID**: The AppsFlyer identifier for your app. It's located in AppsFlyer App Settings and can also be retrieved from the URL in your AppsFlyer Dashboards.
 
 ### Create a new sync
@@ -29,7 +29,7 @@ To configure streaming from Amplitude to AppsFlyer, you need the following infor
 
 ### Enter credentials
 
-1. Select your **AppsFlyer Dev Key**.
+1. Select your **AppsFlyer S2S Key**.
 2. Enter your **AppsFlyer App ID**.
 
 ### Configure event forwarding
