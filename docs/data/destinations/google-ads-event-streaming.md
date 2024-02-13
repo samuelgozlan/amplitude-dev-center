@@ -4,6 +4,10 @@ description: Amplitude Data's Google Ads Event streaming integration enables you
 status: new
 ---
 
+!!!beta "This feature is in Closed beta"
+
+    This feature is in Closed Beta and is in active development. Contact your Amplitude Client Success Manager for support with this integration.
+
 Amplitude Data's Google Ads integration enables you to stream your Amplitude event data straight to Google Ads with just a few clicks.
 
 ## Considerations
