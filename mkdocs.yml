@@ -245,8 +245,6 @@ nav:
           - Leanplum: data/sources/leanplum.md
           - Mailchimp: data/sources/mailchimp.md
           - MoEngage: data/sources/moengage.md
-        - Marketplace:
-          - Shopify: data/sources/shopify.md
         - Other:
           - Datazoom: data/sources/datazoom.md
           - Kochava: data/sources/kochava.md
@@ -266,6 +264,7 @@ nav:
           - Adapty: data/sources/adapty.md
           - Apphud: data/sources/apphud.md
           - RevenueCat: data/sources/revenuecat.md
+          - Nami: data/sources/nami.md
         - Website:
           - Convizit: data/sources/convizit.md
     - Destinations:
@@ -330,6 +329,7 @@ nav:
         - Appcues: data/destinations/appcues-cohort.md
         - AppsFlyer: data/destinations/appsflyer-cohort.md
         - Apxor: data/destinations/apxor-cohort.md
+        - Batch: data/destinations/batch-cohort.md
         - Blitzllama: data/destinations/blitzllama-cohort.md
         - Bento: data/destinations/bento-cohort.md
         - Braze: data/destinations/braze-cohort.md
@@ -356,11 +356,13 @@ nav:
         - MoEngage: data/destinations/moengage-cohort.md
         - Netcore Cloud: data/destinations/netcore-cohort.md
         - Notivize: data/destinations/notivize-cohort.md
+        - Optimizely: data/destinations/optimizely-cohort.md
         - OneSignal: data/destinations/onesignal-cohort.md
         - Plotline: data/destinations/plotline-cohort.md
         - Pushwoosh: data/destinations/pushwoosh-cohort.md
         - Productboard: data/destinations/productboard-cohort.md
         - Qualtrics: data/destinations/qualtrics-cohort.md
+        - Refiner: data/destinations/refiner-cohort.md
         - Salesforce Marketing V1: data/destinations/marketing-cloud-cohort.md
         - Salesforce Marketing V2: data/destinations/marketing-cloud-cohort-v2.md
         - Sendgrid: data/destinations/sendgrid-cohort.md
@@ -435,14 +437,24 @@ nav:
           - Flags: experiment/apis/management-api/flags.md
           - Experiments: experiment/apis/management-api/experiments.md
           - Deployments: experiment/apis/management-api/deployments.md
+          - Versions: experiment/apis/management-api/versions.md
+  - Session Replay:
+      - session-replay/index.md
+      - Overview: session-replay/index.md
+      - SDKs:
+        - Browser SDK Plugin: session-replay/sdks/plugin.md
+        - Standalone SDK: session-replay/sdks/standalone.md
+      - Ingestion Monitor: session-replay/ingestion-monitor.md
+
 - Guides:
   - guides/index.md
   - Accounts Guide: guides/accounts-instrumentation-guide.md
   - Amplitude Keys Guide: guides/amplitude-keys-guide.md
   - Data Backfill Guide: analytics/data-backfill-guide.md
-  - Segment Migration Guide: guides/segment-migration-guide.md
+  - Migrate from Segment: guides/segment-migration-guide.md
   - Migrate from Mixpanel: guides/mixpanel-migration-guide.md
   - Migrate from mParticle: guides/mparticle-migration-guide.md
+  - Migrate from Adobe: guides/adobe-migration-guide.md
   - Cookies and Consent Management: guides/cookies-consent-mgmt-guide.md
 - APIs:
   - analytics/apis/index.md

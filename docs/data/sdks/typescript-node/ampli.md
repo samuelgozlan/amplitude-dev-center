@@ -107,10 +107,9 @@ The `load()` function accepts an options object to configure the SDK's behavior:
 
 | <div class ="big-column">Option</div> |Description|
 |------------------------------------| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|`environment`| Required. String. Specifies the environment the Ampli Wrapper is running in. For example, `production` or `development`. Create, rename, and manage environments in Amplitude Data.<br /><br />Environment determines which API token is used when sending events.<br /><br />If a `client.apiKey` or `client.instance` is provided, `environment` is ignored, and can be omitted.|
 |`disabled`| Optional. `Boolean`. Specifies whether the Ampli Wrapper does any work. When `true`, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.|
-|`client.apiKey`| Optional. `String`. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
-|`client.instance`| Optional. `AmplitudeClient`. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
+|`client.instance`| <span class="required">Required if `client.apiKey` isn't set</span>. `AmplitudeClient`. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
+|`client.apiKey`| <span class="required">Required if `client.instance` isn't set</span>. `String`. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
 |`client.configuration`| Optional. `Amplitude.Config`. Overrides the default configuration for the AmplitudeClient.|
 
 Example of initialization with `load` to override the default configuration:

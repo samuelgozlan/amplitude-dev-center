@@ -71,6 +71,7 @@ You must initialize the SDK before you can instrument. The API key for your Ampl
     | `trackingOptions` |  Options to control the values tracked in SDK. | `enable` |
     | `enableCoppaControl` |  Whether to enable COPPA control for tracking options. | `false` |
     | `migrateLegacyData` | Available in `0.4.7`+. Whether to migrate [maintenance SDK](../ios) data (events, user/device ID). | `true`|
+    | `offline` | Available in `1.2.0+`. Whether the SDK is connected to network. Learn more [here](./#offline-mode). | `false` |
 
 ### `track`
 
@@ -704,8 +705,7 @@ You can adjust the time window for which sessions are extended. The default sess
     Amplitude* amplitude = [Amplitude initWithConfiguration:configuration];
     ```
 
-By default, Amplitude automatically sends the '[Amplitude] Start Session' and '[Amplitude] End Session' events. Even though these events aren't sent, sessions are still tracked by using `session_id`.
-You can also disable those session events.
+By default, Amplitude sends `[Amplitude] Start Session` and `[Amplitude] End Session` events. These events count toward your contracted event volume. When you disable default session tracking, Amplitude no longer sends session start and end events, but continues to add `session_id` as an event property.
 
 === "Swift"
 
@@ -728,6 +728,38 @@ You can also disable those session events.
 
 !!!note
     `trackingSessionEvents` is deprecated and replaced with `defaultTracking.sessions`.
+
+--8<-- "includes/sdk-out-of-session-events-next-gen.md"
+
+=== "Swift"
+
+    ```swift
+    let outOfSessionOptions = EventOptions(sessionId: -1)
+
+    amplitude.identify(
+        event: Identify().set(property: "user-prop", value: true),
+        options: outOfSessionOptions
+    )
+
+    amplitude.track(
+        event: BaseEvent(eventType: "Button Clicked"),
+        options: outOfSessionOptions
+    )
+    ```
+
+=== "Objective-C"
+
+    ```obj-c
+    AMPEventOptions* outOfSessionOptions = [AMPEventOptions new];
+    outOfSessionOptions.sessionId = -1;
+
+    AMPIdentify* identify = [AMPIdentify new];
+    [identify set:@"user-prop" value:YES];
+    [amplitude identify:identify options:outOfSessionOptions];
+
+    AMPBaseEvent* event = [AMPBaseEvent initWithEventType:@"Button Clicked"];
+    [amplitude track:event options:outOfSessionOptions];
+    ```
 
 ### Set custom user ID
 
@@ -824,21 +856,20 @@ Tracking for each field can be individually controlled, and has a corresponding 
 
 | <div class="big-column">Method</div> | Description |
 | --- | --- |
-| `disableAdid()` | Disable tracking of Google ADID |
-| `disableCarrier()` | Disable tracking of device's carrier |
-| `disableCity()` | Disable tracking of user's city |
-| `disableCountry()` | Disable tracking of user's country |
-| `disableDeviceBrand()` | Disable tracking of device brand |
-| `disableDeviceModel()` | Disable tracking of device model |
-| `disableDma()` | Disable tracking of user's designated market area (DMA). |
-| `disableIpAddress()` | Disable tracking of user's IP address |
-| `disableLanguage()` | Disable tracking of device's language |
-| `disableLatLng()` | Disable tracking of user's current latitude and longitude coordinates |
-| `disableOsName()` | Disable tracking of device's OS Name |
-| `disableOsVersion()` | Disable tracking of device's OS Version |
-| `disablePlatform()` | Disable tracking of device's platform |
-| `disableRegion()` | Disable tracking of user's region. |
-| `disableVersionName()` | Disable tracking of your app's version name |
+| `disableTrackCarrier()` | Disable tracking of device's carrier |
+| `disableTrackCity()` | Disable tracking of user's city |
+| `disableTrackCountry()` | Disable tracking of user's country |
+| `disableTrackDeviceModel()` | Disable tracking of device model|
+| `disableTrackDeviceManufacturer()` | Disable tracking of device manufacturer |
+| `disableTrackDMA()` | Disable tracking of user's designated market area (DMA) |
+| `disableTrackIpAddress()` | Disable tracking of user's IP address |
+| `disableTrackLanguage()` | Disable tracking of device's language |
+| `disableTrackIDFV()` |  | Disable tracking of identifier for vendors (IDFV) |
+| `disableTrackOsName()` | Disable tracking of device's OS Name |
+| `disableTrackOsVersion()` | Disable tracking of device's OS Version |
+| `disableTrackPlatform()` | Disable tracking of device's platform |
+| `disableTrackRegion()` | Disable tracking of user's region |
+| `disableTrackVersionName()` | Disable tracking of your app's version name |
 
 !!!note
 
@@ -992,6 +1023,57 @@ Implements a customized `loggerProvider` class from the LoggerProvider, and pass
     };
     Amplitude* amplitude = [Amplitude initWithConfiguration:configuration];
     ```
+
+--8<-- "includes/sdk-ios/sdk-ios-security-set-instance-name.md"
+
+=== "Objective-C"
+
+    ```obj-c
+    AMPConfiguration* configuration = [AMPConfiguration initWithApiKey:@"API-KEY"
+                                                        instanceName:@"my-unqiue-instance-name"];
+    Amplitude* amplitude = [Amplitude instanceWithConfiguration:configuration];
+    ```
+
+=== "Swift"
+
+    ```swift
+    let amplitude = Amplitude(
+        configuration: Configuration(
+            apiKey: "API-KEY",
+            instanceName: "my-unqiue-instance-name"
+        )
+    )
+    ```
+
+### Offline mode
+
+Beginning with version 1.3.0, the Amplitude iOS Swift SDK supports offline mode. The SDK checks network connectivity every time it tracks an event. If the device is connected to network, the SDK schedules a flush. If not, it saves the event to storage. The SDK also listens for changes in network connectivity and flushes all stored events when the device reconnects.
+
+To disable offline mode, add `offline: NetworkConnectivityCheckerPlugin.Disabled` on initialization as shown below.
+
+=== "Swift"
+
+    ```swift
+    let amplitude = Amplitude(
+        configuration: Configuration(
+            apiKey: "API-KEY",
+            offline: NetworkConnectivityCheckerPlugin.Disabled
+        )
+    )
+    ```
+
+=== "Objective-C"
+
+    ```obj-c
+    AMPConfiguration* configuration = [AMPConfiguration initWithApiKey:AMPLITUDE_API_KEY];
+    configuration.offline = AMPNetworkConnectivityCheckerPlugin.Disabled;
+    Amplitude* amplitude = [Amplitude initWithConfiguration:configuration];
+    ```
+
+You can also implement you own offline logic:
+
+1. Disable the default offline logic as above.
+2. Toggle `amplitude.configuration.offline` by yourself.
 
 ### More resources
 

@@ -7,7 +7,7 @@ The HubSpot destination allows you to sync your Amplitude-built cohort to your H
 
 !!!note "Other Amplitude + HubSpot integrations"
 
-    This integration imports HubSpot data into Amplitude. Amplitude offers other integrations with HubSpot: 
+    This integration exports Amplitude cohorts (not events) to Hubspot. Amplitude offers other integrations with HubSpot: 
 
     - [Import HubSpot data](/data/sources/hubspot)
 

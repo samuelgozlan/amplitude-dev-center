@@ -42,12 +42,12 @@ To get started with exporting to BigQuery, you need the following:
 
 - A [BigQuery project with the BigQuery Transfer service enabled](https://cloud.google.com/bigquery-transfer/docs/enable-transfer-service).
 - A [service account](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for Amplitude. This lets Amplitude to export your data to your Google Cloud project. Your service account needs these roles enabled:
-   - BigQuery User
-   - BigQuery Data Editor
-- A [custom role](https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role) that has the following permissions enabled:
-     - `bigquery.transfers.get`
-     - `bigquery.transfers.update`
-     - `bigquery.datasets.update`
+    - BigQuery User
+    - BigQuery Data Editor
+    - A [custom role](https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role) that has the following permissions enabled:
+        - `bigquery.transfers.get`
+        - `bigquery.transfers.update`
+        - `bigquery.datasets.update`
 
 After you've created a service account, generate and download the service account key file and upload it to Amplitude. **Make sure you export Amplitude's account key in JSON format**.
 

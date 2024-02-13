@@ -1210,6 +1210,22 @@ Don't send push notification events client-side via the iOS SDK. Because a user 
 
 You can use [mobile marketing automation partners](https://amplitude.com/integrations?category=mobile-marketing-automation) or the [HTTP API V2](https://developers.amplitude.com/docs/http-api-v2) to send push notification events to Amplitude.
 
+--8<-- "includes/sdk-set-offline.md"
+
+=== "Objective-C"
+
+    ```obj-c
+    [[Amplitude instance] setOffline:YES]; // enables offline mode
+    [[Amplitude instance] setOffline:NO]; // disables offline mode
+    ```
+
+=== "Swift"
+
+    ```swift
+    Amplitude.instance().setOffline(true); // enables offline mode
+    Amplitude.instance().setOffline(false) // disables offline mode
+    ```
+
 ### Middleware
 
 Middleware lets you extend Amplitude by running a sequence of custom code on every event. This pattern is flexible and can be used to support event enrichment, transformation, filtering, routing to third-party destinations, and more.
@@ -1229,6 +1245,20 @@ Add middleware to Amplitude via `client.addEventMiddleware`. You can add as man
 You can find examples for [Objective-C](https://github.com/amplitude/ampli-examples/blob/main/ios/objective-c/AmpliObjectiveCSampleApp/AmpliObjectiveCSampleApp/AppDelegate.m#L65) and [Swift](https://github.com/amplitude/ampli-examples/blob/main/ios/swift/AmpliSwiftSampleApp/Shared/AmpliSwiftSampleAppApp.swift#L48).
 
 Learn more about [Middleware](../../sdk-middleware).
+
+--8<-- "includes/sdk-ios/sdk-ios-security-set-instance-name.md"
+
+=== "Objective-C"
+
+    ```obj-c
+    Amplitude* amplitude = [Amplitude instanceWithName:@"my-unqiue-instance-name"];
+    ```
+
+=== "Swift"
+
+    ```swift
+    let amplitude = Amplitude.instanceWithName("my-unqiue-instance-name")
+    ```
 
 ### More resources
 

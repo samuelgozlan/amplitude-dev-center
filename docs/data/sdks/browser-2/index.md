@@ -29,7 +29,7 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 
 ### Initialize the SDK
 
---8<-- "includes/sdk-httpv2-notice.md"
+--8<-- "includes/sdk-httpv2-notice-ts.md"
 
 --8<-- "includes/sdk-ts-browser/init.md"
 
@@ -62,9 +62,10 @@ amplitude.init(AMPLITUDE_API_KEY, 'user@amplitude.com', options);
     |`partnerId` | `string`. Sets partner ID. Amplitude requires the customer who built an event ingestion integration to add the partner identifier to `partner_id`. | `undefined` |
     |`sessionTimeout` | `number`. Sets the period of inactivity from the last tracked event before a session expires in milliseconds. | 1,800,000 milliseconds (30 minutes) |
     |`storageProvider`| `Storage<Event[]>`. Sets a custom implementation of `Storage<Event[]>` to persist unsent events. | `LocalStorage` |
-    |`userId` | `number`. Sets an identifier for the user being tracked. Must have a minimum length of 5 characters unless overridden with the `min_id_length` option. | `undefined` |
+    |`userId` | `number`. Sets an identifier for the user being tracked. Must have a minimum length of 5 characters unless overridden with the `minIdLength` option. | `undefined` |
     |`trackingOptions` | `TrackingOptions`. Configures tracking of additional properties. Please refer to `Optional tracking` section for more information. | Enable all tracking options by default. |
     |`transport` | `string`. Sets request API to use by name. Options include `fetch` fro fetch, `xhr` for `XMLHttpRequest`, or  `beacon` for `navigator.sendBeacon`. | `fetch` |
+    |`offline` | `boolean | OfflineDisabled`. Whether the SDK is connected to network. Learn more [here](./#offline-mode) | `false` |
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
@@ -189,7 +190,8 @@ amplitude.init(AMPLITUDE_API_KEY, {
 
 #### Tracking marketing attribution
 
-Amplitude marketing attribution by default by tracking UTM, referrers and click IDs as user properties.
+Amplitude tracks marketing attribution by default. 
+Browser SDK 2.0 captures UTM parameters, referrer information, and click IDs as user properties.
 
 ???info "Attribution Overview"
     --8<-- "includes/sdk-ts-browser/marketing-analytics-overview.md"
@@ -413,3 +415,24 @@ amplitude.init(AMPLITUDE_API_KEY, {
 #### Disable cookies
 
 You can opt-out of using cookies by setting `identityStorage` to `localStorage` so that the SDK will use `LocalStorage` instead. `LocalStorage` is a great alternative, but because access to `LocalStorage` is restricted by subdomain, you can't track anonymous users across subdomains of your product (for example: `www.amplitude.com` vs `analytics.amplitude.com`).
+
+```ts
+amplitude.init("api-key", null, {
+  identityStorage: "localStorage",
+});
+```
+
+### Offline mode
+
+!!!note "Auto flush when reconnect"
+    Setting `config.flushIntervalMillis` to a small value like `1` may cause an `ERR_NETWORK_CHANGED` error.
+
+Beginning with version 2.4.0, the Amplitude Browser SDK supports offline mode. The SDK checks network connectivity every time it tracks an event. If the device is connected to network, the SDK schedules a flush. If not, it saves the event to storage. The SDK also listens for changes in network connectivity and schedules a flush of all stored events when the device reconnects, based on the `config.flushIntervalMillis` setting.
+
+To disable offline mode, add `offline: amplitude.Types.OfflineDisabled` to the `amplitude.init()` call as shown below.
+
+```ts
+amplitude.init(AMPLITUDE_API_KEY, {
+  offline: amplitude.Types.OfflineDisabled
+});
+```
