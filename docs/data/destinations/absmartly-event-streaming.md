@@ -20,7 +20,7 @@ description: Stream Amplitude events to ABsmartly
 ### ABsmartly setup
 
 1. Log in to your ABsmartly account.
-2. Navigate to the Settings page to obtain your **Access Token**.
+2. Navigate to the Settings page to get your **Access Token**.
 
 ### Amplitude setup
 
