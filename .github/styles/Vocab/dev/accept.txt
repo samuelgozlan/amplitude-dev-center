@@ -222,3 +222,6 @@ Sleekflow
 Mixpanel
 Packagist
 Nami
+Databricks
+hostname
+Http
