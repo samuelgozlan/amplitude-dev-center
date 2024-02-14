@@ -16,7 +16,8 @@ Amplitude Data's Google Ads integration enables you to stream your Amplitude eve
 - Amplitude sends custom events using Amplitude `event_type` as event name.
 - This integration uses Google's [Upload Click Conversions API](https://developers.google.com/google-ads/api/docs/conversions/upload-clicks)).
 - This integration requires a Google Click ID (`gclid` or `initial_gclid` to enable Amplitude to create the click conversion and pass that event to Google Ads. Google Ads relies on the `gclid` parameter to track user interactions with ads and attribute conversions back to specific ad clicks. When a user clicks an ad served through Google Ads, Google Ads generates a unique `gclid` value and appends it to the URL. This parameter identifies the click, and links it to subsequent conversions.
-
+- Google Ads API expect that any events being sent over from Amplitude contains either a user property gclid or initial_gclid. Any events without a user property gclic or initial_gclid will be dropped.
+  
 ## Setup
 
 ### Prerequisites
