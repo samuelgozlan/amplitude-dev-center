@@ -9,7 +9,7 @@ With event streaming, you gain access to user-friendly, configuration-based tool
 
 ## Considerations
 
-- **Billing efficiency:** Amplitude tracks event volume based on distinct events sent. If you send same event to multiple Event Streaming destinations, it's counted only once for billing.
+- **Billing efficiency:** Amplitude tracks event volume based on distinct events sent. If you send same event to multiple Event Streaming destinations, it's counted only once for billing. When you use all your contracted event volume for the billing period, Amplitude pauses all streams until the next billing cycle. Wait until the next billing cycle or upgrade your plan to restart streaming.
 - **Latency target:** Amplitude aims for an end-to-end p95 latency of 60 seconds, monitored and supported by alerts.
 - **Retry mechanism:** Amplitude addresses Intermittent errors using in-memory retries with exponential backoff for initial sends. The retry pipeline attempts up to 10 times within a 4-hour window. This mechanism applies to all Event Streaming destinations.
 - **Streamlined monitoring and management:** The Event Streaming Debugger UI in Amplitude Data lets you monitor pending retries, progress, and expired payloads. Analyze failed payload samples to gain insight into error categories.
