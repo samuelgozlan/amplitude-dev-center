@@ -16,7 +16,7 @@ Amplitude's Databricks import source enables you to import data from Databricks 
   - Amplitude ignores rows with `delete` operations for all data types.
 - Create joins to import data from multiple tables.
 
-## Restrictions
+## Limitations
 
 - This integration supports importing data from Databricks.
 - User stream view isn't available for data ingested with this feature.
