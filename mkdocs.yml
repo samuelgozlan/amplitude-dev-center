@@ -130,7 +130,7 @@ extra:
   status_page: https://status.amplitude.com/
   training_site: https://academy.amplitude.com/
   postman_workspace: https://www.postman.com/amplitude-dev-docs/workspace/amplitude-developers/overview
-  report_issue: https://github.com/amplitude/amplitude-dev-center/issues/new/?title=[Feedback]+{{page.title}}+-+{{page.url}}
+  #report_issue: https://github.com/amplitude/amplitude-dev-center/issues/new/?title=[Feedback]+{{page.title}}+-+{{page.url}}
   getting_started_guide: https://docs.developers.amplitude.com/getting-started
   sdk_quickstart: /data/sdks/sdk-quickstart/
   more_resources: all-resources
