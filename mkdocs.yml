@@ -443,6 +443,8 @@ nav:
       - SDKs:
         - Browser SDK Plugin: session-replay/sdks/plugin.md
         - Standalone SDK: session-replay/sdks/standalone.md
+      - Tag Managers:
+        - Google Tag Manager: session-replay/tag-managers/google-tag-manager.md
       - Ingestion Monitor: session-replay/ingestion-monitor.md
 
 - Guides:

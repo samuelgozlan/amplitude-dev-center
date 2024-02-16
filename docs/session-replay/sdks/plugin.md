@@ -11,7 +11,7 @@ This article covers the installation of Session Replay using the Browser SDK plu
 
 ## Before you begin
 
-Use the latest version of the Session Replay Plugin above version 0.8.1. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/plugin-session-replay-browser/CHANGELOG.md) on GitHub.
+Use the latest version of the Session Replay Plugin above version 1.0.2. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/plugin-session-replay-browser/CHANGELOG.md) on GitHub.
 
 The Session Replay Plugin requires that:
 
@@ -50,7 +50,7 @@ const sessionReplayTracking = sessionReplayPlugin();
 amplitude.add(sessionReplayTracking);
 ```
 
-You can also add the code directly to the `<head>` of your site.
+You can also add the code directly to the `<head>` of your site. With his method, be sure that the Browser SDK isn't initialized elsewhere in your application. If you initialize the Browser SDK more than once, you may see mismatches in Device ID or Session ID.
 
 ```html
 <script src="https://cdn.amplitude.com/libs/analytics-browser-2.1.3-min.js.gz"></script>
@@ -61,6 +61,9 @@ const sessionReplayTracking = window.sessionReplay.plugin();
 window.amplitude.add(sessionReplayTracking);
 </script>
 ```
+
+!!! tip "Compatability with Google Tag Manager"
+    The Session Replay plugin scripts load asynchronously when you add them to the `<head>` tag of your page. As a result, this implementation isn't compatible with Google Tag Manager. For more information, see [Session Replay Implementation with Google Tag Manager](/session-replay/tag-managers/google-tag-manager).
 
 ## Configuration
 
@@ -168,6 +171,10 @@ When Amplitude captures a replay, it doesn't download and store CSS files or oth
 Session Replay requires that the Browser SDK send Session Start and Session End events, at a minimum. If you instrument events outside of the Browser SDK, Amplitude doesn't tag those events as part of the session replay. This means you can't use tools like Funnel, Segmentation, or Journeys charts to find session replays. You can find session replays with the User Sessions chart or through User Lookup.
 
 If you use a method other than the Browser SDK to instrument your events, consider using the [Session Replay Standalone SDK](/session-replay/sdks/standalone/).
+
+### Replay length and session length don't match
+
+In some scenarios, the length of a replay may exceed the time between the `[Amplitude] Start Session` and `[Amplitude] End Session` events. This happens when a user closes the `[Amplitude] End Session` occurs, but before the Browser SDK and Session Replay plugin can process it. When the user visits that page again, the SDK and plugin process the event and send it to Amplitude, along with the replay. You can verify this scenario occurs if you see a discrepancy between the `End Session Client Event Time` and the `Client Upload Time`.
 
 ### Session replays don't appear in Amplitude 
 
