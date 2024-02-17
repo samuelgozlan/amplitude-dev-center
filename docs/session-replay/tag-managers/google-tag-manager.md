@@ -12,7 +12,6 @@ Instrumenting Amplitude Session Replay with Google Tag Manager requires a differ
 4. Set **Trigger** for the Session Replay Tag to `Initialization - All Pages`.
 5. Deploy the tags. Replays should begin to appear on the home page of the Amplitude app. Ensure that you're looking at the correct project.
 
-
 ```html title="Session Replay Script for Google Tag Manager" hl_lines="22"
 <script>
     function loadAsync(src, callback) {
