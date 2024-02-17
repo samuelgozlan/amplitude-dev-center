@@ -50,7 +50,7 @@ const sessionReplayTracking = sessionReplayPlugin();
 amplitude.add(sessionReplayTracking);
 ```
 
-You can also add the code directly to the `<head>` of your site. With his method, be sure that the Browser SDK isn't initialized elsewhere in your application. If you initialize the Browser SDK more than once, you may see mismatches in Device ID or Session ID.
+You can also add the code directly to the `<head>` of your site. With this method, be sure that the Browser SDK isn't initialized elsewhere in your application. If you initialize the Browser SDK more than once, you may see mismatches in Device ID or Session ID.
 
 ```html
 <script src="https://cdn.amplitude.com/libs/analytics-browser-2.1.3-min.js.gz"></script>
