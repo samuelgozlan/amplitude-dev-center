@@ -144,6 +144,7 @@ extra:
       analytics: Amplitude Analytics
     actions:
       - accept
+      - reject
       - manage
     title: Cookie consent
     description: >-
