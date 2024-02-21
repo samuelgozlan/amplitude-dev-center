@@ -610,7 +610,8 @@ You can send these keys in the JSON event object. Note that one of `user_id` or 
 It's best practice to implement retry logic and send an `insert_id` (used for deduplication of the same event) in your events.
  This prevents lost events or duplicated events if the API is unavailable or a request fails.
 
- _Note: Amplitude does not log any data that did not receive a 200 response. It is the customers responsibility to log any error responses internally to troubleshoot._
+!!! note "Logging errors"
+    Amplitude recommends that you add your own logging to capture responses that receive a response other than `200`.
 
 ### 200 response SuccessSummary
 
