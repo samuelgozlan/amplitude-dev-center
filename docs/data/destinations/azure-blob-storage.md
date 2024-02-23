@@ -68,7 +68,7 @@ To export your Amplitude data to Azure Blob Storage:
 
 1. In Amplitude, navigate to **Data -> Manage -> Destinations -> Add Destination**.
 2. Select **Azure Blob Storage - Events & Merged Users**.
-3. On the **Getting Started** tab, select the data to export. Options include *Export events ingested today and moving forward*, *Export all merged Amplitude IDs*, or both.
+3. On the **Getting Started** tab, select the data to export. Options include *Export events ingested today and moving forward*, *Export all merged Amplitude IDs*, or both. Also, you can specify event filtering.
 
     !!!note
 
