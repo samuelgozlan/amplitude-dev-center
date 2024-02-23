@@ -44,7 +44,6 @@ Amplitude's Snowflake Data Import supports two methods for importing data from S
 | Import strategy   | Change-based                                                                                                                                                                                       | Time-based                                                                                                                       |
 | When to use       | Recommended for most use cases, user-friendly, minimal SQL knowledge required. <br/>Limited data source selection functionality, consider creating Snowflake VIEW (see Prerequisites for details). | Use when data selection requires customization, even though it may lead to data discrepancies and higher costs if misconfigured |
 
-
 ### Table selection UI
 
 The Table Selection UI modeling method supports Change Data Capture (CDC). This method identifies and captures changes made to data in a database and delivers those changes in real time to a downstream process or system.
@@ -71,13 +70,11 @@ The Custom SQL query supports time-based import to inform when data sync from Sn
 
       When using the Time Based Import option, it's important that the dataset includes a separate column that indicates *when* the data was loaded into the table Amplitude points to when importing. This is often "server upload time", which would be separate from the "event time" (when the actual event occurred).
 
-
 For Time-based import, Amplitude recommends that you use a monotonically increasing timestamp value. This value should show when the record was loaded into the source table the SQL configuration is querying from (often referred to as a "server upload time"). The warehouse import tool brings data into Amplitude by continually updating the maximum value of the column referenced in the *Timestamp Column Name* input within the Import Config UI with each subsequent import.
 
 !!!example
 
     Upon first import, Amplitude imports all the data returned from the query configured in the Import Config. Amplitude saves a reference of the maximum timestamp referenced in the *Timestamp Column Name*: `timestamp_1`. Upon subsequent import, Amplitude imports all data from the previously saved timestamp (`timestamp_1`), to what's now the new maximum timestamp (`timestamp_2`). Then after that import, Amplitude saves `timestamp_2` as the new maximum timestamp.
-
 
 ## Add Snowflake as a source
 
@@ -95,7 +92,6 @@ To add Snowflake as a data source in your Amplitude project, follow these steps:
 5. After running the query, click **Next** to test the connection.
 6. After the test is successful, click **Next** again to move on to the data selection stage.
 7. Choose the modeling method, [Table Selection UI](#table-selection-ui-settings) or [Custom SQL Query](#custom-sql-query-settings).
-
 
 ### Table Selection UI settings
 
@@ -122,8 +118,8 @@ Choose your configuration options:
 - **Frequency**: Choose from several scheduling options ranging from five minutes to one month. With the one month option, Amplitude ingests data on the first of the month.
 - **SQL query**: This is the code for the query Amplitude uses to decide which data is ingested.
 
-1.  After you've set your configuration options, click **Test SQL** to see how the data is coming through from your Snowflake instance. Errors appear on this screen.
-2.  If there are no errors, click **Finish**. 
+1. After you've set your configuration options, click **Test SQL** to see how the data is coming through from your Snowflake instance. Errors appear on this screen.
+2. If there are no errors, click **Finish**. 
 
 Amplitude displays a notification indicating you enable the new Snowflake source and redirects you to the Sources listing page.
 
