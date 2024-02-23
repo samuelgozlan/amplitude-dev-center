@@ -31,7 +31,7 @@ To set up the Amazon S3 integration, follow these steps:
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
 2. In the Warehouse Destination section, click **Amazon S3**.
-3. Choose which data you'd like to include in this export: *Export events ingested today and moving forward*, *Export all merged Amplitude IDs*, or export both.
+3. Choose which data you'd like to include in this export: *Export events ingested today and moving forward*, *Export all merged Amplitude IDs*, or export both. For events, you can also specify filtering conditions to only export events that meet certain criteria.
 4. Click **Next**.
 5. In the **Set Up Bucket Policy** tab, go through the steps listed in the *Create a Bucket* and *Add a Bucket Policy* sections. Then fill out the required information in the *S3 Bucket Information* section.
 
