@@ -31,8 +31,8 @@ Amazon S3 Import setup has four main phases:
 
 Before you start, make sure you’ve taken care of some prerequisites.
 
-- Make sure you have admin permissions for your Amplitude org.
-- Make sure that a project exists to receive the data. If not, create a new project.
+- Make sure that an Amplitude project exists to receive the data. If not, create a new project.
+- Make sure you are an Admin or Manager of the Amplitude project.
 - Make sure your S3 bucket has data files ready for Amplitude to ingest. They must conform to the mappings that you outline in your converter file.
 
 Before you can ingest data, review your dataset and consider best practices. Make sure your dataset contains the data you want to ingest, and any required fields.
@@ -57,7 +57,7 @@ For each Amplitude project, AWS S3 import can ingest:
 
 ### Deduplication with `insert_id`
 
-Amplitude uses a unique identifier, `insert_id`, to match against incoming events to prevent duplicates. If a new event with a specific `insert_id` is uploaded to Amplitude within 7 days of a previous event with the same `insert_id`, Amplitude drops the new event.
+Amplitude uses a unique identifier, `insert_id`, to match against incoming events and prevent duplicates. If within the same project, Amplitude receives an event with `insert_id` and `device_id` values that match the `insert_id` and `device_id` of a different event received within the last 7 days, Amplitude drops the most recent event.
 
 Amplitude highly recommends that you set a custom `insert_id` for each event to prevent duplication. To set a custom `insert_id`, create a field that holds unique values, like random alphanumeric strings, in your dataset. Map the field as an extra property named `insert_id` in the guided converter configuration.
 
@@ -288,6 +288,8 @@ Depending on the transformation you select, you may need to include more fields.
 After you have all the fields needed for the transformation, you can save it. You can update these fields as needed when your requirements change.
 
 You can include more fields by clicking the **Add Mapping** button. Here Amplitude supports 4 kinds of mappings: Event properties, User Properties, Group Properties and Additional Properties. 
+
+Find a list of supported fields for events in the [HTTP V2 API documentation](/analytics/apis/http-v2-api/#keys-for-the-event-argument) and  for user properties in the [Identify API documentation](/analytics/apis/identify-api/#identification-parameter-keys). Add any columns not in those lists to either `event_properties` or `user_properties`, otherwise it's ignored. 
 
 After you have added all the fields you wish to bring into Amplitude, you can view samples of this configuration in the Data Preview section. Data Preview automatically updates as you include or remove fields and properties. In Data Preview, you can look at a few sample records based on the source records along with how that data is imported into Amplitude. This ensures that you are bringing in all the data points you need into Amplitude. You can look at 10 different sample source records and their corresponding Amplitude events.
 

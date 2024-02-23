@@ -586,6 +586,14 @@ Retrieves all event types in a project. This request has no required parameters.
 
 `GET https://amplitude.com/api/2/taxonomy/event`
 
+!!!note
+
+    Hidden events, those that have a visibility other than "Visible", don't appear in the response.
+    
+    By default, deleted events will also not be included, but the `showDeleted` query parameter can be optionally added to the endpoint to include them, e.g.:
+
+    `GET https://amplitude.com/api/2/taxonomy/event?showDeleted=true`
+
 #### Example request
 
 This basic request shows the required fields.
@@ -1672,6 +1680,8 @@ A failed request returns a `404 Bad Request` status and an error message.
     ]
 }
 ```
+
+The Taxonomy API requires an **Enterprise plan**  account or the **Govern add-on** enabled. If your subscription doesn't qualify, the call results in a `404 Bad Request` response. 
 
 ### Update user property
 

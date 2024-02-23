@@ -139,7 +139,6 @@
 
 {{ super() }}
 
-<script src="https://unpkg.com/@amplitude/experiment-js-client@1.9.0/dist/experiment.umd.js"></script>
 <script>
 function getPageInfo() {
     return {
@@ -151,11 +150,12 @@ function getPageInfo() {
 
 const initKapa = function () {
     var script = document.createElement("script");
-    script.src = "https://widget.kapa.ai/kapa-widget-v1.1.0.bundle.js";
+    script.src = "https://widget.kapa.ai/kapa-widget.bundle.js";
     script.setAttribute("data-website-id", "ad8ecaa4-5c43-413b-9d0a-8114b6e1f831");
     script.setAttribute("data-project-name", "Amplitude");
     script.setAttribute("data-project-color", "#301661");
     script.setAttribute("data-project-logo", "https://avatars.githubusercontent.com/u/2291562?s=280&v=4");
+    script.setAttribute("data-modal-example-questions","How do I install Amplitude on my website?,How do I install Amplitude in my mobile App?,How do I get started with Experiment in my application?")
     script.async = true;
     document.head.appendChild(script);
     // Tracking stuff starts here. 
@@ -192,24 +192,7 @@ const initKapa = function () {
     // });
 }
 
-window.experiment = Experiment.Experiment.initializeWithAmplitudeAnalytics(
-    'client-TF7RK1kKHIpd9sS2tn63MrevvXTmriJv', {
-        fetchOnStart: true
-    }
-);
-
-// await experiment.start();
-experiment.start().then(() => {
-    const variant = experiment.variant('kapa-ai-widget');
-    if (variant.value === 'on') {
-        if (document.readyState != 'loading') {
-          initKapa()
-        } else {
-          document.addEventListener("DOMContentLoaded", initKapa())
-        }
-        
-    }
-})
+initKapa()
 </script>
 
 {% endblock %}

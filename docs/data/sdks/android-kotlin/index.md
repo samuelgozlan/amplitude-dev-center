@@ -36,6 +36,7 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
+    | `deviceId` | `String?`. The device ID to use for this device. If no deviceID is provided one will be generated automatically. Learn more [here](./#device-id-lifecycle).| `null` |
     | `flushIntervalMillis` | `Int`. The amount of time SDK will attempt to upload the unsent events to the server or reach `flushQueueSize` threshold. The value is in milliseconds. | `30000` |
     | `flushQueueSize` | `Int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach `flushIntervalMillis` interval.  | `30` |
     | `flushMaxRetries` | `Int`. Maximum retry times.  | `5` |
@@ -57,6 +58,13 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
     | `enableCoppaControl` | `Boolean`. Whether to enable COPPA control for tracking options. | `false` |
     | `instanceName` | `String`. The name of the instance. Instances with the same name will share storage and identity. For isolated storage and identity use a unique `instanceName` for each instance.  | `$default_instance`|
     | `migrateLegacyData` | `Boolean`. Available in `1.9.0`+. Whether to migrate [maintenance Android SDK](../android) data (events, user/device ID). Learn more [here](https://github.com/amplitude/Amplitude-Kotlin/blob/main/android/src/main/java/com/amplitude/android/migration/RemnantDataMigration.kt#L9-L16). | `true`|
+    | `offline` | `Boolean | AndroidNetworkConnectivityCheckerPlugin.Disabled`. Whether the SDK is connected to network. Learn more [here](./#offline-mode) | `false` |
+    | `storageProvider` | `StorageProvider`. Implements `StorageProvider` interface to store events. | `AndroidStorageProvider` |
+    | `identifyInterceptStorageProvider` | `StorageProvider`. Implements `StorageProvider` interface for identify event interception and volume optimization. | `AndroidStorageProvider` |
+    | `identityStorageProvider` | `IdentityStorageProvider`. Implements `IdentityStorageProvider` to store user id and device id. | `FileIdentityStorageProvider` |
+    | `loggerProvider` | `LoggerProvider`. Implements `LoggerProvider` interface to emit log messages to desired destination. | `AndroidLoggerProvider` |
+    | `newDeviceIdPerInstall` | Whether to generate different a device id every time when the app is installed regardless of devices. It's legacy configuration only to keep compatible with the old Android SDK. It works the same as `useAdvertisingIdForDeviceId`. | `false` |
+    | `locationListening` | Whether to enable Android location service. Learn more [here](./#location-tracking).| `true` |
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
@@ -640,6 +648,40 @@ You can define your own session expiration time. The default session expiration 
     Amplitude amplitude = new Amplitude(configuration);
     ```
 
+--8<-- "includes/sdk-out-of-session-events-next-gen.md"
+
+=== "Kotlin"
+
+    ```kotlin
+    val outOfSessionOptions = EventOptions().apply {
+        sessionId = -1
+    }
+    amplitude.identify(
+        Identify().set("user-prop", true),
+        outOfSessionOptions
+    )
+    amplitude.track(
+        BaseEvent().apply { eventType = "test event" },
+        outOfSessionOptions
+    )
+    ```
+
+=== "Java"
+
+    ```java
+    EventOptions outOfSessionOptions = new EventOptions();
+    outOfSessionOptions.setSessionId(-1L);
+    
+    amplitude.identify(
+        new Identify().set("user-prop", true),
+        outOfSessionOptions
+    );
+    
+    BaseEvent event = new BaseEvent();
+    event.eventType = "test event";
+    amplitude.track(event, outOfSessionOptions);
+    ```
+
 ### Set custom user ID
 
 If your app has its login system that you want to track users with, you can call `setUserId` at any time.
@@ -751,11 +793,13 @@ Tracking for each field can be individually controlled, and has a corresponding 
 | <div class="big-column">Method</div> | Description |
 | --- | --- |
 | `disableAdid()` | Disable tracking of Google ADID |
+| `disableAppSetId()` | Disable tracking of App Set Id |
 | `disableCarrier()` | Disable tracking of device's carrier |
 | `disableCity()` | Disable tracking of user's city |
 | `disableCountry()` | Disable tracking of user's country |
 | `disableDeviceBrand()` | Disable tracking of device brand |
 | `disableDeviceModel()` | Disable tracking of device model |
+| `disableTrackDeviceManufacturer()` | Disable tracking of device manufacturer |
 | `disableDma()` | Disable tracking of user's designated market area (DMA). |
 | `disableIpAddress()` | Disable tracking of user's IP address |
 | `disableLanguage()` | Disable tracking of device's language |
@@ -765,6 +809,7 @@ Tracking for each field can be individually controlled, and has a corresponding 
 | `disablePlatform()` | Disable tracking of device's platform |
 | `disableRegion()` | Disable tracking of user's region. |
 | `disableVersionName()` | Disable tracking of your app's version name |
+| `disableApiLevel` | Disable tracking of Android API level |
 
 !!!note
 
@@ -1063,3 +1108,12 @@ val amplitude2 = Amplitude(Configuration(
     context = applicationContext,
 ))
 ```
+
+### Offline mode
+
+Starting from version 1.13.0, the Amplitude Android Kotlin SDK supports offline mode. The SDK checks network connectivity every time it tracks an event. If the device is connected to network, the SDK schedules a flush in `flushIntervalMillis`. If not, it saves the event to storage. The SDK also listens for changes in network connectivity and flushes all stored events when the device reconnects.
+
+You can also implement you own offline logic:
+
+1. Set `config.offline` to `AndroidNetworkConnectivityCheckerPlugin.Disabled` to disable the default offline logic.
+2. Toggle `config.offline` by yourself.

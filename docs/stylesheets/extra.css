@@ -633,3 +633,9 @@ table code {
 .DocSearch-Hit-source {
   font-size: .5rem;
 }
+
+/* Code sample highlight overrides */
+
+.highlight .c1 {
+  color: #282828a6
+}

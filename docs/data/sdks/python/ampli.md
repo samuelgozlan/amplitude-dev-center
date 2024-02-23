@@ -106,15 +106,13 @@ ampli.load(LoadOptions(
 
 | <div class ="big-column">Arg of LoadOptions</div> | Description |
 |-|-|
-|`environment`| Required. String. Specifies the environment the Ampli Wrapper is running in e.g. `production` or `development`. Environments can be created, renamed, and managed in Amplitude Data.<br /><br />Environment determines which API token is used when sending events.<br /><br />If an `client.api_key` or `client.instance` is provided, `environment` will be ignored, and can be omitted.|
 |`disabled`|Optional. Defaults to False. Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
-|`environment`|Optional. Defaults to None. Specifies the environment the Ampli Wrapper runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries.|
 |`client`|Optional. Defaults to None. A instance of LoadClientOptions specifies configuration options for the Amplitude core SDK client.|
 
 | <div class ="big-column">Arg of LoadClientOptions</div> | Description |
 |-|-|
-|`instance`| Optional. Defaults to None. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
-|`api_key`|Optional. Defaults to None. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
+|`instance`| <span class="required">Required if `apiKey` isn't set</span>. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
+|`api_key`| <span class="required">Required if `instance` isn't set</span>. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
 |`configuration`|Optional. Defaults to None. Specifies the Amplitude configuration. This option overrides the default configuration.|
 
 ### Identify

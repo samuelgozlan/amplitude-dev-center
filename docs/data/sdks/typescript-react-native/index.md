@@ -124,7 +124,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 ### Tracking an event
 
---8<-- "includes/sdk-httpv2-notice.md"
+--8<-- "includes/sdk-httpv2-notice-ts.md"
 
 Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to note.
 

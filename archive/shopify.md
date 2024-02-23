@@ -1,6 +1,7 @@
 ---
 title: Shopify App
 description: Amplitude’s app with Shopify is a smart analytics app that automates eCommerce tracking. 
+Notes: We are deprecating the Shopify app data source integration on 11/21/23. Previously this document was located under "Data" > "Sources" on 11/21/23.
 ---
 
 Amplitude’s app with Shopify is a smart analytics app that automates eCommerce tracking. With Amplitude’s app, you can automatically track and ingest key e-commerce events, event properties, and user properties on a Shopify or Shopify Plus store.

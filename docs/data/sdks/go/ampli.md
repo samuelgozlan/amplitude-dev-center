@@ -111,14 +111,13 @@ ampli.Instance.Load(ampli.LoadOptions{
 
 | <div class ="big-column">Arg of LoadOptions</div> | Description |
 |-|-|
-|`Environment`| Required. String. Specifies the environment the Ampli Wrapper is running in. For example,  `EnvironmentProduction` or `EnvironmentDevelopment`. Create, rename, and manage environments in Amplitude Data.<br /><br />Environment determines which API token is used when sending events.<br /><br />If a `Client.ApiKey` or `Client.Instance` is provided, `Environment` is ignored, and can be omitted.|
+|`Instance`| <span class="required">Required if `APIKey` isn't set</span>. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
+|`APIKey`| <span class="required">Required if `Instance` isn't set</span>. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
 |`Disabled`|Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
 |`Client`| A instance of LoadClientOptions specifies configuration options for the Amplitude core SDK client.|
 
 | <div class ="big-column">Arg of LoadClientOptions</div> | Description |
 |-|-|
-|`Instance`| Specifies an Amplitude instance. By default Ampli creates an instance for you.|
-|`APIKey`| Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
 |`Configuration`| Specifies the Amplitude configuration. This option overrides the default configuration.|
 
 ### Identify
@@ -150,39 +149,9 @@ ampli.Instance.Identify(
 )
 ```
 
-### Group Identify
+### Groups
 
---8<-- "includes/editions-growth-enterprise-with-accounts.md"
-
-Call `GroupIdentify()` to identify a group in your app and set/update group properties.
-
-Just as Ampli creates types for events and their properties, it creates types for group properties.
-
-The `GroupIdentify()` function accepts a string `groupType`, a string `groupName`, a Group event instance, and optional `EventOptions`.
-
-For example your tracking plan contains a group `sport:football` has a property called `totalMember`. The property's type is a int.
-
-```Go
-ampli.Instance.GroupIdentify(
-    "sport",
-    "football",
-    ampli.Group.Builder().TotalMember(23).Build(),
-)
-```
-
-### Set group
-
-Call `SetGroup()` to associate a user with their group (for example, their department or company). The `SetGroup()` function accept `userID` `groupType`, `groupName` and optional EventOptions.
-
-```Go
-ampli.Instance.SetGroup("user-id", "sport", []string{"football"})
-```
-
-Multiple group names can be set at once.
-
-```Go
-ampli.Instance.SetGroup("user-id", "sport", []string{"football", "basketball"})
-```
+The Amplitude Go SDK and Go Ampli Wrapper don't support Groups. If you're interested in this feature, submit a feature request through the widget on the Amplitude dashboard, or through a [support ticket](https://support.amplitude.com).
 
 ### Track
 

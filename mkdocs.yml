@@ -130,7 +130,7 @@ extra:
   status_page: https://status.amplitude.com/
   training_site: https://academy.amplitude.com/
   postman_workspace: https://www.postman.com/amplitude-dev-docs/workspace/amplitude-developers/overview
-  report_issue: https://github.com/amplitude/amplitude-dev-center/issues/new/?title=[Feedback]+{{page.title}}+-+{{page.url}}
+  #report_issue: https://github.com/amplitude/amplitude-dev-center/issues/new/?title=[Feedback]+{{page.title}}+-+{{page.url}}
   getting_started_guide: https://docs.developers.amplitude.com/getting-started
   sdk_quickstart: /data/sdks/sdk-quickstart/
   more_resources: all-resources
@@ -144,13 +144,14 @@ extra:
       analytics: Amplitude Analytics
     actions:
       - accept
+      - reject
       - manage
     title: Cookie consent
     description: >-
-      We use cookies to recognize your repeated visits and preferences, as well
+      Amplitude uses cookies to recognize your repeated visits and preferences, as well
       as to measure the effectiveness of our documentation and whether users
       find what they're searching for. With your consent, you're helping us to
-      make our documentation better.
+      make our documentation better. For more information, see Amplitude's <a href="https://amplitude.com/privacy" target="_blank">Privacy Policy</a>.
 
   generator: false #hides the generated with text in the footer
 
@@ -245,8 +246,6 @@ nav:
           - Leanplum: data/sources/leanplum.md
           - Mailchimp: data/sources/mailchimp.md
           - MoEngage: data/sources/moengage.md
-        - Marketplace:
-          - Shopify: data/sources/shopify.md
         - Other:
           - Datazoom: data/sources/datazoom.md
           - Kochava: data/sources/kochava.md
@@ -266,6 +265,7 @@ nav:
           - Adapty: data/sources/adapty.md
           - Apphud: data/sources/apphud.md
           - RevenueCat: data/sources/revenuecat.md
+          - Nami: data/sources/nami.md
         - Website:
           - Convizit: data/sources/convizit.md
     - Destinations:
@@ -274,6 +274,7 @@ nav:
         - Overview: data/destination-cloud-storage-overview.md
         - Amazon S3: data/destinations/amazon-s3.md
         - Google Cloud Storage: data/destinations/google-cloud-storage.md
+        - Azure Blob Storage: data/destinations/azure-blob-storage.md
       - Warehouse:
         - Overview: data/destination-warehouse-overview.md
         - Redshift: data/destinations/redshift.md
@@ -329,6 +330,7 @@ nav:
         - Appcues: data/destinations/appcues-cohort.md
         - AppsFlyer: data/destinations/appsflyer-cohort.md
         - Apxor: data/destinations/apxor-cohort.md
+        - Batch: data/destinations/batch-cohort.md
         - Blitzllama: data/destinations/blitzllama-cohort.md
         - Bento: data/destinations/bento-cohort.md
         - Braze: data/destinations/braze-cohort.md
@@ -355,11 +357,13 @@ nav:
         - MoEngage: data/destinations/moengage-cohort.md
         - Netcore Cloud: data/destinations/netcore-cohort.md
         - Notivize: data/destinations/notivize-cohort.md
+        - Optimizely: data/destinations/optimizely-cohort.md
         - OneSignal: data/destinations/onesignal-cohort.md
         - Plotline: data/destinations/plotline-cohort.md
         - Pushwoosh: data/destinations/pushwoosh-cohort.md
         - Productboard: data/destinations/productboard-cohort.md
         - Qualtrics: data/destinations/qualtrics-cohort.md
+        - Refiner: data/destinations/refiner-cohort.md
         - Salesforce Marketing V1: data/destinations/marketing-cloud-cohort.md
         - Salesforce Marketing V2: data/destinations/marketing-cloud-cohort-v2.md
         - Sendgrid: data/destinations/sendgrid-cohort.md
@@ -434,14 +438,26 @@ nav:
           - Flags: experiment/apis/management-api/flags.md
           - Experiments: experiment/apis/management-api/experiments.md
           - Deployments: experiment/apis/management-api/deployments.md
+          - Versions: experiment/apis/management-api/versions.md
+  - Session Replay:
+      - session-replay/index.md
+      - Overview: session-replay/index.md
+      - SDKs:
+        - Browser SDK Plugin: session-replay/sdks/plugin.md
+        - Standalone SDK: session-replay/sdks/standalone.md
+      - Tag Managers:
+        - Google Tag Manager: session-replay/tag-managers/google-tag-manager.md
+      - Ingestion Monitor: session-replay/ingestion-monitor.md
+
 - Guides:
   - guides/index.md
   - Accounts Guide: guides/accounts-instrumentation-guide.md
   - Amplitude Keys Guide: guides/amplitude-keys-guide.md
   - Data Backfill Guide: analytics/data-backfill-guide.md
-  - Segment Migration Guide: guides/segment-migration-guide.md
+  - Migrate from Segment: guides/segment-migration-guide.md
   - Migrate from Mixpanel: guides/mixpanel-migration-guide.md
   - Migrate from mParticle: guides/mparticle-migration-guide.md
+  - Migrate from Adobe: guides/adobe-migration-guide.md
   - Cookies and Consent Management: guides/cookies-consent-mgmt-guide.md
 - APIs:
   - analytics/apis/index.md

@@ -148,7 +148,7 @@ If the user ID is already available you can:
     |`domain`| `string`. Set the top level domain. | `null` |
     |`partnerId`| `string`. The partner Id value. Amplitude requires the customer who built an event ingestion integration to add the partner identifier to `partner_id`. | `null` |
     |`sessionTimeout`| `number`. How long one session expire. | `30` minutes. |
-    |`userId`| `number`. ID for the user. Must have a minimum length of 5 characters unless overridden with the `min_id_length` option. | `undefined` |
+    |`userId`| `number`. ID for the user. Must have a minimum length of 5 characters unless overridden with the `minIdLength` option. | `undefined` |
     |`trackingOptions`| `TrackingOptions`. Please check the `Optional tracking` section for more tracking options configuration. | Enable all tracking options by default. |
     |`transport`| `TransportType.XHR` or `TransportType.SendBeacon` or `TransportType.Fetch`. Set the transport type. | `TransportType.Fetch` |
 - `Select a **GTM variable** from the list`. It's necessary to return an object containing the key-value pairs you wish to use for instance configuration. Ensure that the keys are part of the available configurations.

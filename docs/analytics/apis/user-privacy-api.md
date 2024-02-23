@@ -61,8 +61,8 @@ The body parameter is required. It's the deletion request object listing the `us
 | `amplitude_ids`                    | Amplitude IDs for the users to delete.                                                                                                                                                                                                                                                                                                                 |
 | `user_ids`                         | User IDs for the users to delete.                                                                                                                                                                                                                                                                                                                      |
 | `requester`                        | The internal user who requested the deletion. This is useful for auditing.                                                                                                                                                                                                                                                                             |
-| `ignore_invalid_id`                | When `true`, the job ignores invalid user IDs. Invalid user IDs are users that don't exist in the project.                                                                                                                                                                                                                                             |
-| `delete_from_org`                  | Delete user from the entire org instead of a single project. This feature is available in orgs with the Portfolio feature enabled. Requests must be by `user_ids`. Values can be either `True` or `False`. Defaults to `False`.                                                                                                                        |
+| `ignore_invalid_id`                | When `true`, the job ignores invalid user IDs. Invalid user IDs are users that don't exist in the project. Defaults to `false`                                                                                                                                                                                                                          |
+| `delete_from_org`                  | Delete user from the entire org instead of a single project. This feature is available in orgs with the Portfolio feature enabled. The users must exists in all projects. This option can be combined with `ignore_invalid_id` field to skip projects that are missing the given users. Values can be either `True` or `False`. Defaults to `False`.                                                                                                                        |
 | `include_mapped_user_ids`          | When `true`, this parameter returns the valid `user_id` values that correspond to a supplied `amplitude_id`. This only changes the response object. To delete mapped users set with the [User Mapping API](https://www.docs.developers.amplitude.com/analytics/apis/aliasing-api/), include each `user_id` of the mapped user in the `user_ids` array. |
 
 ### Example request
@@ -71,7 +71,7 @@ The body parameter is required. It's the deletion request object listing the `us
 
     ```bash
     curl --location --request POST 'https://amplitude.com/api/2/deletions/users' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}} \ # credentials must be base64-encoded
+    -U 'API_KEY:SECRET_KEY' \ 
     --header 'Content-Type: application/json' \
     --data-raw '{
         "amplitude_ids": [
@@ -94,9 +94,8 @@ The body parameter is required. It's the deletion request object listing the `us
     ```bash
     POST /api/2/deletions/users HTTP/1.1
     Host: amplitude.com
-    Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64-encoded
+    Authorization: Basic API_KEY:SECRET_KEY
     Content-Type: application/json
-    Content-Length: 238
 
     {
         "amplitude_ids": [
@@ -210,7 +209,7 @@ The body parameter is required. It's the deletion request object listing the `us
       "requester": "employee@yourcompany.com"
     })
     headers = {
-      'Authorization': 'Basic {{api-key}}:{{secret-key}}', #credentials must be base64-encoded
+      'Authorization': 'Basic API_KEY:API_SECRET',
       'Content-Type': 'application/json'
     }
 
@@ -277,7 +276,7 @@ The body parameter is required. It's the deletion request object listing the `us
         fmt.Println(err)
         return
       }
-      req.Header.Add("Authorization", "Basic {{api-key}}:{{secret-key}}") // credentials must be base64-encoded
+      req.Header.Add("Authorization", "Basic API_KEY:API_SECRET")
       req.Header.Add("Content-Type", "application/json")
 
       res, err := client.Do(req)
@@ -334,7 +333,7 @@ If the request returns no values, then no jobs are scheduled for that time range
     # You can also use wget
     curl -X GET https://amplitude.com/api/2/deletions/users?start_day=string&end_day=string \
       -H 'Accept: application/json' \
-      -U API_Key:API_Secret # credentials must be base64-encoded
+      -U API_KEY:API_SECRET
     ```
 
 === "HTTP"
@@ -342,7 +341,7 @@ If the request returns no values, then no jobs are scheduled for that time range
     ```bash
     GET https://amplitude.com/api/2/deletions/users?start_day=string&end_day=string HTTP/1.1
     Host: amplitude.com
-    Authorization: Basic {{api-key}}:{{secret_key}} # credentials must be base64-encoded
+    Authorization: Basic API_KEY:API_SECRET
     Accept: application/json
     ```
 === "JavaScript"
@@ -517,7 +516,7 @@ Removes the specified Amplitude ID from a deletion job.
 curl -X DELETE \
   'https://amplitude.com/api/2/deletions/users/AMPLITUDE_ID/JOB_START_DAY' \
     -H 'Content-Type: application/json' \
-  -u API_KEY:API_SECRET
+  -U API_KEY:API_SECRET
 }'
 ```
 
@@ -548,9 +547,10 @@ A successful request returns a response with this schema:
 
 ## Status codes
 
-| Code | Message     |
-| ---- | ----------- |
-| 200  | Success     |
-| 400  | Bad Request |
+| Code | Message      |
+| ---- | ------------ |
+| 200  | Success      |
+| 400  | Bad Request  |
+| 401  | Unauthorized |
 
 --8<-- "includes/abbreviations.md"

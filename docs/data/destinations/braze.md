@@ -45,6 +45,7 @@ _This applies to both event and user forwarding. Transformed user properties are
     - [**External ID**](https://www.braze.com/docs/api/basics/#user-ids): Any unique identifier for each user in Braze.
     - [**Braze ID**](https://www.braze.com/docs/api/basics/#user-ids): A unique identifier provided by Braze for each user.
     - [**User Alias**](https://www.braze.com/docs/api/objects_filters/user_alias_object): An alternative unique identifier for each user in Braze.
+    - [**Email**](https://www.braze.com/docs/api/endpoints/user_data/post_user_track/#frequently-asked-questions): Using email as the identifier without an External ID or Braze ID may lead to unexpected behavior. For example, if Amplitude sends a user to Braze with an ID and the same email, Braze doesn't merge them, resulting in two separate users. For instructions to avoid this case, see Braze’s [User Profiles](https://www.braze.com/docs/user_guide/engagement_tools/segments/user_profiles/) documentation. Braze also provides a [Merge User API](https://www.braze.com/docs/api/endpoints/user_data/post_users_merge/) for merging users, offering you more flexibility and control.
 
 ### Configure event forwarding
 
@@ -62,15 +63,9 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Braz
 
 ### Configure user forwarding
 
-!!!warning "Temporarily Disabled"
-    Amplitude is working to improve the experience of user forwarding to Braze, including addressing concerns around high call volumes which can incur additional costs in Braze. All enabled user forwarding syncs will continue to run. Temporarily, no new user forwarding syncs can be enabled. If an enabled user forwarding sync is disabled, it can not be re-enabled at this time. Event forwarding to Braze is unaffected by this and can still be configured as normal. User forwarding destinations other than Braze are also unaffected and can still be configured as normal.
+To stream user and property updates to Braze, enable **Send Users**. This setting creates or updates users in Braze when you update them in Amplitude with the [HTTP V2 API](/analytics/apis/http-v2-api/) or [Identify API](/analytics/apis/identify-api/). This integration doesn't support scheduled or on-demand updates.
 
-Under **Send Users**, make sure the toggle is enabled ("Users are sent to Braze") if you want to stream users and their properties to Braze. When enabled, users are automatically created or updated in Braze when an event is sent to Amplitude. [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) calls are also forwarded to Braze. Users aren't sent on a schedule or on-demand using this integration.
-
-(optional) In **Select additional properties**, select any more user properties you want to send to Braze. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Braze as [Braze custom attributes](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_attributes/). _Transformed user properties aren't supported._
-
-!!!note "User Forwarding Volumes"
-    When Send Users is enabled, all [Amplitude Identify calls](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) and event calls that update user properties will trigger a call to be sent to Braze, even if the updated property isn't selected in **Select additional properties**. This may result in high volumes of calls and properties received by Braze. Every included property will count against your Braze data points. Check your Braze account for the charges associated with the volume of calls and properties expected.
+You can optionally select user properties to send to Braze in the **Select additional properties** field. Amplitude sends only the properties you select and only when one of them is updated. Amplitude sends these properties as [Braze custom attributes](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_attributes/). _This integration doesn't support transformed user properties_.
 
 ### Enable sync
 

@@ -192,6 +192,7 @@ The SDK client can be configured once on initialization.
     | `userProvider` | An interface used to provide the user object to `fetch()` when called. See [Experiment User](https://developers.experiment.amplitude.com/docs/experiment-user#user-providers) for more information. | `null` |
     | `exposureTrackingProvider` | Implement and configure this interface to track exposure events through the experiment SDK, either automatically or explicitly. | `null` |
     | `instanceName` | Custom instance name for experiment SDK instance. **The value of this field is case-sensitive.** | `null` |
+    | `initialFlags` | A JSON string representing an initial set of flag configurations to use for local evaluation. | `undefined` |
 
 !!!info "EU Data Center"
     If you're using Amplitude's EU data center, configure the `serverZone` option on initialization to `.EU`.
