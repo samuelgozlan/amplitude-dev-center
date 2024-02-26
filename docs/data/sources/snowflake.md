@@ -40,7 +40,7 @@ Amplitude's Snowflake Data Import supports two methods for importing data from S
 
 |                   | Table Selection UI                                                                                                                                                                                 | Custom SQL Query                                                                                                                 |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| Import data types | Event, User property, Group Property                                                                                                                                                               | Event, User property, Group Property                                                                                             |
+| Import data types | Event (time-based), User property and Group Property (time-based or full sync)                                                                                                                                                             | Event, User property, Group Property                                                                                             |
 | Import strategy   | Change-based                                                                                                                                                                                       | Time-based                                                                                                                       |
 | When to use       | Recommended for most use cases, user-friendly, minimal SQL knowledge required. <br/>Limited data source selection functionality, consider creating Snowflake VIEW (see Prerequisites for details). | Use when data selection requires customization, even though it may lead to data discrepancies and higher costs if misconfigured |
 
@@ -52,9 +52,9 @@ For the Snowflake source in Amplitude, Table Selection UI uses CDC mechanisms av
 
 #### Prerequisites and considerations
 
-1. If a data source is represented as a complex SQL SELECT statement (for instance, with a JOIN clause is), create a VIEW in your Snowflake account that wraps the data source to use it with a change-based import strategy.
+1. If a data source is represented as a complex SQL SELECT statement (for instance, with a JOIN clause), create a VIEW in your Snowflake account that wraps the data source to use it with a change-based import strategy.
 
-2. Enable change tracking for the source table or view. See[Enabling Change Tracking on Views and Underlying Tables Snowflake](https://docs.snowflake.com/en/user-guide/streams-manage.html#label-enabling-change-tracking-views) for more information. 
+2. Enable change tracking for the source table or view. See [Enabling Change Tracking on Views and Underlying Tables Snowflake](https://docs.snowflake.com/en/user-guide/streams-manage.html#label-enabling-change-tracking-views) for more information. 
 
 3. `DATA_RETENTION_TIME_IN_DAYS` must be greater than or equal to `1`, but Amplitude recommends at least `7` days. Otherwise, the change-based import fails. For more details, see [Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel) in Snowflake's documentation.
 
@@ -64,13 +64,9 @@ For the Snowflake source in Amplitude, Table Selection UI uses CDC mechanisms av
 
 ### Custom SQL query
 
-The Custom SQL query supports time-based import to inform when data sync from Snowflake.
+The Custom SQL query supports time-based import of events, user properties, and group properties, and full syncs of user properties and group properties.
 
-!!!note "Time-based Import"
-
-      When using the Time Based Import option, it's important that the dataset includes a separate column that indicates *when* the data was loaded into the table Amplitude points to when importing. This is often "server upload time", which would be separate from the "event time" (when the actual event occurred).
-
-For Time-based import, Amplitude recommends that you use a monotonically increasing timestamp value. This value should show when the record was loaded into the source table the SQL configuration is querying from (often referred to as a "server upload time"). The warehouse import tool brings data into Amplitude by continually updating the maximum value of the column referenced in the *Timestamp Column Name* input within the Import Config UI with each subsequent import.
+For Time-based import, Amplitude requires that you use a monotonically increasing timestamp value. This value should show when the record was loaded into the source table the SQL configuration is querying from. The warehouse import tool brings data into Amplitude by continually updating the maximum value of the column referenced in the *Timestamp Column Name* input within the Import Config UI with each subsequent import.
 
 !!!example
 
@@ -114,9 +110,11 @@ Choose your configuration options:
 - **Type of data**: This tells Amplitude whether you're ingesting event data, user property data, or group property data.
 - **Type of import:**
   - **Full Sync**: Amplitude periodically ingests the entire dataset, regardless of whether that data has already been imported. This is good for data sets where the row data changes over time, but there is no easy way to tell which rows have changed. Otherwise, the more efficient option would be a time-based import. This option isn't supported for ingesting event data.
-  - **Time-based**: Amplitude periodically ingests the most recent rows in the data, as determined by the provided *Timestamp* column. The first import brings in all available data, and later imports ingest any data with timestamps **after the time of the most recent import**. To use this, include the timestamp of the data load into Snowflake. For more information on how this works, see [the time-based import](#time-based-import) section.
+  - **Time-based**: Amplitude periodically ingests the most recent rows in the data, as determined by the provided *Timestamp* column. The first import brings in all available data, and later ingests any data with timestamps after the maximum timestamp seen during the last import job. To use this, include the timestamp of the data load into Snowflake. For more information on how this works, see [the time-based import](#time-based-import) section.
 - **Frequency**: Choose from several scheduling options ranging from five minutes to one month. With the one month option, Amplitude ingests data on the first of the month.
 - **SQL query**: This is the code for the query Amplitude uses to decide which data is ingested.
+
+Finish the configuration:
 
 1. After you've set your configuration options, click **Test SQL** to see how the data is coming through from your Snowflake instance. Errors appear on this screen.
 2. If there are no errors, click **Finish**. 
