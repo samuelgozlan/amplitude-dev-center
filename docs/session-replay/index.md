@@ -8,7 +8,7 @@ This page provides links to documentation that explains how to instrument Sessio
     Session Replay isn't enabled by default, and requires setup beyond the standard Amplitude instrumentation. For more information, see:
 
     - The [Plugin](/session-replay/sdks/plugin/) instrumentation instructions, if you use Amplitude's Browser SDK.
-    - The [Standalone](/session-replay/sdks/standalone/) SDK instructions, if you use another third-party analytics tool.
+    - The [Standalone](/session-replay/sdks/standalone/) SDK instructions, if you instrument Amplitude through any other method.
 
 ## SDKs
 
