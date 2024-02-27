@@ -60,6 +60,7 @@ For the Snowflake source in Amplitude, Table Selection UI uses CDC mechanisms av
 - If you disable change tracking in Snowflake, or disconnect the Amplitude source for a period longer than the value of `DATA_RETENTION_TIME_IN_DAYS`, Amplitude loses ability to track historical changes. In this case, recreate the connection. To avoid duplicate events, ensure all events have an `insert_id` set, and recreate the connection within seven days.
 - The initial import job transfers all data from the source. Subsequent jobs import the differences from the last successful import.
 - Snowflake [`CHANGES`](https://docs.snowflake.com/en/sql-reference/constructs/changes#usage-notes) limitations apply.
+
 ### Custom SQL query
 
 The Custom SQL query supports time-based import of events, user properties, and group properties, and full syncs of user properties and group properties.
@@ -141,6 +142,9 @@ To change the modeling method of your Snowflake source:
 ### Roll back to a Custom SQL connection
 
 To revert to a Custom SQL connection from an already migrated source, open the source configuration and click **Revert to SQL Query Import**.
+
+!!!info "Snowflake data sources"
+    When you roll back from the Table Selection UI to Custom SQL connection in the, use the same data source (table or view) in Snowflake to avoid inconsistencies.
 
 ## Data fields
 
