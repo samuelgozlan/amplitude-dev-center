@@ -52,15 +52,13 @@ For the Snowflake source in Amplitude, Table Selection UI uses CDC mechanisms av
 
 #### Prerequisites and considerations
 
-1. If a data source is represented as a complex SQL SELECT statement (for instance, with a JOIN clause), create a VIEW in your Snowflake account that wraps the data source to use it with a change-based import strategy.
-
-2. Enable change tracking for the source table or view. See [Enabling Change Tracking on Views and Underlying Tables Snowflake](https://docs.snowflake.com/en/user-guide/streams-manage.html#label-enabling-change-tracking-views) for more information. 
-
-3. `DATA_RETENTION_TIME_IN_DAYS` must be greater than or equal to `1`, but Amplitude recommends at least `7` days. Otherwise, the change-based import fails. For more details, see [Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel) in Snowflake's documentation.
-
-4. [Data field](#data-fields) requirements also apply.
-
-5. (Optional, recommended) Ensure the data to be imported has a unique and immutable `insert_id` for each row to prevent data duplication if there are any unexpected issues. More about Amplitude deduplication and `insert_id` is [Event Deduplication](https://www.docs.developers.amplitude.com/analytics/apis/http-v2-api/#event-deduplication).
+- If a data source is represented as a complex SQL SELECT statement (for instance, with a JOIN clause), create a VIEW in your Snowflake account that wraps the data source to use it with a change-based import strategy.
+- Enable change tracking for the source table or view. See [Enabling Change Tracking on Views and Underlying Tables Snowflake](https://docs.snowflake.com/en/user-guide/streams-manage.html#label-enabling-change-tracking-views) for more information. 
+- `DATA_RETENTION_TIME_IN_DAYS` must be greater than or equal to `1`, but Amplitude recommends at least `7` days. Otherwise, the change-based import fails. For more details, see [Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel) in Snowflake's documentation. Setting `DATA_RETENTION_TIME_IN_DAYS` to  `0` disables the change tracking, and causes the connection to become unrecoverable. If this happens, recreate the source.
+- [Data field](#data-fields) requirements also apply.
+- (Optional, recommended) Ensure the data to be imported has a unique and immutable `insert_id` for each row to prevent data duplication if there are any unexpected issues. More about Amplitude deduplication and `insert_id` is [Event Deduplication](https://www.docs.developers.amplitude.com/analytics/apis/http-v2-api/#event-deduplication).
+- If you disable change tracking in Snowflake, or disconnect the Amplitude source for a period longer than the value of `DATA_RETENTION_TIME_IN_DAYS`, Amplitude loses ability to track historical changes. In this case, recreate the connection. To avoid duplicate events, ensure all events have an `insert_id` set, and recreate the connection within seven days.
+- The initial import job transfers all data from the source. Subsequent jobs import the differences from the last successful import.
 
 ### Custom SQL query
 
@@ -122,6 +120,27 @@ Finish the configuration:
 Amplitude displays a notification indicating you enable the new Snowflake source and redirects you to the Sources listing page.
 
 If you have any issues or questions while following this flow, contact the Amplitude team.
+
+## Migrate from Custom SQL to Table Selection UI
+
+To change the modeling method of your Snowflake source:
+
+1. (Optional, recommended). Ensure the data you plan to import has a unique and immutable `insert_id` in each row to prevent data duplication. For more information, see [Data deduplication](/analytics/apis/http-v2-api/#event-deduplication).
+2. If the source uses complex SQL, including `JOIN` and `WHERE` clauses:
+   1. Create a [`VIEW`](https://docs.snowflake.com/en/user-guide/views-introduction) in your Snowflake account that wraps the data source.
+   2. Enable [Change Tracking](https://docs.snowflake.com/en/user-guide/streams-manage.html#label-enabling-change-tracking-views) on the new view.
+   3. Update the current Snowflake SQL import configuration to use the newly created view. Record the  time of the update.
+   4. Ensure `Data synced as of` is greater than the time recorded in the previous step to prevent potential data discrepancy and failure to identify the data drift after the latest completed import job.
+3. Enable [Change Tracking](https://docs.snowflake.com/en/user-guide/streams-manage.html#label-enabling-change-tracking-views) on the source table or view, if you haven't done so.
+4. Ensure the existing connection has `Data synced as of` (presented on the source detail page) on or after `October 1, 2023, 12:00 AM UTC`. If it doesn't, either re-enable the connection and wait for `Data synced as of` to advance or consider creating a new import connection. Otherwise, Amplitude imports all data from the current source, which may cause data duplication.
+5. Disable the source from the **Manage Import Settings** dialog. If the source has a status of In-Progress, wait for the job to complete and the status changes to Disabled.
+6. Navigate to the **Edit Import Config** tab and click **Convert To Table Select Import**.
+7. Re-enable the source.
+8. Monitor incoming data for one day to ensure the import works as expected.
+
+### Roll back to a Custom SQL connection
+
+To revert to a Custom SQL connection from an already migrated source, open the source configuration and click **Revert to SQL Query Import**.
 
 ## Data fields
 
