@@ -30,3 +30,11 @@ Learn more in the [Experiment documentation](../../experiment/index.md#sdks)
 ### Experiment server-side SDKs
 
 --8<--  "includes/experiment-server-sdks.md"
+
+## Session Replay SDKs
+
+<div class="grid cards" markdown>
+- :session_replay: [Session Replay Browser SDK 2.0 Plugin](/session-replay/sdks/plugin)
+- :session_replay: [Session Replay Standalone SDK](/session-replay/sdks/plugin)
+
+</div>

@@ -38,10 +38,10 @@ With Amplitude's Snowflake integration, you can ingest Snowflake data directly i
 
 Amplitude's Snowflake Data Import supports two methods for importing data from Snowflake, Table Selection UI and Custom SQL Query.
 
-|                   | Table Selection UI                                                                                                                                                                                 | Custom SQL Query                                                                                                                 |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| Import data types | Event (time-based), User property and Group Property (time-based or full sync)                                                                                                                                                             | Event, User property, Group Property                                                                                             |
-| Import strategy   | Change-based                                                                                                                                                                                       | Time-based                                                                                                                       |
+|                   | Table Selection UI                                                                                                                                                                                 | Custom SQL Query                                                                                                                |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Import data types | Event, User property, Group Property                                                                                                                                                               | Event, User property, Group Property                                                                                            |
+| Import strategy   | Change-based                                                                                                                                                                                       | Time-based, Full Sync (only for group and user properties)                                                                      |
 | When to use       | Recommended for most use cases, user-friendly, minimal SQL knowledge required. <br/>Limited data source selection functionality, consider creating Snowflake VIEW (see Prerequisites for details). | Use when data selection requires customization, even though it may lead to data discrepancies and higher costs if misconfigured |
 
 ### Table selection UI
@@ -59,7 +59,7 @@ For the Snowflake source in Amplitude, Table Selection UI uses CDC mechanisms av
 - (Optional, recommended) Ensure the data to be imported has a unique and immutable `insert_id` for each row to prevent data duplication if there are any unexpected issues. More about Amplitude deduplication and `insert_id` is [Event Deduplication](https://www.docs.developers.amplitude.com/analytics/apis/http-v2-api/#event-deduplication).
 - If you disable change tracking in Snowflake, or disconnect the Amplitude source for a period longer than the value of `DATA_RETENTION_TIME_IN_DAYS`, Amplitude loses ability to track historical changes. In this case, recreate the connection. To avoid duplicate events, ensure all events have an `insert_id` set, and recreate the connection within seven days.
 - The initial import job transfers all data from the source. Subsequent jobs import the differences from the last successful import.
-
+- Snowflake [`CHANGES`](https://docs.snowflake.com/en/sql-reference/constructs/changes#usage-notes) limitations apply.
 ### Custom SQL query
 
 The Custom SQL query supports time-based import of events, user properties, and group properties, and full syncs of user properties and group properties.
@@ -127,10 +127,10 @@ To change the modeling method of your Snowflake source:
 
 1. (Optional, recommended). Ensure the data you plan to import has a unique and immutable `insert_id` in each row to prevent data duplication. For more information, see [Data deduplication](/analytics/apis/http-v2-api/#event-deduplication).
 2. If the source uses complex SQL, including `JOIN` and `WHERE` clauses:
-   1. Create a [`VIEW`](https://docs.snowflake.com/en/user-guide/views-introduction) in your Snowflake account that wraps the data source.
-   2. Enable [Change Tracking](https://docs.snowflake.com/en/user-guide/streams-manage.html#label-enabling-change-tracking-views) on the new view.
-   3. Update the current Snowflake SQL import configuration to use the newly created view. Record the  time of the update.
-   4. Ensure `Data synced as of` is greater than the time recorded in the previous step to prevent potential data discrepancy and failure to identify the data drift after the latest completed import job.
+      1. Create a [`VIEW`](https://docs.snowflake.com/en/user-guide/views-introduction) in your Snowflake account that wraps the data source.
+      2. Enable [Change Tracking](https://docs.snowflake.com/en/user-guide/streams-manage.html#label-enabling-change-tracking-views) on the new view.
+      3. Update the current Snowflake SQL import configuration to use the newly created view. Record the  time of the update.
+      4. Ensure `Data synced as of` is greater than the time recorded in the previous step to prevent potential data discrepancy and failure to identify the data drift after the latest completed import job.
 3. Enable [Change Tracking](https://docs.snowflake.com/en/user-guide/streams-manage.html#label-enabling-change-tracking-views) on the source table or view, if you haven't done so.
 4. Ensure the existing connection has `Data synced as of` (presented on the source detail page) on or after `October 1, 2023, 12:00 AM UTC`. If it doesn't, either re-enable the connection and wait for `Data synced as of` to advance or consider creating a new import connection. Otherwise, Amplitude imports all data from the current source, which may cause data duplication.
 5. Disable the source from the **Manage Import Settings** dialog. If the source has a status of In-Progress, wait for the job to complete and the status changes to Disabled.
