@@ -5,19 +5,22 @@ title: Session Replay Standalone SDK
 !!!note "Session Replay Insrumentation"
     Session Replay isn't enabled by default, and requires setup beyond the standard Amplitude instrumentation.
  
-This article covers the installation of Session Replay using the standalone SDK. If you use a provider other than Amplitude for in-product analytics, choose this option. If your site is already instrumented with Amplitude, use the [Session Replay Browser SDK Plugin](/session-replay/sdks/plugin).
+This article covers the installation of Session Replay using the standalone SDK. If you use a provider other than Amplitude for in-product analytics, choose this option. If your site is already instrumented with Amplitude Browser SDK, use the [Session Replay Browser SDK Plugin](/session-replay/sdks/plugin).
 
 --8<-- "includes/session-replay/performance.md"
 
 ## Before you begin
 
-Use the latest version of the Session Replay standalone SDK above version 0.5.0. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/session-replay-browser/CHANGELOG.md) on GitHub.
+Use the latest version of the Session Replay standalone SDK above version 1.0.1. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/session-replay-browser/CHANGELOG.md) on GitHub.
 
 Session Replay Standalone SDK requires that:
 
 1. Your application is web-based.
 2. You track sessions with a timestamp, which you can pass to the SDK. You inform the SDK whenever a session timestamp changes.
 3. You can provide a device ID to the SDK.
+4. The `Session ID` and `Device ID` you pass to the Standalone SDK must match those sent as event properties to Amplitude.
+
+The Standalone SDK doesn't provide Session management capabilities. Your application or a third-party integration must update the SDK with changes to `Session ID` and `Device ID`. 
 
 --8<-- "includes/session-replay/browsers.md"
 

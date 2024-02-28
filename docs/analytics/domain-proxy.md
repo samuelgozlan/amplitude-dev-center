@@ -89,7 +89,7 @@ After you create the configuration file, you can start and test your proxy. Usin
 Here is an example curl command that would test your reverse proxy:
 
 ```curl
-curl --data 'api_key=API_Key' --data-urlencode 'event=[{"user_id":"12345", "event_type":"test_proxy_event", "time":1396381378123}]' http://localhost:8080/amplitude/
+curl -X POST http://localhost:8888/amplitude -H "Content-Type: application/json" --data '{"api_key":"API_Key","events":[{"user_id":"12345", "event_type":"test_proxy_event", "time":1396381378123}]}
 ```
 
 This call should return a `200` response code. In the web app, confirm that Amplitude received the event using User Lookup.

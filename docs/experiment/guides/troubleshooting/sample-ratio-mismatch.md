@@ -45,7 +45,7 @@ If the analysis time window and the time the experiment was receiving traffic ar
 
 ## Variant jumping
 
-[Variant jumping](./variant-jumping.md) describes when a user moves from one variant to another, sometimes multiple times. Variant jumping makes it difficult to attribute the metric to a specific variant. Amplitude Experiment's built-in diagnostics in the **Monitor** tab has charts to make it easy to track the percentage of users jumping between variants. 
+[Variant jumping](./variant-jumping.md) describes when a user moves from one variant to another, sometimes multiple times. Variant jumping makes it difficult to attribute the metric to a specific variant. Amplitude Experiment's built-in diagnostics in the **Diagnostics** card has charts to make it easy to track the percentage of users jumping between variants. 
 
 If there is variant jumping, is it because of anonymous users (people logging in and out frequently) or changing device IDs? You can see this by looking at the [User Stream](https://help.amplitude.com/hc/en-us/articles/229313067-Look-up-event-data-for-individual-users).
 
@@ -53,7 +53,7 @@ As a best practice, you shouldn't change a running experiment in a way that coul
 
 ## Significantly more users converted from Assignment to Exposure for one variant over another
 
-You can find the Assignment to Exposure funnel chart in the **Monitor** tab of an experiment. Enter the conversion rates and sample size into [this calculator](https://www.socscistatistics.com/tests/ztest/default2.aspx) to see if it's statistically significant or not at the 95% significance level. The conversion rates between variants should be similar (within randomness) because the assignment event should randomly split users into two equal cohorts. Because exposure events get sent right before the user experiences a variant, there should be no difference between users because they have the same user experience from the time the assignment event is sent to the time the exposure event is sent.
+You can find the Assignment to Exposure funnel chart in the **Diagnostics** card of an experiment. Enter the conversion rates and sample size into [this calculator](https://www.socscistatistics.com/tests/ztest/default2.aspx) to see if it's statistically significant or not at the 95% significance level. The conversion rates between variants should be similar (within randomness) because the assignment event should randomly split users into two equal cohorts. Because exposure events get sent right before the user experiences a variant, there should be no difference between users because they have the same user experience from the time the assignment event is sent to the time the exposure event is sent.
 
 ## Variant added or removed in the experiment
 
