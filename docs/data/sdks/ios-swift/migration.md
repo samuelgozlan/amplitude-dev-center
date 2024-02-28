@@ -627,7 +627,7 @@ or
 
 ## Data migration
 
-Existing [maintenance SDK](../../ios) data (events, user/device ID) are moved to the latest SDK by default. It can be disabled by setting `migrateLegacyData` to `false` in the [Configuration](../#configuration).
+Existing [maintenance SDK](../../ios) data (events, user/device ID) are moved to the latest SDK by default for all apps that are sandboxed (apps that are distributed via the apple app store are sandboxed by default). It can be disabled by setting `migrateLegacyData` to `false` in the [Configuration](../#configuration).
 
 === "Swift"
 
