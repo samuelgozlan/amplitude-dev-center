@@ -629,7 +629,7 @@ or
 
 Existing [maintenance SDK](../../ios) data (events, user/device ID) are moved to the latest SDK by default. It can be disabled by setting `migrateLegacyData` to `false` in the [Configuration](../#configuration).
 
-For macos apps that are not sandboxed, data from the legacy SDK will not be migrated. [Here's](https://developer.apple.com/documentation/security/app_sandbox/protecting_user_data_with_app_sandbox#4098972) how you can know if your macos app is sandboxed or not. 
+If your macOS app isn't sandboxed, data from the legacy SDK won't migrate. For more information about sandboxing, and how to know if your app is sandboxed, see Apple's article [Protecting user data with App Sandbox](https://developer.apple.com/documentation/security/app_sandbox/protecting_user_data_with_app_sandbox#4098972).
 
 === "Swift"
 
