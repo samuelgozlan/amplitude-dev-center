@@ -1,11 +1,11 @@
 # Requirements for core
-mkdocs-material==8.5.10
+mkdocs-material==9.5.11
 jinja2>=3.0.2
 markdown>=3.2
-mkdocs==1.4.3
+mkdocs==1.5.3
 mkdocs-material-extensions>=1.1
 pygments>=2.12
-pymdown-extensions==9.9.2
+pymdown-extensions==10.2
 
 # Requirements for Social Previews
 cairosvg==2.5.2
