@@ -37,6 +37,13 @@ toplevel: true
 
     [:octicons-arrow-right-24: See the Experiment docs](../experiment/)
 
+- :amp-session-replay:{ .lg .middle } __Amplitude Session Replay__
+
+    ---
+
+    Reconstruct digital experiences to see how your customers unlock value.
+
+    [:octicons-arrow-right-24: See the Experiment docs](/session-replay)
 </div>
 
 ## Explore docs by goal
