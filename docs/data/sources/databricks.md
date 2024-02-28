@@ -16,9 +16,10 @@ Amplitude's Databricks import source enables you to import data from Databricks 
   - Amplitude ignores rows with `delete` operations for all data types.
 - Create joins to import data from multiple tables.
 
-## Restrictions
+## Limitations
 
 - Databricks import doesn't support data well.
+- This integration supports importing data from Databricks.
 - User stream view isn't available for data ingested with this feature.
 - End-to-end latency (from when Amplitude fetches the data, to when you can query it) is between 30 and 60 minutes. Actual latency can vary depending on the workload.
 
