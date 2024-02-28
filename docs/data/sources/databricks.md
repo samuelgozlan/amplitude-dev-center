@@ -26,16 +26,20 @@ Amplitude's Databricks import source enables you to import data from Databricks 
 
 Before you start to configure the Databricks source in Amplitude, complete the following tasks in Databricks.
 
-### Create a service principal
+### Authentication
+
+Amplitude's Databricks import supports authentication through a Databricks Workspace User, or Service Principal. Choose Workspace User authentication for faster setup, or Service Principal authentication for finer grained control. 
+
+#### Get a personal access token (PAT) for the workspace user
+
+Amplitude's Databricks import uses Personal Access Tokens to authenticate. For the quickest setup, create a PAT for your workspace user in Databricks. For more information, see Databricks' article [Personal Access Tokens for Workspace Users](https://docs.databricks.com/en/dev-tools/auth/pat.html#databricks-personal-access-tokens-for-workspace-users)
+
+#### Create a service principal (optional)
+
+Amplitude recommends that you create a service principal in Databricks to allow for more granular control of access.
 
 1. Follow the Databricks instructions to create a service principal in [Databricks | OAuth machine-to-machine (M2M) authentication](https://docs.databricks.com/en/dev-tools/auth/oauth-m2m.html). Copy the **UUID** for use in a later step.
-2. Generate a **client id** and **secret** and copy both values to use in a later step.
-
-### Find or create an all-purpose compute cluster
-
-Amplitude creates workflows in this cluster on your behalf to start sync jobs. When complete, copy the **Server hostname** and **Http path** values to use in a later step. Find both values on the **Configuration -> JDBC/ODBC** tab. For more information, see [Databricks | Create a cluster](https://docs.databricks.com/en/dev-tools/auth/oauth-m2m.html)
-
-### Grant permissions to the service principal
+2. Generate a PAT for the Service Principal
 
 The service principal you created above requires the following permissions in Databricks:
 
@@ -50,6 +54,10 @@ The service principal you created above requires the following permissions in Da
 GRANT MODIFY ON ANY FILE TO `<service_principal_uuid>`;
 GRANT SELECT ON ANY FILE TO `<service_principal_uuid>`;
 ```
+
+### Find or create an all-purpose compute cluster
+
+Amplitude creates workflows in this cluster on your behalf to start sync jobs. When complete, copy the **Server hostname** and **Http path** values to use in a later step. Find both values on the **Configuration -> JDBC/ODBC** tab. For more information, see [Databricks | Create a cluster](https://docs.databricks.com/en/dev-tools/auth/oauth-m2m.html)
 
 ### Enable CDF on your table(s)
 
@@ -66,8 +74,7 @@ To add Databricks as a source in Amplitude, complete the following steps.
 3. On the **Credentials** tab of the Connect Databricks screen, enter the credentials you configured during the Databricks configuration:
     - Server Hostname
     - HTTP Path
-    - Service Principal Client ID
-    - Service Principal Secret
+    - Personal Access Token (for the workspace user or Service Principal)
 4. Click **Next** to verify access.
 
 ### Select data to import
