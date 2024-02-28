@@ -18,7 +18,7 @@ Amplitude's Databricks import source enables you to import data from Databricks 
 
 ## Restrictions
 
-- Databricks import doesn't support data well...
+- Databricks import doesn't support data well.
 - User stream view isn't available for data ingested with this feature.
 - End-to-end latency (from when Amplitude fetches the data, to when you can query it) is between 30 and 60 minutes. Actual latency can vary depending on the workload.
 
