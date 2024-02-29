@@ -101,7 +101,9 @@ Session replay requires that you configure default session event tracking. This 
 
 --8<-- "includes/session-replay/mask-onscreen-data.md"
 
---8<-- "includes/session-replay/user-opt-out.md"
+### User opt-out
+
+The Session Replay plugin follows the Browser SDK's `optOut` setting, and doesn't support user opt-outs on its own.
 
 --8<-- "includes/session-replay/eu-data-residency.md"
 
