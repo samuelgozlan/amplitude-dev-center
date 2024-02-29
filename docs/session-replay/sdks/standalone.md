@@ -86,7 +86,16 @@ Pass the following configuration options when you initialize the Session Replay 
 
 --8<-- "includes/session-replay/mask-onscreen-data.md"
 
---8<-- "includes/session-replay/user-opt-out.md"
+### User opt-out
+
+Session Replay provides an option for opt-out configuration. This prevents Amplitude from collecting session replays when passed as part of initialization. For example:
+
+```js
+// Pass a boolean value to indicate a users opt-out status
+await sessionReplay.init(AMPLITUDE_API_KEY, {
+  optOut: true,
+}).promise;
+```
 
 --8<-- "includes/session-replay/eu-data-residency.md"
 
