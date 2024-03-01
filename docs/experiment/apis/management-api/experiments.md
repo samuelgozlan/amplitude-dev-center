@@ -19,7 +19,7 @@ title: Management API Experiment Endpoints
 | [Remove all users from variant](#remove-all-users-from-variant) | Remove all users from experiment's variant. |
 | [Bulk remove users from variant](#bulk-remove-users-from-variant) | Bulk remove users from experiment's variant. |
 | [List deployments](#list-deployments) | List all deployments for an experiment. |
-| [Create deployment](#create-deployment) | Add a deployment for an experiment. |
+| [Add deployment](#create-deployment) | Add a deployment for an experiment. |
 | [Remove deployment](#remove-deployment) | Remove a deployment from an experiment. |
 | [Edit](#edit) | Edit experiment. |
 | [Create](#create) | Create a new experiment. |
@@ -883,7 +883,7 @@ A successful request returns a `200 OK` response and an array of JSON objects wi
 
 ------
 
-## Create deployment
+## Add deployment
 
 ```bash
 POST https://experiment.amplitude.com/api/1/experiments/{id}/deployments
