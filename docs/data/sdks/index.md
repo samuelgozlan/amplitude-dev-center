@@ -22,6 +22,7 @@ Visit the [SDK Catalog](../sdks/sdk-overview) page to see all the current SDK do
 
 - :amp-analytics: [Analytics and Data SDKs](/data/sdks/sdk-overview/#analytics-sdks)
 - :amp-experiment: [Experiment SDKs](/data/sdks/sdk-overview/#experiment-sdks)
+- :amp-session-replay: [Session Replay SDKs](/data/sdks/sdk-overview/#session-replay-sdks)
 
 </div>
 

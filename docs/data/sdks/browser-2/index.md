@@ -9,6 +9,8 @@ icon: simple/javascript
 
 The Browser SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
+This SDK is compatible with :amp-session-replay:[Amplitude Session Replay](/session-replay).
+
 !!!info "Browser SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=analytics-browser&expanded=true)
 
