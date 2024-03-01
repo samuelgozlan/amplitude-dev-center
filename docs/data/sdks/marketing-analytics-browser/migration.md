@@ -5,6 +5,9 @@ description: Use this guide to easily migrate from Amplitude Marketing Analytics
 
 Amplitude Browser SDK 2.0 (`@amplitude/analytics-browser`) features default event tracking, improved marketing attribution tracking, simplified interface and a lighter weight package.
 
+Browser SDK 2.0 is compatible with :amp-session-replay:[Amplitude Session Replay](/session-replay).
+
+
 ### Terminology
 
 * `@amplitude/marketing-analytics-browser@1`: Marketing Analytics Browser SDK
