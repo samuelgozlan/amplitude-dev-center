@@ -44,6 +44,7 @@ toplevel: true
     Session Replay lets you reconstruct digital experiences to see how your customers unlock value in your product.
 
     [:octicons-arrow-right-24: See the Session Replay docs](/session-replay)
+    
 </div>
 
 ## Explore docs by goal
