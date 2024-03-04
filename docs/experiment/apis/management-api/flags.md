@@ -17,6 +17,7 @@ title: Management API Flag Endpoints
 | [Add users to variant](#add-users-to-variant) | Add users to flag's variant. |
 | [Remove users from variant](#remove-users-from-variant) | Remove users from flag's variant. |
 | [Remove all users from variant](#remove-all-users-from-variant) | Remove all users from flag's variant. |
+| [Bulk remove users from variant](#bulk-remove-users-from-variant) | Bulk remove users from experiment's variant. |
 | [List deployments](#list-deployments) | List all deployments for a flag. |
 | [Create deployment](#create-deployment) | Add a deployment for a flag. |
 | [Remove deployment](#remove-deployment) | Remove a deployment from a flag. |
@@ -688,7 +689,7 @@ Add inclusions (users or devices) to flag's variant.
 ???example "Example request (click to open)"
     ```bash
     {
-        "inclusions": [<user1>@<your-company-email>", <user2>@<your-company-email>m <userId>]
+        "inclusions": [<user1>@<your-company-email>, <user2>@<your-company-email>, <userId>]
     }
     ```
 
@@ -763,6 +764,42 @@ A successful request returns a `200 OK` response and `OK` text.
       --url 'https://experiment.amplitude.com/api/1/flags/<id>/variants/<variantKey>/users' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
+## Bulk remove users from variant
+
+```bash
+DELETE https://experiment.amplitude.com/api/1/flags/{id}/variants/{variantKey}/bulk-delete-users
+```
+
+Bulk remove users or devices from flag's variant. Limited to 100 per request.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. Flag's ID.|
+|`variantKey`| Required. String. The variant's key.|
+
+### Request body
+
+|<div class="med-big-column">Name</div>|Requirement|Type|Description|
+|---|---|---|---|
+|`users`| Required | object | Contains an string array of user or device ids. |
+
+### Response
+
+A successful request returns a `200 OK` response and `OK` text.
+
+!!!example "Example cURL"
+    ```bash
+    curl --request DELETE \
+      --url 'https://experiment.amplitude.com/api/1/flags/<id>/variants/<variantKey>/bulk-delete-users' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>' \
+      --data '{"users":<["id1", "id2", "id3"]>}'
     ```
 
 ------
@@ -904,6 +941,7 @@ Edit a flag.
 |`bucketingUnit`| Optional | string | Bucketing unit represented by a group type from the accounts add-on. Used for group level bucketing and analysis. |
 |`evaluationMode`| Optional | string | Evaluation mode for the flag, either `local` or `remote`. |
 |`rolloutPercentage`| Optional | number | Rollout percentage for non-targeted users. Range 0 - 100. |
+|`targetSegments`| Optional | object | See the [`targetSegments`](#targetsegments) table for more information. When `targetSegments` object is provided, it will replace existing target segments. Note: cohorts are not supported at the moment. |
 |`enabled`| Optional | boolean | Property to activate or deactivate flag. |
 |`archive`| Optional | boolean | Property to archive or unarchive flag. |
 |`tags` | Optional | string array | A list of tags for the flag. Tags are added and deleted by the same operation. If you would like to add new tags to the existing ones, you should fetch a list of all flag tags first.
@@ -979,10 +1017,10 @@ The `targetSegments` field contains these objects.
 
 |<div class="med-big-column">Name</div>|Requirement|Type|Description|
 |---|---|---|---|
-|`name`|Optional | string | The segment name. |
+|`name`| Required | string | The segment name. |
 |`conditions`| Required | object array | Array of [`conditions`](#conditions). |
-|`percentage`| Optional | number | The allocation percentage for users who match a condition. |
-|`rolloutWeights`| Optional | object | A map from variant key to rollout weight. For example: `{ "control": 1, "treatment": 1 }`. |
+|`percentage`| Required | number | The allocation percentage for users who match a condition. |
+|`rolloutWeights`| Required | object | A map from variant key to rollout weight. For example: `{ "control": 1, "treatment": 1 }`. |
 
 #### `conditions`
 

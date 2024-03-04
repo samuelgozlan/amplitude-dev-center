@@ -4,5 +4,6 @@
 
 - :s3: [Amazon S3](../data/destinations/amazon-s3.md)
 - :google-cloud-platform: [Google Cloud Storage](../data/destinations/google-cloud-storage.md)
+- :azure-blob-storage: [Microsoft Azure Blob Storage](/data/destinations/azure-blob-storage/)
 
 </div>

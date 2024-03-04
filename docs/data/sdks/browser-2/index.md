@@ -9,6 +9,8 @@ icon: simple/javascript
 
 The Browser SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
+This SDK is compatible with :amp-session-replay:[Amplitude Session Replay](/session-replay).
+
 !!!info "Browser SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=analytics-browser&expanded=true)
 
@@ -65,6 +67,7 @@ amplitude.init(AMPLITUDE_API_KEY, 'user@amplitude.com', options);
     |`userId` | `number`. Sets an identifier for the user being tracked. Must have a minimum length of 5 characters unless overridden with the `minIdLength` option. | `undefined` |
     |`trackingOptions` | `TrackingOptions`. Configures tracking of additional properties. Please refer to `Optional tracking` section for more information. | Enable all tracking options by default. |
     |`transport` | `string`. Sets request API to use by name. Options include `fetch` for fetch, `xhr` for `XMLHttpRequest`, or  `beacon` for `navigator.sendBeacon`. | `fetch` |
+    |`offline` | `boolean | OfflineDisabled`. Whether the SDK is connected to network. Learn more [here](./#offline-mode) | `false` |
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
@@ -418,5 +421,20 @@ You can opt-out of using cookies by setting `identityStorage` to `localStorage` 
 ```ts
 amplitude.init("api-key", null, {
   identityStorage: "localStorage",
+});
+```
+
+### Offline mode
+
+!!!note "Auto flush when reconnect"
+    Setting `config.flushIntervalMillis` to a small value like `1` may cause an `ERR_NETWORK_CHANGED` error.
+
+Beginning with version 2.4.0, the Amplitude Browser SDK supports offline mode. The SDK checks network connectivity every time it tracks an event. If the device is connected to network, the SDK schedules a flush. If not, it saves the event to storage. The SDK also listens for changes in network connectivity and schedules a flush of all stored events when the device reconnects, based on the `config.flushIntervalMillis` setting.
+
+To disable offline mode, add `offline: amplitude.Types.OfflineDisabled` to the `amplitude.init()` call as shown below.
+
+```ts
+amplitude.init(AMPLITUDE_API_KEY, {
+  offline: amplitude.Types.OfflineDisabled
 });
 ```

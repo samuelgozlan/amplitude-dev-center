@@ -61,7 +61,7 @@ _This applies to both event and user forwarding. Transformed user properties are
 Under **Send Events**, make sure the toggle is enabled ("Events are sent to Intercom") if you want to stream events to Intercom. When enabled, events are automatically forwarded to Intercom when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration. Events are sent to Intercom as [Intercom data events](https://developers.intercom.com/intercom-api-reference/reference/the-data-event-model). Intercom has a limit of 120 event types.
 
 Intercom triggers an event `[Intercom] event.created` when Intercom creates events, including events from Amplitude's Event Streaming integration.
-If you don't want Amplitude to store these events, use Amplitude's [block or drop filters](https://help.amplitude.com/hc/en-us/articles/16805784778907-Remove-invalid-or-incorrect-data) to remove this data. 
+If you don't want Amplitude to store these events, use Amplitude's [block or drop filters](https://help.amplitude.com/hc/en-us/articles/16805784778907-Remove-invalid-or-incorrect-data) to remove this data.
 
 1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Intercom. _Transformed events aren't supported._
 
@@ -75,13 +75,9 @@ If you don't want Amplitude to store these events, use Amplitude's [block or dro
 
 ### Configure user forwarding
 
-Under **Send Users**, make sure the toggle is enabled ("Users are sent to Intercom") if you want to stream users and their properties to Intercom. When enabled, users are automatically created or updated in Intercom when an event is sent to Amplitude. [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) calls are also forwarded to Intercom. Users aren't sent on a schedule or on-demand using this integration. Each user is created as an [Intercom contact](https://developers.intercom.com/intercom-api-reference/reference/the-contact-model).
+To stream user and property updates to Intercom, enable **Send Users**. This setting creates or updates users in Intercom when you update them in Amplitude with the [HTTP V2 API](/analytics/apis/http-v2-api/) or [Identify API](/analytics/apis/identify-api/). This integration doesn't support scheduled or on-demand updates. Each user is created as an [Intercom contact](https://developers.intercom.com/intercom-api-reference/reference/the-contact-model).
 
-(optional) In **Select additional properties**, select any more user properties you want to send to Intercom. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Intercom as [Intercom custom attributes](https://www.intercom.com/help/en/articles/179-send-custom-user-attributes-to-intercom/). Custom attributes must exist in Intercom. _Transformed user properties aren't supported._
-
-!!!note "User Forwarding Volumes"
-    When Send Users is enabled, all [Amplitude Identify calls](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) and event calls that update user properties will trigger a call to be sent to Intercom, even if the updated property
-    isn't selected in **Select additional properties**.
+You can optionally select user properties to send to Intercom in the **Select additional properties** field. Amplitude sends only the properties you select and only when one of them is updated. Amplitude sends these properties as [Intercom custom attributes](https://www.intercom.com/help/en/articles/179-send-custom-user-attributes-to-intercom/). _This integration doesn't support transformed user properties_.
 
 ### Enable sync
 

@@ -610,6 +610,9 @@ You can send these keys in the JSON event object. Note that one of `user_id` or 
 It's best practice to implement retry logic and send an `insert_id` (used for deduplication of the same event) in your events.
  This prevents lost events or duplicated events if the API is unavailable or a request fails.
 
+!!! note "Logging errors"
+    Amplitude recommends that you add your own logging to capture responses that receive a response other than `200`.
+
 ### 200 response SuccessSummary
 
 [200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1): Successful real time event upload. If you don't receive a `200 OK` response, retry your request.

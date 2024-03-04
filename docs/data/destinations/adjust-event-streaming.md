@@ -5,10 +5,6 @@ description: Stream Amplitude events to Adjust
 
 Amplitude CDP's Adjust streaming integration enables you to forward your Amplitude events to [Adjust](https://www.adjust.com/) with just a few clicks.
 
-!!!beta "This feature is in Beta"
-
-    This feature is in Beta and is in active development. Contact the Amplitude support team at [integrations@amplitude.com](mailto:integrations@amplitude.com) for access or support.
-
 ## About Adjust
 
 [Adjust](https://www.adjust.com/) is a business intelligence platform for mobile app marketers, combining attribution for advertising sources with advanced analytics and store statistics.

@@ -1,20 +1,26 @@
 ---
 title: Session Replay Standalone SDK
 ---
+
+!!!note "Session Replay Insrumentation"
+    Session Replay isn't enabled by default, and requires setup beyond the standard Amplitude instrumentation.
  
-This article covers the installation of Session Replay using the standalone SDK. If you use a provider other than Amplitude for in-product analytics, choose this option. If your site is already instrumented with Amplitude, use the [Session Replay Browser SDK Plugin](/session-replay/sdks/plugin).
+This article covers the installation of Session Replay using the standalone SDK. If you use a provider other than Amplitude for in-product analytics, choose this option. If your site is already instrumented with Amplitude Browser SDK, use the [Session Replay Browser SDK Plugin](/session-replay/sdks/plugin).
 
 --8<-- "includes/session-replay/performance.md"
 
 ## Before you begin
 
-Use the latest version of the Session Replay standalone SDK above version 0.5.0. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/session-replay-browser/CHANGELOG.md) on GitHub.
+Use the latest version of the Session Replay standalone SDK above version 1.0.1. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/session-replay-browser/CHANGELOG.md) on GitHub.
 
 Session Replay Standalone SDK requires that:
 
 1. Your application is web-based.
 2. You track sessions with a timestamp, which you can pass to the SDK. You inform the SDK whenever a session timestamp changes.
 3. You can provide a device ID to the SDK.
+4. The `Session ID` and `Device ID` you pass to the Standalone SDK must match those sent as event properties to Amplitude.
+
+The Standalone SDK doesn't provide Session management capabilities. Your application or a third-party integration must update the SDK with changes to `Session ID` and `Device ID`. 
 
 --8<-- "includes/session-replay/browsers.md"
 
@@ -80,7 +86,16 @@ Pass the following configuration options when you initialize the Session Replay 
 
 --8<-- "includes/session-replay/mask-onscreen-data.md"
 
---8<-- "includes/session-replay/user-opt-out.md"
+### User opt-out
+
+Session Replay provides an option for opt-out configuration. This prevents Amplitude from collecting session replays when passed as part of initialization. For example:
+
+```js
+// Pass a boolean value to indicate a users opt-out status
+await sessionReplay.init(AMPLITUDE_API_KEY, {
+  optOut: true,
+}).promise;
+```
 
 --8<-- "includes/session-replay/eu-data-residency.md"
 
@@ -124,6 +139,15 @@ if (nonEUCountryFlagEnabled) {
 --8<-- "includes/session-replay/known-limitations.md"
 
 ## Troubleshooting
+
+For more information about individual statuses and errors, see the [Session Replay Ingestion Monitor](/session-replay/ingestion-monitor).
+
+### CSS styling doesn't appear in replay
+
+When Amplitude captures a replay, it doesn't download and store CSS files or other static assets that are part of your application or site. Session Replay stores references to these files, and uses those references while it reconstructs the replay. In some situations, the styling present in the replay may differ from your application for the following reasons:
+
+- Assets on your site move or change name. This can happen when you deploy a new version of your application.
+- Assets on your site are behind access controls that prevent Amplitude from fetching them.
 
 ### Session replays don't appear in Amplitude 
 
