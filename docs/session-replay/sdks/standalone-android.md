@@ -100,6 +100,7 @@ val sessionReplay = SessionReplay(
 ```
 
 --8<-- "includes/session-replay/eu-data-residency-common.md"
+
 ```kotlin
 // Set serverZone to EU
 val sessionReplay = SessionReplay(
@@ -110,6 +111,7 @@ val sessionReplay = SessionReplay(
 ```
 
 --8<-- "includes/session-replay/sampling-rate-common.md"
+
 ```kotlin
 // This configuration samples 1% of all sessions
 val sessionReplay = SessionReplay(

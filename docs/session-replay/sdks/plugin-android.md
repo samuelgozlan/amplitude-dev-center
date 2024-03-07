@@ -113,6 +113,7 @@ amplitude.add(SessionReplayPlugin(/* session replay options */))
 ```
 
 --8<-- "includes/session-replay/eu-data-residency-common.md"
+
 ```kotlin
 // Set serverZone on the Amplitude SDK
 val amplitude = Amplitude(Configuration(
@@ -124,6 +125,7 @@ amplitude.add(SessionReplayPlugin(/* session replay options */))
 ```
 
 --8<-- "includes/session-replay/sampling-rate-common.md"
+
 ```kotlin
 // This configuration samples 1% of all sessions
 amplitude.add(SessionReplayPlugin(sampleRate = 0.01))
