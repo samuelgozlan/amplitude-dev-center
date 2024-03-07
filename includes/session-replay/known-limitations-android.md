@@ -6,8 +6,6 @@ Keep the following limitations in mind as you implement Session Replay:
 
 - (alpha) Not all view components are supported at this time. Please let us know (with a session replay link) and we will add support soon.
 
-- When using the plugin, session events must be enabled on the SDK. Learn more in [Tracking default sessions events](#track-default-session-events).
-
 - Session Replay doesn't stitch together replays from a single user across multiple projects. For example:
   
     - You instrument multiple apps as separate Amplitude projects with Session Replay enabled in each.
@@ -20,4 +18,4 @@ Keep the following limitations in mind as you implement Session Replay:
 
     - ImageView
     - WebView
-    - Static assets like fonts, drawable, and images from the `res` folder. 
+    - Static assets like fonts, drawable, and images from the `res` folder.
