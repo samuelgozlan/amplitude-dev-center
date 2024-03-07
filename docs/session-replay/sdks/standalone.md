@@ -1,5 +1,5 @@
 ---
-title: Session Replay Standalone SDK
+title: Session Replay Standalone SDK for Browser
 ---
 
 !!!note "Session Replay Insrumentation"
