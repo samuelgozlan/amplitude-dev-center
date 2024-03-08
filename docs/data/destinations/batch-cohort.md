@@ -15,23 +15,29 @@ description: Sync cohorts from Amplitude to Batch
 - You must enable this integration in each Amplitude project you want to use it in.
 - This integration requires a paid Batch plan.
 - The integration requires both custom audiences and third-party connections in Batch.
-- Batch expects an identifier that matches the Batch Custom User ID field. This means the `user_id` or user property you select in Amplitude must contain the same identifier as the one tracked in Batch.
+- Batch expects an identifier that matches the Batch Custom User ID or the Installation ID field. This means the `user_id` or user property you select in Amplitude must contain the same identifier as the one tracked in Batch in one of these fields.
 
 ## Setup
+Two types of cohort destinations can be setup for Batch:
+
+- Use the **Batch (Profile)** destination if you want your cohorts to be synced with your Batch Omnichannel project.
+- Use the **Batch** destination if you want your cohorts to be synced with a specific mobile app or website.
 
 ### Batch setup
 
 1. In Batch, navigate to Settings > General.
-2. Copy the API Key ("Live API Key" for mobile or "SDK API Key" for web) of the application in which you want to use Amplitude’s Cohorts, and your account's REST API Key.
+2. Copy the API Key ("Live API Key" for mobile or "SDK API Key" for web) of the application in which you want to use Amplitude’s Cohorts OR the Project key of the omnichannel project in which you want to use Amplitude’s Cohorts.
+3. Copy your account's REST API Key.
 
 ### Amplitude setup
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
-2. In the Cohort section, click **Batch**.
+2. In the Cohort section, click **Batch** or  **Batch (Profile)**.
 3. Click **Add another destination**.
 4. Enter a **Name** and paste in the **API key** you copied from Batch.
-5. Map the Amplitude `user_id` field to the Batch `user_id` field.
-6. Save when finished.
+5. If not using the **Batch (Profile)** destination: Select the type of identifier composing your segment on Batch (Custom User ID / Installation ID).
+6. Map the Amplitude `user_id` field to the Batch `user_id` field.
+7. Save when finished.
 
 ## Send a cohort
 
@@ -45,7 +51,7 @@ To sync your first cohort:
 
 ## Locating your cohort in Batch
 
-When the Cohort is synced to Batch, it appears in the “Audiences” tab of the dashboard. Select it in the targeting section of the campaign editor to use it in a Push or In-App campaign. This is useful if you want to include or exclude a segment of users from your campaign.
+When the Cohort is synced to Batch, it appears in the “Audiences” tab of the dashboard. Select it in the targeting section of the campaign editor to use it in a Push, In-App, Email or SMS campaign. This is useful if you want to include or exclude a segment of users from your campaign.
 
 ### Use cases
 
