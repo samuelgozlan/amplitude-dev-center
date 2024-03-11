@@ -7,7 +7,7 @@ Candu helps you build, iterate, and personalize your in-app content experiences.
 
 !!!beta
 
-    The Candu integration is in beta. To join their beta program, or if you have any feedback to help improve the Candu Destination and its documentation, [contact the Candu support team](https://docs.candu.ai/en/).
+    Contact the [Candu Support team](https://docs.candu.ai/en/) for support with this integration.
 
 ## Considerations
 
