@@ -15,7 +15,7 @@ description: Sync cohorts from Amplitude to Batch
 - You must enable this integration in each Amplitude project you want to use it in.
 - This integration requires a paid Batch plan.
 - The integration requires both custom audiences and third-party connections in Batch.
-- Batch expects an identifier that matches the Batch Custom User ID field. This means the `user_id` or user property you select in Amplitude must contain the same identifier as the one tracked in Batch.
+- Batch expects an identifier that matches the Batch Custom User ID or the Installation ID field. This means the user_id or user property you select in Amplitude must contain the same identifier as the one tracked in Batch in one of these fields.
 
 ## Setup
 
@@ -30,8 +30,9 @@ description: Sync cohorts from Amplitude to Batch
 2. In the Cohort section, click **Batch**.
 3. Click **Add another destination**.
 4. Enter a **Name** and paste in the **API key** you copied from Batch.
-5. Map the Amplitude `user_id` field to the Batch `user_id` field.
-6. Save when finished.
+5. Select the type of identifier composing your segment on Batch (Custom User ID / Installation ID).
+6. Map the Amplitude `user_id` field to the Batch `user_id` field.
+7. Save when finished.
 
 ## Send a cohort
 
