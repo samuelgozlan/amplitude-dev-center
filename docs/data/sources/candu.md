@@ -7,9 +7,7 @@ description: Use the Candu integration to analytics events such as views, clicks
 
     The Candu integration is in beta. To join their beta program, or if you have any feedback to help improve the Candu Destination and its documentation, [contact the Candu support team](https://docs.candu.ai/en/).
 
-Candu helps you build, iterate, and personalize your in-app content experiences. It is important to measure the impact this content has on your business objectives.
-
-This integration enables you to send events back to Amplitude, enabling you to leverage Amplitude's analytics capabilities to gain insights into user behavior and improve your product experience even further!
+Candu helps you build, iterate, and personalize your in-app content experiences.This integration enables you to send events back to Amplitude, enabling you to leverage Amplitude's analytics capabilities to gain insights into user behavior and improve your product experience even further!
 
 ## Considerations
 
