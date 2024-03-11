@@ -7,7 +7,9 @@ Session replay uses existing Amplitude tools and APIs to handle privacy and dele
 <!--vale on-->
 ### Retention period
 
-By default, Amplitude retains raw replay data for 90 days from the date of ingestion. If your use case requires a more strict policy, Amplitude can set the value to 30 days by request.
+If your Amplitude plan includes Session Replay, Amplitude retains raw replay data for 30 days from the date of ingestion. 
+
+If you purchase extra session volume, Amplitude retains raw replay data for 90 days from the date of ingestion. If you need a more strict policy, contact Amplitude support to set the value to 30 days.
 
 Changes to the retention period impact replays ingested after the change. Sessions captured and ingested before a retention period change retain the previous retention period.
 
