@@ -19,10 +19,10 @@ description: Sync cohorts from Amplitude to Batch
 
 ## Setup
 
-Two types of cohort destinations can be setup for Batch:
+Batch supports two types of cohort destination:
 
-- Use the **Batch (Profile)** destination if you want your cohorts to be synced with your Batch Omnichannel project.
-- Use the **Batch** destination if you want your cohorts to be synced with a specific mobile app or website.
+- Use the **Batch (Profile)** destination to sync your cohorts with your Batch Omnichannel project.
+- Use the **Batch** destination to sync your cohorts with a specific mobile app or website.
 
 ### Batch setup
 
@@ -33,7 +33,7 @@ Two types of cohort destinations can be setup for Batch:
 ### Amplitude setup
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
-2. In the Cohort section, click **Batch** or  **Batch (Profile)**.
+2. In the Cohort section, click **Batch** or **Batch (Profile)**.
 3. Click **Add another destination**.
 4. Enter a **Name** and paste in the **API key** you copied from Batch.
 5. If not using the **Batch (Profile)** destination: Select the type of identifier composing your segment on Batch (Custom User ID / Installation ID).
