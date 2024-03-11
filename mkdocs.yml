@@ -213,6 +213,7 @@ nav:
         - Collaboration:
           - Tribe: data/sources/tribe.md
         - Customer Engagement:
+          - Candu: data/sources/candu.md
           - Chameleon: data/sources/chameleon.md
           - Cordial: data/sources/cordial.md
           - Intercom: data/sources/intercom.md
