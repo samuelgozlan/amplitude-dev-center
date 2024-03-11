@@ -114,9 +114,9 @@ The Session Replay plugin follows the Browser SDK's `optOut` setting, and doesn'
 Once enabled, Session Replay runs on your site until either:
 
 - The user leaves your site
-- You call `sessionReplay.shutdown()`
+- You call `amplitude.remove('sessionReplayTracking')`
 
-Call `sessionReplay.shutdown()` before a user navigates to a restricted area of your site to disable replay collection while the user is in that area. 
+Call `amplitude.remove('sessionReplayTracking')` before a user navigates to a restricted area of your site to disable replay collection while the user is in that area. 
 
 Call `sessionReplay.init(API_KEY, {...options})` to re-enable replay collection when the return to an unrestricted area of your site.
 
@@ -228,4 +228,4 @@ In general, replays should be available within minutes of ingestion. Delays or e
 - Session Replay references the wrong project.
 - Short sessions. If a users bounces within a few seconds of initialization, the SDK may not have time to upload replay data.
 - Page instrumentation. If Session Replay isn't implemented on all pages a user visits, their session may not capture properly.
-- Replays older than the set [retention period](#retention-period) (defaults to 90 days).
+- Replays older than the set [retention period](#retention-period) (defaults to 30 days, or 90 days if you purchase extra volume).
