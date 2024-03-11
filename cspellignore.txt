@@ -52,6 +52,8 @@ Bronto
 buildpath
 bulgogi
 BYOUR
+Candu
+candu
 Canonicalization
 canonicalization
 canonicalized
