@@ -7,7 +7,7 @@ Candu helps you build, iterate, and personalize your in-app content experiences.
 
 !!!info "This integration is managed by Candu"
 
-    Contact the [Candu Support team](https://docs.candu.ai/en) for support with this integration.
+  Contact the [Candu support team](https://docs.candu.ai/en/) with any questions about this integration.
 
 ## Considerations
 
