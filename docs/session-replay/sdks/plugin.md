@@ -201,7 +201,7 @@ Browser extensions or network security policy may block the Session Replay SDK. 
 
 #### No events triggered through the browser SDK in the current session
 
-Session Replay requires that at least one event in the user's session has the `[Amplitude] Session Replay ID` property. If you instrument your events with a method other than the [Browser SDK](/data/sdks/browser-2/), the Browser SDK may send only the default Session Start and Session End events, which don't include this property.
+Session Replay requires that at least one event in the user's session has the `[Amplitude] Session Replay ID` property. The [Browser SDK](/data/sdks/browser-2/) `Session Start` and `Session End` events include this property by default. If you instrument your events with a method other than the Browser SDK, the Browser SDK may send only the default `Session Start` and `Session End` events.
 
 For local testing, you can force a Session Start event to ensure that Session Replay functions. 
 
