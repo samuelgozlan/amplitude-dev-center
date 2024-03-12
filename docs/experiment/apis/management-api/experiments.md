@@ -1136,6 +1136,10 @@ A string value representing operations on a property value. Possible values are:
 - `less or equal`
 - `greater`
 - `greater or equal`
+- `set is`
+- `set is not`
+- `set contains`
+- `set does not contain`
 - `glob match`
 - `glob does not match`
 
