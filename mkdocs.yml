@@ -75,8 +75,8 @@ plugins:
       j2_variable_end_string: '}}'
   - markdownextradata:
       jinja_options:
-        variable_start_string: '{*'
-        variable_end_string: '*}'     
+        variable_start_string: '{$'
+        variable_end_string: '$}'     
 
 # Extensions
 # When you add or change an extension here, mirror changes in insiders.mkdocs.yml.
