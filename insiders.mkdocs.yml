@@ -23,6 +23,10 @@ plugins:
       external_links: true
       external_links_attr_map:
         target: _blank
+  - markdownextradata:
+      jinja_options:
+        variable_start_string: '@{$'
+        variable_end_string: '$}' 
 
 # Extensions
 markdown_extensions:

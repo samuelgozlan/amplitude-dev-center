@@ -13,7 +13,7 @@ This article covers the installation of Session Replay for Android using the sta
 
 ## Before you begin
 
-Use the latest version of the Session Replay SDK above version `0.4.1`. For a list of available versions, see the [release versions](https://central.sonatype.com/artifact/com.amplitude/session-replay-android/versions) on Maven Central.
+Use the latest version of the Session Replay SDK above version `@{$ android.session_replay.version $}`. For a list of available versions, see the [release versions](https://central.sonatype.com/artifact/com.amplitude/session-replay-android/versions) on Maven Central.
 
 Session Replay Standalone SDK requires that:
 
@@ -33,7 +33,7 @@ Add the [latest version](https://central.sonatype.com/artifact/com.amplitude/ses
 === "Gradle"
 
     ```kotlin
-    implementation("com.amplitude:session-replay-android:0.4.+")
+    implementation("com.amplitude:session-replay-android:{$ android.session_replay.version $}")
     ```
 
 Configure your application code.

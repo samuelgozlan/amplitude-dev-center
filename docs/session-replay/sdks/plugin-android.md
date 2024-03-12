@@ -13,7 +13,7 @@ This article covers the installation of Session Replay using the Android SDK plu
 
 ## Before you begin
 
-Use the latest version of the Session Replay Plugin above version `0.4.1`. For a list of available versions, see all [release versions](https://central.sonatype.com/artifact/com.amplitude/plugin-session-replay-android/versions) on Maven Central.
+Use the latest version of the Session Replay Plugin above version `@{$ android.session_replay.version $}`. For a list of available versions, see all [release versions](https://central.sonatype.com/artifact/com.amplitude/plugin-session-replay-android/versions) on Maven Central.
 
 The Session Replay Plugin requires that:
 
@@ -30,7 +30,7 @@ Add the [latest version](https://central.sonatype.com/artifact/com.amplitude/plu
 
     ```kotlin
     // Install latest version from Maven Central
-    implementation("com.amplitude:plugin-session-replay-android:0.4.+")
+    implementation("com.amplitude:plugin-session-replay-android:@{$ android.session_replay.version $}")
     // You will also need the Amplitude Analytics SDK if it's not already installed
     implementation("com.amplitude:analytics-android:[1.0.0, 2.0.0)")
     ```

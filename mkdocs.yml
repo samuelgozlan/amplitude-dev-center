@@ -159,8 +159,7 @@ extra:
   generator: false #hides the generated with text in the footer
   android:
     session_replay:
-      plugin:
-        version: 0.5+
+      version: 0.5+
 # Navigation
 nav:
 - Documentation:
