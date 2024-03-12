@@ -1,5 +1,5 @@
 <!-- To add an entry, first add an SVG logo in overrides/.icons, then add a new line item in the table. Wrap the icon filename in colons to reference it. -->
-
+<!--vale off-->
 <div class="grid cards" markdown>
 
 - :absmartly: [ABsmartly](/data/destinations/absmartly-event-streaming)
@@ -29,11 +29,11 @@
 - :meta: [Meta Pixel](/data/destinations/meta-pixel)
 - :moengage: [MoEngage](/data/destinations/moengage-event-streaming)
 - :moloco: [Moloco](/data/destinations/moloco-event-streaming) 
-- :movable-ink: [Movable Ink](/data/destinations/movable-ink-event-streaming)
+- :moveable-ink: [Movable Ink](/data/destinations/movable-ink-event-streaming)
 - :planhat: [Planhat](/data/destinations/planhat-event-streaming)
 - :plotline: [Plotline](/data/destinations/plotline-event-streaming)
 - :pushwoosh: [Pushwoosh](/data/destinations/pushwoosh-event-streaming)
-- :sfmc: [Salesforce Marketing Cloud](/data/destinations/marketing-cloud-event-streaming)
+- :salesforce: [Salesforce Marketing Cloud](/data/destinations/marketing-cloud-event-streaming)
 - :statsig: [Statsig](/data/destinations/statsig)
 - :toplyne: [Toplyne](/data/destinations/toplyne)
 - :userlist: [Userlist](/data/destinations/userlist-event-streaming)
