@@ -73,6 +73,10 @@ plugins:
       j2_block_end_string: '%}'
       j2_variable_start_string: '@{{'
       j2_variable_end_string: '}}'
+  - markdownextradata:
+      jinja_options:
+        variable_start_string: '{*'
+        variable_end_string: '*}'     
 
 # Extensions
 # When you add or change an extension here, mirror changes in insiders.mkdocs.yml.
@@ -152,9 +156,11 @@ extra:
       as to measure the effectiveness of our documentation and whether users
       find what they're searching for. With your consent, you're helping us to
       make our documentation better. For more information, see Amplitude's <a href="https://amplitude.com/privacy" target="_blank">Privacy Policy</a>.
-
   generator: false #hides the generated with text in the footer
-
+  android:
+    session_replay:
+      plugin:
+        version: 0.5+
 # Navigation
 nav:
 - Documentation:

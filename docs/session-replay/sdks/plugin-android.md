@@ -4,6 +4,8 @@ title: Session Replay Android SDK Plugin (ALPHA)
 
 --8<-- "includes/session-replay/eap-warning-android.md"
 
+{*android.session_replay.plugin.version*}
+
 !!!note "Session Replay Instrumentation"
     Session Replay isn't enabled by default, and requires setup beyond the standard Amplitude instrumentation.
 
