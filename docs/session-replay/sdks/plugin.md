@@ -11,7 +11,7 @@ This article covers the installation of Session Replay using the Browser SDK plu
 
 ## Before you begin
 
-Use the latest version of the Session Replay Plugin above version 1.0.2. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/plugin-session-replay-browser/CHANGELOG.md) on GitHub.
+Use the latest version of the Session Replay Plugin above version @{$ browser.session_replay.plugin.version $}. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/plugin-session-replay-browser/CHANGELOG.md) on GitHub.
 
 The Session Replay Plugin requires that:
 
@@ -54,7 +54,7 @@ You can also add the code directly to the `<head>` of your site. With this metho
 
 ```html
 <script src="https://cdn.amplitude.com/libs/analytics-browser-2.1.3-min.js.gz"></script>
-<script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-0.10.1-min.js.gz"></script>
+<script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-@{$ browser.session_replay.plugin.version $}-min.js.gz"></script>
 <script>
 window.amplitude.init(API_KEY)
 const sessionReplayTracking = window.sessionReplay.plugin();
