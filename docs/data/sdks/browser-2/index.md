@@ -441,7 +441,11 @@ amplitude.init(AMPLITUDE_API_KEY, {
 
 ### Marketing Attribution Tracking
 
-We automatically track marketing attribution by default. Once marketing attribution tracking is enabled, Amplitude will automatically generate identify events to assign the campaign value in certain cases. This ensures that user properties are updated and will influence future events. Below, we outline scenarios that demonstrate when marketing attribution will or will not be tracked. It's important to remember that these examples are illustrative and not exhaustive:
+Amplitude tracks marketing attribution by default. Once you enable marketing attribution tracking, Amplitude generates `identify` events to assign the campaign value in certain cases. This ensures that user properties update and influence future events. 
+For more information, see the scenarios outlined below that demonstrate when Amplitude does or doesn't track marketing attribution. These examples are illustrative, not exhaustive:
+
+Amplitude tracks marketing attribution by default. Once you enable marketing attribution tracking, Amplitude generates `identify` events to assign the campaign value in certain cases. This ensures that user properties update and influence future events. 
+For more information, see the scenarios outlined below that demonstrate when Amplitude does or doesn't track marketing attribution. These examples are illustrative, not exhaustive.
 
 Tracking occurs when either of the following applies:
 
@@ -452,7 +456,7 @@ Tracking occurs when either of the following applies:
 | There is an introduction of new UTM parameter or `clickId` parameter. | If any utm parameters or `clickId` parameters has been dropped during a session, we will unset it. |
 | The referrer domain changes to a new one. | Referrer domain changed from `a.test.com` to `b.test-new.com`|
 
-Conversely, attribution tracking will not be conducted under any of the following conditions:
+Amplitude doesn't track marketing attribution under any of the following conditions:
 
 |Rule|Example|
 |-|-|
