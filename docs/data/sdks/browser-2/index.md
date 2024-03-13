@@ -438,3 +438,24 @@ amplitude.init(AMPLITUDE_API_KEY, {
   offline: amplitude.Types.OfflineDisabled
 });
 ```
+
+### Marketing Attribution Tracking
+
+We automatically track marketing attribution by default. Once marketing attribution tracking is enabled, Amplitude will automatically generate identify events to assign the campaign value. This ensures that user properties are updated and will influence future events. Below, we outline scenarios that demonstrate when marketing attribution will or will not be tracked. It's important to remember that these examples are illustrative and not exhaustive:
+
+Tracking occurs when either of the following applies:
+
+|Rule|Example|
+|-|-|
+| A specific referrer domain is explicitly excluded.| We config the `config.defaultTracking.attribution.excludeReferrers` to include `[a.test.com]`, and the page has `a.test.com` as a referrer domain. |
+| No previous campaign. | A user's initial visit. |
+| There is an introduction of a new UTM parameter or clickId parameter. | If any utm parameters or click id parameters has been droped during a session, we will unset it.|
+| The referrer domain changes to a new one. | Referrer domain has been changed from `a.test.com` to `b.test-new.com`|
+
+Conversely, attribution tracking will not be conducted under any of the following conditions:
+
+|Rule|Example|
+|-|-|
+|The referrer originates from the same domain. | While landing on `B.test.com`, the referrer has been to set `A.test.com`|
+|The subdomain is specified or matches the regular expression in `config.defaultTracking.attribution.excludeReferrers`.| You are config the `excludeReferrers` with a specific string[] or a regular expression. |
+|The user engages in direct traffic within the same session.| During a session, A user clicks on a link without any campaign attribution parameters, including the absence of UTM and click id parameters from an email. |
