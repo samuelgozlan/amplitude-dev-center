@@ -87,12 +87,12 @@ Learn more about how to run GitHub Actions in containers in GitHub's documentati
         container:
           image: amplitudeinc/ampli
   
-          steps:
-            - name: Checkout repo
-              uses: actions/checkout@v3
-        
-            - name: Verify analytics implementation and update status in Data
-              run: ampli status -t ${{secrets.AMPLI_TOKEN}} [--update]
+        steps:
+          - name: Checkout repo
+            uses: actions/checkout@v3
+      
+          - name: Verify analytics implementation and update status in Data
+            run: ampli status -t ${{secrets.AMPLI_TOKEN}} [--update]
     ```
 
 === "ampli-all"
