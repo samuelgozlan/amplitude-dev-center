@@ -160,6 +160,10 @@ extra:
   android:
     session_replay:
       version: 0.5+
+  browser:
+    session_replay:
+      plugin:
+        version: 1.0.2
 # Navigation
 nav:
 - Documentation:
