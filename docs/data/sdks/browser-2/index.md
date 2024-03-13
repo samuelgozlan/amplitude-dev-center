@@ -450,7 +450,7 @@ Tracking occurs when either of the following applies:
 |-|-|
 | A specific referrer domain is explicitly excluded.| When config the `config.defaultTracking.attribution.excludeReferrers` to include `[a.test.com]`, and the page has `a.test.com` as a referrer domain. |
 | No previous campaign. | A user's initial visit. |
-| There is an introduction of new UTM parameter or click ID parameter. | If any utm parameters or click ID parameters has been dropped during a session, we will unset it. |
+| There is an introduction of new UTM parameter or Click ID parameter. | If any utm parameters or Click ID parameters has been dropped during a session, we will unset it. |
 | The referrer domain changes to a new one. | Referrer domain changed from `a.test.com` to `b.test-new.com`|
 
 Amplitude doesn't track marketing attribution under any of the following conditions:
