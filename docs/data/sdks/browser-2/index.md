@@ -438,3 +438,26 @@ amplitude.init(AMPLITUDE_API_KEY, {
   offline: amplitude.Types.OfflineDisabled
 });
 ```
+
+### Marketing Attribution Tracking
+
+Amplitude tracks marketing attribution by default. Once you enable marketing attribution tracking, Amplitude generates `identify` events to assign the campaign value in certain cases. This ensures that user properties update and influence future events. 
+For more information, see the scenarios outlined below that demonstrate when Amplitude does or doesn't track marketing attribution. These examples are illustrative, not exhaustive.
+
+Tracking occurs when either of the following applies:
+
+|Rule|Example|
+|-|-|
+| The current subdomain is not an excluded referrer. | The referrer does not originates from the same domain or the current subdomain is not match any referrer in `config.defaultTracking.attribution.excludeReferrers`. |
+| No previous campaign. | A user's initial visit. |
+| There is an introduction of new UTM parameter or Click ID parameter. | If any utm parameters or Click ID parameters have been dropped during a session, we will unset it. |
+| The referrer domain changes to a new one. | Referrer domain changed from `a.test.com` to `b.test-new.com`|
+
+Amplitude doesn't track marketing attribution under any of the following conditions:
+
+|Rule|Example|
+|-|-|
+| The referrer originates from the same domain. | The landing page is `a.test.com`, with the referrer set to `b.test.com`. |
+| A specific referrer domain is explicitly excluded.| When setting `config.defaultTracking.attribution.excludeReferrers` = `[a.test.com]`, and the referrer domain is `a.test.com` for the current page. |
+| The subdomain is specified or matches the regular expression in `config.defaultTracking.attribution.excludeReferrers`.| Configuration of excludeReferrers involves specific string arrays or a regular expression. |
+| The user engages in direct traffic within the same session.| During a session, a user clicks on a link without any campaign attribution parameters, including the absence of UTM and click id parameters from an email. |
