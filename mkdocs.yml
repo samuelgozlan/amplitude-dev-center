@@ -163,7 +163,7 @@ extra:
   browser:
     session_replay:
       plugin:
-        version: 1.0.2
+        version: 1.1.0
 # Navigation
 nav:
 - Documentation:

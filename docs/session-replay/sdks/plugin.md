@@ -99,6 +99,15 @@ Session replay requires that you configure default session event tracking. This 
     });
     ```
 
+!!! info "Session Start and Session End events"
+    Beginning with plugin version 1.1.0, Session Replay no longer requires `Session Start` and `Session End` events, but does capture them by default. To disable capture of these events, set `forceSessionTracking: false`:
+
+    ```js
+    const sessionReplayTracking = window.sessionReplay.plugin({ 
+        forceSessionTracking: false, 
+        sampleRate: 1, // 100% sample rate, should reduce for production traffic.  
+    }); 
+    ```
 --8<-- "includes/session-replay/mask-onscreen-data.md"
 
 ### User opt-out
@@ -187,6 +196,17 @@ Session replays may not appear in Amplitude due to:
 - No events triggered through the browser SDK in the current session
 - Sampling
 
+#### Local development and focus state
+
+The Session Replay SDK and plugin capture only the page that's in focus. When you develop locally with the browser console open, focus states may not work as expected. If you don't see replays in Amplitude, try to enable `debugMode`. In this mode, Session Replay ignores the focus handle and enables extra debugging information.
+
+```js title="Enable debug mode"
+const sessionReplayTracking = window.sessionReplay.plugin({
+        debugMode: true, 
+        sampleRate: 1, 
+    });
+```
+
 #### Content security policy
 
 When you add the Session Replay script to your site, visit a page on which the Session Replay SDK is running, and open your browser's developer tools.
@@ -201,7 +221,7 @@ Browser extensions or network security policy may block the Session Replay SDK. 
 
 #### No events triggered through the browser SDK in the current session
 
-Session Replay requires that at least one event in the user's session has the `[Amplitude] Session Replay ID` property. The [Browser SDK](/data/sdks/browser-2/) `Session Start` and `Session End` events include this property by default. If you instrument your events with a method other than the Browser SDK, the Browser SDK may send only the default `Session Start` and `Session End` events.
+Session Replay requires that at least one event in the user's session has the `[Amplitude] Session Replay ID` property. The [Browser SDK](/data/sdks/browser-2/) `Session Start` and `Session End` events include this property by default. If you instrument your events with any SDK other than the Amplitude Browser SDK 2, use the [Session Replay Standalone SDK](/session-replay/sdks/standalone) and ensure you tag your events with the necessary event properties.
 
 For local testing, you can force a Session Start event to ensure that Session Replay functions. 
 
