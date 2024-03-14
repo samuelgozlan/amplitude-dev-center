@@ -13,7 +13,6 @@ When it comes to feature flag delivery and experimentation, one size does not fi
 
 To use this app, you will need access to an Amplitude plan with Amplitude Experiment enabled. You will need a Management API key which you can find [instructions on how to configure here](https://www.docs.developers.amplitude.com/guides/amplitude-keys-guide/?h=keys#management-api-key).
 
-
 ### Screenshots
 
 ![Screenshot of the Contentful Amplitude Experiment Plugin](../../assets/images/experiment/contentful-ui-screenshot.png)
@@ -27,7 +26,7 @@ In order to integrate your Contentful instance with Amplitude Experiment, you wi
 
 ### How to install
 
-#### Step 1 - Install the app in your Contentful instance under the Apps tab.
+#### Step 1 - Install the app in your Contentful instance under the Apps tab
 
 Type in your Org URL (if you are not sure, check out your url: `https://app.amplitude.com/experiment/<ORG_URL>/dashboard`).
 
@@ -57,7 +56,7 @@ Make sure to publish your Variation Container, the associated entries that were 
 
 The JSON response returned from Contentful should look like this:
 
-```
+```json
 {
  "__typename": "PageLanding",
  "sys": {
@@ -167,12 +166,12 @@ There’s some helpful metadata about the experiment embedded under “experimen
 
 Here is a code example in React and Typescript:
 
-```
+```typescript
 import { Experiment } from '@amplitude/experiment-js-client';
  import sdk from 'contentful-sdk';
 
 
- export const experiment =     Experiment.initialize(process.env.NEXT_PUBLIC_AMPLITUDE_EXPERIMENT_CLIENT_KEY || "", {
+ export const experiment = Experiment.initialize(process.env.NEXT_PUBLIC_AMPLITUDE_EXPERIMENT_CLIENT_KEY || "", {
  debug: true,
   });
  const [hero, setHero] = useState<Hero | null>(null);
