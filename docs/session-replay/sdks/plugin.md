@@ -100,7 +100,7 @@ Session replay requires that you configure default session event tracking. This 
     ```
 
 !!! info "Session Start and Session End events"
-    Beginning with plugin version 1.1.0, Session Replay no longer requires `Session Start` and `Session End` events. To disable capture of these events, set `forceSessionTracking: false`:
+    Beginning with plugin version 1.1.0, Session Replay no longer requires `Session Start` and `Session End` events, but does capture them by default. To disable capture of these events, set `forceSessionTracking: false`:
 
     ```js
     const sessionReplayTracking = window.sessionReplay.plugin({ 
