@@ -108,7 +108,6 @@ Session replay requires that you configure default session event tracking. This 
         sampleRate: 1, // 100% sample rate, should reduce for production traffic.  
     }); 
     ```
-
 --8<-- "includes/session-replay/mask-onscreen-data.md"
 
 ### User opt-out
