@@ -200,7 +200,6 @@ Session replays may not appear in Amplitude due to:
 
 The Session Replay SDK and plugin capture only the page that's in focus. When you develop locally with the browser console open, focus states may not work as expected. If you don't see replays in Amplitude, try to enable `debugMode`. In this mode, Session Replay ignores the focus handle and enables extra debugging information.
 
-
 ```js title="Enable debug mode"
 const sessionReplayTracking = window.sessionReplay.plugin({
         debugMode: true, 
