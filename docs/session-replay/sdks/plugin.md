@@ -99,6 +99,16 @@ Session replay requires that you configure default session event tracking. This 
     });
     ```
 
+!!! info "Session Start and Session End events"
+    Beginning with plugin version 1.1.0, Session Replay no longer requires `Session Start` and `Session End` events. To disable capture of these events, set `forceSessionTracking: false`:
+
+    ```js
+    const sessionReplayTracking = window.sessionReplay.plugin({ 
+        forceSessionTracking: false, 
+        sampleRate: 1, // 100% sample rate, should reduce for production traffic.  
+    }); 
+    ```
+
 --8<-- "includes/session-replay/mask-onscreen-data.md"
 
 ### User opt-out
@@ -186,6 +196,18 @@ Session replays may not appear in Amplitude due to:
 - Blocked JavaScript
 - No events triggered through the browser SDK in the current session
 - Sampling
+
+#### Local development and focus state
+
+The Session Replay SDK and plugin capture only the page that's in focus. When you develop locally with the browser console open, focus states may not work as expected. If you don't see replays in Amplitude, try to enable `debugMode`. In this mode, Session Replay ignores the focus handle and enables extra debugging information.
+
+
+```js title="Enable debug mode"
+const sessionReplayTracking = window.sessionReplay.plugin({
+        debugMode: true, 
+        sampleRate: 1, 
+    });
+```
 
 #### Content security policy
 
