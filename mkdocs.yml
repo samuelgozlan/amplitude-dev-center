@@ -76,7 +76,7 @@ plugins:
   - markdownextradata:
       jinja_options:
         variable_start_string: '@{$'
-        variable_end_string: '$}'     
+        variable_end_string: '$}'
 
 # Extensions
 # When you add or change an extension here, mirror changes in insiders.mkdocs.yml.
@@ -449,6 +449,8 @@ nav:
           - Experiments: experiment/apis/management-api/experiments.md
           - Deployments: experiment/apis/management-api/deployments.md
           - Versions: experiment/apis/management-api/versions.md
+      - Integrations:
+        - Contentful: experiment/integrations/contentful.md
   - Session Replay:
       - session-replay/index.md
       - Overview: session-replay/index.md
