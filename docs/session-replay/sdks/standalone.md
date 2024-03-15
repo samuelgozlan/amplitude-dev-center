@@ -44,7 +44,7 @@ Configure your application code.
 
 1. Call `sessionReplay.init` to begin collecting replays. Pass the API key, session identifier, and device identifier.
 2. When the session identifier changes, pass the new value to Amplitude with `sessionReplay.setSessionId`.
-3. Collect Session Replay properties to send with other event properties with `sessionReplay.getSessionReplayProperties`
+3. Collect Session Replay properties to send with other event properties with `sessionReplay.getSessionReplayProperties`. See [Add Session Replay ID to your events](#add-session-replay-id-to-your-events) for more information.
 
 ```javascript
 import * as sessionReplay from "@amplitude/session-replay-browser";
@@ -68,6 +68,23 @@ sessionReplay.setSessionId(sessionId);
 const sessionReplayProperties = sessionReplay.getSessionReplayProperties();
 3rdPartyAnalytics.track('event', {...eventProperties, ...sessionReplayProperties})
 ```
+
+## Add Session Replay ID to your events
+
+The Session Replay SDK outputs the Session Replay properties that you need to add to your custom event instrumentation. `getSessionReplayProperties` returns event properties, namely the `[Amplitude] Session Replay ID` event property that you need to add to events before you send them to Amplitude. An example response of getSessionReplayProperties is: 
+
+```js
+{
+    "[Amplitude] Session Replay ID": "6eb24f81-a106-45b0-879c-65248d7b8911/1710374872575"
+}
+```
+
+!!!info
+    `getSessionReplayProperties` may return an empty object if Session Replay doesn't capture the session (for example, due to sampling or if the page is out of focus).
+
+`[Amplitude] Session Replay ID` is a unique identifier for the replay, and is different from `[Amplitude] Session ID`, which is the identifier for the overall user session.
+
+The [Session Replay Browser Plugin](/session-replay/sdks/plugin) handles this by default, since Amplitude manages event instrumentation. With the Standalone SDK, you need to instrument your application to add this property to any events that occur during capture. 
 
 ## Configuration
 
