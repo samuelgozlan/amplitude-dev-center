@@ -75,7 +75,7 @@ Pass the following option when you initialize the Session Replay plugin:
 
 ### Track default session events
 
-Session replay requires that you configure default session event tracking. This ensures that Session Replay captures Session Start and Session End events. If you didn't capture these events before you implement Session Replay, expect an increase in event volume. For more information about session tracking, see [Browser SDK 2.0 | Tracking Sessions](/data/sdks/browser-2/#tracking-sessions).
+Session Replay enables session tracking by default. This ensures that Session Replay captures Session Start and Session End events. If you didn't capture these events before you implement Session Replay, expect an increase in event volume. For more information about session tracking, see [Browser SDK 2.0 | Tracking Sessions](/data/sdks/browser-2/#tracking-sessions).
 
 === "SDK Configuration"
 
@@ -108,6 +108,9 @@ Session replay requires that you configure default session event tracking. This 
         sampleRate: 1, // 100% sample rate, should reduce for production traffic.  
     }); 
     ```
+
+    Amplitude requires at least one event in any captured session to enable playback of the replay. Amplitude recommends that you leave Session Tracking enabled, as that triggers `[Amplitude] Session Start` at the beginning of the session. If you disable session tracking, configure another event to fire early in the session for best results.
+  
 --8<-- "includes/session-replay/mask-onscreen-data.md"
 
 ### User opt-out
@@ -179,7 +182,7 @@ When Amplitude captures a replay, it doesn't download and store CSS files or oth
 
 ### Captured sessions contain limited information
 
-Session Replay requires that the Browser SDK send Session Start and Session End events, at a minimum. If you instrument events outside of the Browser SDK, Amplitude doesn't tag those events as part of the session replay. This means you can't use tools like Funnel, Segmentation, or Journeys charts to find session replays. You can find session replays with the User Sessions chart or through User Lookup.
+The Session Replay Plugin enables session tracking by default. If you instrument events outside of the Browser SDK, Amplitude doesn't tag those events as part of the session replay. This means you can't use tools like Funnel, Segmentation, or Journeys charts to find session replays. You can find session replays with the User Sessions chart or through User Lookup.
 
 If you use a method other than the Browser SDK to instrument your events, consider using the [Session Replay Standalone SDK](/session-replay/sdks/standalone/).
 
