@@ -11,7 +11,7 @@ This article covers the installation of Session Replay using the Browser SDK plu
 
 ## Before you begin
 
-Use the latest version of the Session Replay Plugin above version 1.0.2. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/plugin-session-replay-browser/CHANGELOG.md) on GitHub.
+Use the latest version of the Session Replay Plugin above version @{$ browser.session_replay.plugin.version $}. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/plugin-session-replay-browser/CHANGELOG.md) on GitHub.
 
 The Session Replay Plugin requires that:
 
@@ -54,7 +54,7 @@ You can also add the code directly to the `<head>` of your site. With this metho
 
 ```html
 <script src="https://cdn.amplitude.com/libs/analytics-browser-2.1.3-min.js.gz"></script>
-<script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-0.10.1-min.js.gz"></script>
+<script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-@{$ browser.session_replay.plugin.version $}-min.js.gz"></script>
 <script>
 window.amplitude.init(API_KEY)
 const sessionReplayTracking = window.sessionReplay.plugin();
@@ -99,9 +99,20 @@ Session replay requires that you configure default session event tracking. This 
     });
     ```
 
+!!! info "Session Start and Session End events"
+    Beginning with plugin version 1.1.0, Session Replay no longer requires `Session Start` and `Session End` events, but does capture them by default. To disable capture of these events, set `forceSessionTracking: false`:
+
+    ```js
+    const sessionReplayTracking = window.sessionReplay.plugin({ 
+        forceSessionTracking: false, 
+        sampleRate: 1, // 100% sample rate, should reduce for production traffic.  
+    }); 
+    ```
 --8<-- "includes/session-replay/mask-onscreen-data.md"
 
---8<-- "includes/session-replay/user-opt-out.md"
+### User opt-out
+
+The Session Replay plugin follows the Browser SDK's `optOut` setting, and doesn't support user opt-outs on its own.
 
 --8<-- "includes/session-replay/eu-data-residency.md"
 
@@ -112,11 +123,11 @@ Session replay requires that you configure default session event tracking. This 
 Once enabled, Session Replay runs on your site until either:
 
 - The user leaves your site
-- You call `sessionReplay.shutdown()`
+- You call `amplitude.remove('sessionReplayTracking')`
 
-Call `sessionReplay.shutdown()` before a user navigates to a restricted area of your site to disable replay collection while the user is in that area. 
+Call `amplitude.remove('sessionReplayTracking')` before a user navigates to a restricted area of your site to disable replay collection while the user is in that area. 
 
-Call `sessionReplay.init(API_KEY, {...options})` to re-enable replay collection when the return to an unrestricted area of your site.
+To restart replay collection, call `amplitude.add('sessionReplayTracking')` to re-add the plugin.
 
 You can also use a feature flag product like Amplitude Experiment to create logic that enables or disables replay collection based on criteria like location. For example, you can create a feature flag that targets a specific user group, and add that to your initialization logic:
 
@@ -185,6 +196,17 @@ Session replays may not appear in Amplitude due to:
 - No events triggered through the browser SDK in the current session
 - Sampling
 
+#### Local development and focus state
+
+The Session Replay SDK and plugin capture only the page that's in focus. When you develop locally with the browser console open, focus states may not work as expected. If you don't see replays in Amplitude, try to enable `debugMode`. In this mode, Session Replay ignores the focus handle and enables extra debugging information.
+
+```js title="Enable debug mode"
+const sessionReplayTracking = window.sessionReplay.plugin({
+        debugMode: true, 
+        sampleRate: 1, 
+    });
+```
+
 #### Content security policy
 
 When you add the Session Replay script to your site, visit a page on which the Session Replay SDK is running, and open your browser's developer tools.
@@ -199,7 +221,7 @@ Browser extensions or network security policy may block the Session Replay SDK. 
 
 #### No events triggered through the browser SDK in the current session
 
-Session Replay requires that at least one event in the user's session has the `[Amplitude] Session Replay ID` property. If you instrument your events with a method other than the [Browser SDK](/data/sdks/browser-2/), the Browser SDK may send only the default Session Start and Session End events, which don't include this property.
+Session Replay requires that at least one event in the user's session has the `[Amplitude] Session Replay ID` property. The [Browser SDK](/data/sdks/browser-2/) `Session Start` and `Session End` events include this property by default. If you instrument your events with any SDK other than the Amplitude Browser SDK 2, use the [Session Replay Standalone SDK](/session-replay/sdks/standalone) and ensure you tag your events with the necessary event properties.
 
 For local testing, you can force a Session Start event to ensure that Session Replay functions. 
 
@@ -226,4 +248,4 @@ In general, replays should be available within minutes of ingestion. Delays or e
 - Session Replay references the wrong project.
 - Short sessions. If a users bounces within a few seconds of initialization, the SDK may not have time to upload replay data.
 - Page instrumentation. If Session Replay isn't implemented on all pages a user visits, their session may not capture properly.
-- Replays older than the set [retention period](#retention-period) (defaults to 90 days).
+- Replays older than the set [retention period](#retention-period) (defaults to 30 days, or 90 days if you purchase extra volume).

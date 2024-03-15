@@ -5,3 +5,4 @@ site/
 .idea
 .python-version
 __pycache__/
+venv

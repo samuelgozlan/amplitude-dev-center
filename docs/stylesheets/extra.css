@@ -639,3 +639,9 @@ table code {
 .highlight .c1 {
   color: #282828a6
 }
+
+/* Front Page Grid override to support 4 products */
+
+.md-typeset .grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+}

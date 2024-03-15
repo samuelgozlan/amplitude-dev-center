@@ -1,0 +1,3 @@
+### EU data residency
+
+Session Replay is available to Amplitude Customers who use the EU data center. Set the `serverZone` configuration option to `EU` during initialization. For example:

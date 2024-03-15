@@ -1,4 +1,6 @@
 AAID
+ABsmartly
+absmartly
 activeusers
 Adapty
 adapty
@@ -50,6 +52,8 @@ Bronto
 buildpath
 bulgogi
 BYOUR
+Candu
+candu
 Canonicalization
 canonicalization
 canonicalized

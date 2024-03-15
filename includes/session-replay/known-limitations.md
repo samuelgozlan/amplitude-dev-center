@@ -9,7 +9,7 @@ Keep the following limitations in mind as you implement Session Replay:
     - Amplitude captures both sessions.
     - The replay for each session is available for view in the host project.
 
-- The User Sessions chart doesn't show session replays if your organization uses a custom session definition.
+- Session Replay supports standard session definitions, and doesn't support [custom session definitions](https://help.amplitude.com/hc/en-us/articles/115002323627).
 - Session Replay can't capture the following HTML elements:
 
     - Canvas

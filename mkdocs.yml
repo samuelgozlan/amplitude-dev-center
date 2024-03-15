@@ -73,6 +73,10 @@ plugins:
       j2_block_end_string: '%}'
       j2_variable_start_string: '@{{'
       j2_variable_end_string: '}}'
+  - markdownextradata:
+      jinja_options:
+        variable_start_string: '@{$'
+        variable_end_string: '$}'     
 
 # Extensions
 # When you add or change an extension here, mirror changes in insiders.mkdocs.yml.
@@ -152,9 +156,14 @@ extra:
       as to measure the effectiveness of our documentation and whether users
       find what they're searching for. With your consent, you're helping us to
       make our documentation better. For more information, see Amplitude's <a href="https://amplitude.com/privacy" target="_blank">Privacy Policy</a>.
-
   generator: false #hides the generated with text in the footer
-
+  android:
+    session_replay:
+      version: 0.5+
+  browser:
+    session_replay:
+      plugin:
+        version: 1.1.0
 # Navigation
 nav:
 - Documentation:
@@ -214,6 +223,7 @@ nav:
         - Collaboration:
           - Tribe: data/sources/tribe.md
         - Customer Engagement:
+          - Candu: data/sources/candu.md
           - Chameleon: data/sources/chameleon.md
           - Cordial: data/sources/cordial.md
           - Intercom: data/sources/intercom.md
@@ -249,7 +259,6 @@ nav:
           - MoEngage: data/sources/moengage.md
         - Other:
           - Datazoom: data/sources/datazoom.md
-          - Kochava: data/sources/kochava.md
           - Blitzllama: data/sources/blitzllama.md
         - Privacy:
           - MetaRouter: data/sources/metarouter.md
@@ -284,6 +293,7 @@ nav:
         - Snowflake Data Share: data/destinations/snowflake-data-share.md
       - Event Streaming:
         - Overview: data/destination-event-streaming-overview.md
+        - ABsmartly: data/destinations/absmartly-event-streaming.md
         - Adjust: data/destinations/adjust-event-streaming.md
         - Appfit: data/destinations/appfit-event-streaming.md
         - AppsFlyer: data/destinations/appsflyer.md
@@ -521,6 +531,7 @@ nav:
         - Ampli Codegen: data/sdks/typescript-react-native/ampli.md
       - Flutter:
         - data/sdks/flutter/index.md
+        # - Migration Guide: data/sdks/flutter/migration.md
       - Python:
         - data/sdks/python/index.md
         - Ampli Codegen: data/sdks/python/ampli.md
