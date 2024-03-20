@@ -1,6 +1,6 @@
 ### Mask on-screen data
 
-By default session replay will hide all user input (EditText, inputType="password")
+By default session replay hides all user input (EditText, inputType="password")
 
 The Session Replay SDK offers three ways to mask user input, text, and other View components. This can be enabled in both the layout XML and Kotlin/Java code.
 
