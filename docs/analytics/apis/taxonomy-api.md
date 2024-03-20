@@ -6,7 +6,6 @@ description: The Taxonomy API lets you create, get, update, and delete categorie
 The Taxonomy API grants Scholarship, Growth, and Enterprise clients the ability to programmatically plan their event schema in the Taxonomy tab.
 
 The Taxonomy API lets you create, get, update, and delete categories, event types, event properties, and user properties.
-You can edit planned events and properties, and not events and properties that already have data in the project.
 
 !!!warning "Getting Access"
     The Taxonomy API requires your account to be on the Enterprise plan, or have the Govern add on enabled.
