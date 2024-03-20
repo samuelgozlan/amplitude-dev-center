@@ -7,25 +7,25 @@ title: Contentful Plugin for Amplitude Experiment
 
 Amplitude Experiment is built for flexibility to fit in with any architecture and a variety of needs. This app offers an easy and flexible way to build out your content on top of Amplitude Experiment to help grow your marketing efforts.
 
-### Features
+## Features
 
 - Run A/B tests on Amplitude Experiment and author content in Contentful
 - Read different properties (refreshed every 5 seconds) from Amplitude Experiment and build your content around this information
 
-### Requirements
+## Requirements
 
 To use this plugin, you'll need the following:
 
 - Access to an Amplitude plan with Amplitude Experiment enabled.
 - A Management API key, which you can find in the Experiment side bar.
 
-### How to install
+## Installation
 
-#### Step 1 - Install the app in your Contentful instance under the Apps tab
+### Step 1 - Install the app in your Contentful instance under the Apps tab
 
 Type in your Org URL (if you are not sure, check out your url: `https://app.amplitude.com/experiment/<ORG_URL>/dashboard`).
 
-Provide your management API key created in the Getting Started section. Note: This management API key will no longer be visible to others on your team looking at this app configuration in the UI once you install the app for security purposes.
+Provide your management API key created in the Getting Started section.  For security purposes, management API keys aren't visible to others on your team looking  once you install the app.
 
 You should now be able to see a Content model in Contentful under the Content model tab called “Variant Container.”
 
