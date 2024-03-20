@@ -19,13 +19,6 @@ To use this plugin, you'll need the following:
 - Access to an Amplitude plan with Amplitude Experiment enabled.
 - A Management API key, which you can find in the Experiment side bar.
 
-## Getting Started
-
-To integrate your Contentful instance with Amplitude Experiment, you will need:
-
-- An Amplitude account with access to Amplitude Experiment
-- [A management API key](https://www.docs.developers.amplitude.com/guides/amplitude-keys-guide/?h=keys#management-api-key)
-
 ### How to install
 
 #### Step 1 - Install the app in your Contentful instance under the Apps tab
@@ -34,21 +27,21 @@ Type in your Org URL (if you are not sure, check out your url: `https://app.ampl
 
 Provide your management API key created in the Getting Started section. Note: This management API key will no longer be visible to others on your team looking at this app configuration in the UI once you install the app for security purposes.
 
-You should now be able to see a Content model in Contentful under the Content model tab called “Variation Container.”
+You should now be able to see a Content model in Contentful under the Content model tab called “Variant Container.”
 
-#### Step 2 - Add a variation container to one of your content models
+#### Step 2 - Add a variant container to one of your content models
 
 Let’s say that you have a landing page that you would like to add a hero banner to, and have this hero banner be controlled by an Amplitude Experiment. In Contentful, open up your landing page Content model. Then click the “+ Add field” button. Click on “Reference” as the option.
 
-Type in a name for your field. In our example, we’ll name our field “Hero.” Leave the type as “One reference.” Under the following modal that pops up in the Validation section, click “Accept only specified entry type” and select “Variation Container.” That way, authors can only add a variation container to the field that is read from the front end, and the front end code can always expect the API response to be the same format.
+Type in a name for your field. In our example, we’ll name our field “Hero.” Leave the type as “One reference.” Under the following modal that pops up in the Validation section, click “Accept only specified entry type” and select “Variant Container.” That way, authors can only add a variant container to the field that is read from the front end, and the front end code can always expect the API response to be the same format.
 
 #### Step 3 - Author content
 
-You can now go into your landing page, or whatever content was configured to include this variation container, and add your variation container. First, type in the experiment flag key. Once selecting a flag, the variants section of the Variation Container should be populated with the associated variants. You can link an existing Contentful entry, or create a new one.
+You can now go into your landing page, or whatever content was configured to include this variant container, and add your variant container. First, type in the experiment flag key. Once selecting a flag, the variants section of the Variant Container should be populated with the associated variants. You can link an existing Contentful entry, or create a new one.
 
 If you want to make changes to your Amplitude Experiment, you can do so by clicking the right hand side bar link that says “View/Edit in Amplitude.” The changes should be synced within several seconds on the left hand side panel when you switch back to Contentful.
 
-Make sure to publish your Variation Container, the associated entries that were added to the Variation Container, and the landing page (or whatever is hosting the Variation Container).
+Make sure to publish your Variant Container, the associated entries that were added to the Variant Container, and the landing page (or whatever is hosting the Variant Container).
 
 #### Step 4 - Integrate with your front end
 
