@@ -2,7 +2,7 @@
 title: Contentful Plugin for Amplitude Experiment
 ---
 
-When it comes to feature flag delivery and experimentation, one size does not fit all. Amplitude Experiment is built for flexibility to fit in with any architecture and a variety of needs. This app offers an easy and flexible way to build out your content on top of Amplitude Experiment to help grow your marketing efforts.
+Amplitude Experiment is built for flexibility to fit in with any architecture and a variety of needs. This app offers an easy and flexible way to build out your content on top of Amplitude Experiment to help grow your marketing efforts.
 
 ### Features
 
@@ -11,15 +11,18 @@ When it comes to feature flag delivery and experimentation, one size does not fi
 
 ### Requirements
 
-To use this app, you will need access to an Amplitude plan with Amplitude Experiment enabled. You will need a Management API key which you can find [instructions on how to configure here](https://www.docs.developers.amplitude.com/guides/amplitude-keys-guide/?h=keys#management-api-key).
+To use this plugin, you'll need the following:
+
+- Access to an Amplitude plan with Amplitude Experiment enabled. 
+- A Management API key, which you can find in the Experiment side bar.
 
 ### Screenshots
 
 ![Screenshot of the Contentful Amplitude Experiment Plugin](../../assets/images/experiment/contentful-ui-screenshot.png)
 
-### Getting Started
+## Getting Started
 
-In order to integrate your Contentful instance with Amplitude Experiment, you will need:
+To integrate your Contentful instance with Amplitude Experiment, you will need:
 
 - An Amplitude account with access to Amplitude Experiment
 - [A management API key](https://www.docs.developers.amplitude.com/guides/amplitude-keys-guide/?h=keys#management-api-key)
