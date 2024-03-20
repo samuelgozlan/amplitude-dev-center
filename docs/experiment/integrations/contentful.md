@@ -19,10 +19,6 @@ To use this plugin, you'll need the following:
 - Access to an Amplitude plan with Amplitude Experiment enabled.
 - A Management API key, which you can find in the Experiment side bar.
 
-### Screenshots
-
-![Screenshot of the Contentful Amplitude Experiment Plugin](../../assets/images/experiment/contentful-ui-screenshot.png)
-
 ## Getting Started
 
 To integrate your Contentful instance with Amplitude Experiment, you will need:
@@ -44,11 +40,7 @@ You should now be able to see a Content model in Contentful under the Content mo
 
 Let’s say that you have a landing page that you would like to add a hero banner to, and have this hero banner be controlled by an Amplitude Experiment. In Contentful, open up your landing page Content model. Then click the “+ Add field” button. Click on “Reference” as the option.
 
-![Screenshot of Contentful add new reference field](../../assets/images/experiment/contentful-add-new-reference.png)
-
 Type in a name for your field. In our example, we’ll name our field “Hero.” Leave the type as “One reference.” Under the following modal that pops up in the Validation section, click “Accept only specified entry type” and select “Variation Container.” That way, authors can only add a variation container to the field that is read from the front end, and the front end code can always expect the API response to be the same format.
-
-![Screenshot of Contentful limit reference field to only variation container](../../assets/images/experiment/contentful-accept-only-variation-container.png)
 
 #### Step 3 - Author content
 
