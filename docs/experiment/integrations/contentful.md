@@ -2,18 +2,21 @@
 title: Contentful Plugin for Amplitude Experiment
 ---
 
+!!!beta "Closed Beta"
+    The Amplitude Experiment Contentful plugin is in closed beta. Contact your Amplitude representative or email experiment@amplitude.com if you're interested.
+
 Amplitude Experiment is built for flexibility to fit in with any architecture and a variety of needs. This app offers an easy and flexible way to build out your content on top of Amplitude Experiment to help grow your marketing efforts.
 
 ### Features
 
-- Run A/B tests and multi armed bandit experiments on Amplitude Experiment and author content in Contentful
-- Read different properties (refreshed regularly) from Amplitude Experiment and build your content around this information
+- Run A/B tests on Amplitude Experiment and author content in Contentful
+- Read different properties (refreshed every 5 seconds) from Amplitude Experiment and build your content around this information
 
 ### Requirements
 
 To use this plugin, you'll need the following:
 
-- Access to an Amplitude plan with Amplitude Experiment enabled. 
+- Access to an Amplitude plan with Amplitude Experiment enabled.
 - A Management API key, which you can find in the Experiment side bar.
 
 ### Screenshots
@@ -33,7 +36,7 @@ To integrate your Contentful instance with Amplitude Experiment, you will need:
 
 Type in your Org URL (if you are not sure, check out your url: `https://app.amplitude.com/experiment/<ORG_URL>/dashboard`).
 
-Provide your management API key created in the Getting Started section. Note: This management API key will no longer be visible to others looking at this app configuration once you install the app.
+Provide your management API key created in the Getting Started section. Note: This management API key will no longer be visible to others on your team looking at this app configuration in the UI once you install the app for security purposes.
 
 You should now be able to see a Content model in Contentful under the Content model tab called “Variation Container.”
 
@@ -197,5 +200,7 @@ import { Experiment } from '@amplitude/experiment-js-client';
    matchExperimentData();
  }, [heroBanner, userId]);
 ```
+
+One thing to note in the code above is that your application code should account for the default case where users may receive "off" as the returned value from `experiment.variant()`.
 
 Note: You can either search in the variationsCollection for the appropriate linked entry to save an API call to Contentful, or you can just use the entry ID from the meta dictionary, and make another call to Contentful if you don’t want to search through the array.
