@@ -33,9 +33,9 @@ The Amplitude Browser SDK supports a [plugin architecture](/data/sdk-plugins/) t
 === "Script Loader"
     ```html
     <script type="module">
-    window.amplitude.init(AMPLITUDE_API_KEY)
-    const defaultEventTrackingAdvancedPlugin = window.amplitudeDefaultEventTrackingAdvancedPlugin.plugin();
-    window.amplitude.add(defaultEventTrackingAdvancedPlugin);
+        window.amplitude.init(AMPLITUDE_API_KEY)
+        const defaultEventTrackingAdvancedPlugin = window.amplitudeDefaultEventTrackingAdvancedPlugin.plugin();
+        window.amplitude.add(defaultEventTrackingAdvancedPlugin);
     </script>
     ```
 === "NPM / Yarn"
@@ -53,7 +53,7 @@ The Default Event Tracking Advanced plugin adds four settings that help you conf
 
 | <div class="big-column">Setting</div>                   | Default                                                                                              | Description                                                                                        |
 | -------------------------- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `cssSelectorAllowlist`     | `['a','button','input','select','textarea','label','[data-amp-default-track]','.amp-default-track']` | String. Accepts one or more CSS selectors that define which elements on the page to track.         |
+| `cssSelectorAllowlist`     | `['a','button','input','select','textarea','label','[data-amp-default-track]','.amp-default-track']` | String[]. Accepts one or more CSS selectors that define which elements on the page to track.         |
 | `pageUrlAllowlist`         | undefined                                                                                            | String or `RegExp`. Defines the URL, URLs, or URL pattern on which Amplitude tracks default events |
 | `shouldTrackEventResolver` | undefined                                                                                            | Function. Programatically determines if Amplitude should or shouldn't track an event.              |
 | `dataAttributePrefix`      | `data-amp-track`                                                                                     | Allows the plugin to capture data attributes as an event property                                  |
@@ -123,7 +123,7 @@ To disable default event tracking, remove the plugin from any pages that impleme
 
     ```html
     <!-- load Amplitude DETA plugin -->
-    <script defer src="https://cdn.amplitude.com/libs/plugin-default-event-tracking-advanced-browser-0.4.2-min.js.gz"></script>
+    <script defer src="https://cdn.amplitude.com/libs/plugin-default-event-tracking-advanced-browser-@{$ browser.plugin.deta.version $}-min.js.gz"></script>
     <!-- initialize Amplitude SDK and DETA plugin -->
     <script type="module">
     const defaultEventTrackingAdvancedPlugin = window.amplitudeDefaultEventTrackingAdvancedPlugin.plugin();
