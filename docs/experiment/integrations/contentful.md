@@ -25,7 +25,7 @@ To use this plugin, you'll need the following:
 
 Type in your Org URL (if you are not sure, check out your url: `https://app.amplitude.com/experiment/<ORG_URL>/dashboard`).
 
-Provide your management API key created in the Getting Started section.  For security purposes, management API keys aren't visible to others on your team looking  once you install the app.
+Provide your management API key created in the Getting Started section.  For security purposes, management API keys aren't visible to others on your team looking once you install the app.
 
 You should now be able to see a Content model in Contentful under the Content model tab called “Variant Container.”
 
