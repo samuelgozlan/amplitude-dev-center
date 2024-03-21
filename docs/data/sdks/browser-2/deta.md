@@ -54,7 +54,7 @@ The Default Event Tracking Advanced plugin adds four settings that help you conf
 | <div class="big-column">Setting</div>                   | Default                                                                                              | Description                                                                                        |
 | -------------------------- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | `cssSelectorAllowlist`     | `['a','button','input','select','textarea','label','[data-amp-default-track]','.amp-default-track']` | String[]. Accepts one or more CSS selectors that define which elements on the page to track.         |
-| `pageUrlAllowlist`         | undefined                                                                                            | String or `RegExp`. Defines the URL, URLs, or URL pattern on which Amplitude tracks default events |
+| `pageUrlAllowlist`         | undefined                                                                                            | `(string|RegExp)[]`. Defines the URL, URLs, or URL pattern on which Amplitude tracks default events |
 | `shouldTrackEventResolver` | undefined                                                                                            | Function. Programatically determines if Amplitude should or shouldn't track an event.              |
 | `dataAttributePrefix`      | `data-amp-track`                                                                                     | Allows the plugin to capture data attributes as an event property                                  |
 
@@ -82,8 +82,8 @@ By default, if you don't use these settings, Amplitude tracks the default select
     } from '@amplitude/plugin-default-event-tracking-advanced-browser';
 
     const selectors = [
-    ...DEFAULT_CSS_SELECTOR_ALLOWLIST,
-    '.class-of-a-thing-i-want-to-track',
+        ...DEFAULT_CSS_SELECTOR_ALLOWLIST,
+        '.class-of-a-thing-i-want-to-track',
     ];
     ```
 
