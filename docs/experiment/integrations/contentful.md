@@ -5,7 +5,7 @@ title: Contentful Plugin for Amplitude Experiment
 !!!beta "Closed Beta"
     The Amplitude Experiment Contentful plugin is in closed beta. Contact your Amplitude representative or email experiment@amplitude.com if you're interested.
 
-Amplitude Experiment is built for flexibility to fit in with any architecture and a variety of needs. This app offers an easy and flexible way to build out your content on top of Amplitude Experiment to help grow your marketing efforts.
+Amplitude Experiment is built for flexibility to fit in with any architecture and a variety of needs. This app offers an easy and flexible way to build out your content on top of Amplitude Experiment to help grow your marketing efforts. Contentful is a headless CMS which enables businesses to create, manage, and distribute digital content. Together, Amplitude Experiment allows businesses to create variations of content and have Amplitude Experiment power what variant is shown to users.
 
 ## Features
 
