@@ -69,6 +69,11 @@ ThirdPartyAnalytics.track(
 ThirdPartyAnalytics.setSessionId(sessionId)
 // Update the session ID in session replay
 sessionReplay.setSessionId(ThirdPartyAnalytics.getSessionId())
+
+// Call `flush()` to send session recordings to the server
+// This should always be called before app exit
+// For longer sessions, flush should be called periodically to prevent high memory usage (alpha)
+sessionReplay.flush()
 ```
 
 ## Configuration
