@@ -41,6 +41,7 @@ Configure your application code.
 1. Create a  `val sessionReplay = SessionReplay()` object to begin collecting replays. Pass the API key, session identifier, and device identifier.
 2. When the session identifier changes, pass the new value to Amplitude with `sessionReplay.setSessionId`.
 3. Collect Session Replay properties to send with other event properties with `sessionReplay.getSessionReplayProperties`
+4. Send the session replay data to Amplitude by calling `sessionReplay.flush`. Always call flush before the app is exited or sent to the background. For longer sessions, flush should be called periodically to prevent high memory usage (alpha).
 
 ```kotlin
 import com.amplitude.android.sessionreplay.SessionReplay
@@ -70,9 +71,8 @@ ThirdPartyAnalytics.setSessionId(sessionId)
 // Update the session ID in session replay
 sessionReplay.setSessionId(ThirdPartyAnalytics.getSessionId())
 
-// Call `flush()` to send session recordings to the server
+// Send session replay data to the server
 // This should always be called before app exit
-// For longer sessions, flush should be called periodically to prevent high memory usage (alpha)
 sessionReplay.flush()
 ```
 
