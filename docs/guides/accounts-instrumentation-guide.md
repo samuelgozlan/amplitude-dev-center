@@ -40,7 +40,7 @@ Before you can instrument groups, you need to decide whether you should define e
 
     - Creates a group that incorporates only specific events in the user's journey.
     - Users are assigned to a group at the time the event is sent.
-    - Users don't remain part of the group unless you explicitly assign them when the event is sent. 
+    - Users remain part of the group unless you explicitly remove the group from the event payload when the event is sent. 
     !!!example "Use case"
         Multi-product companies who only want users events related to a specific product to be associated with a group.
 
@@ -50,7 +50,7 @@ Before you can instrument groups, you need to decide whether you should define e
 
     - Groups users regardless of the event.
     - Useful when you want to attribute all events performed by a user to a particular group. 
-    - Users are assigned to the group once and remain part of the group for future events until you explicitly remove them. 
+    - Users are assigned to the group once and remain part of the group for future events. **Users cannot be removed from user-level groups.** 
     !!!example "Use case"
         You want to associate all users who work for "Acme Company" are with a particular group.
 
@@ -70,7 +70,7 @@ Amplitude recommends taking the following approach for event level groups.
 
     ---
 
-    **Tie users to a group** at the time an event is sent. 
+    **Tie users to a group** at the time an event is sent. If users can leave groups or perform events without a group association occasionally, an event-level group is recommended. 
 
     **Send events** server-side to the [HTTP V2 API](../../analytics/apis/http-v2-api) or [Batch API](../../analytics/apis/batch-event-upload-api), or using an SDK. 
 
@@ -92,7 +92,9 @@ Amplitude recommends taking the following approach for user level groups.
 
     Send identify calls server-side to the [Identify API](../../analytics/apis/identify-api) or using an SDK. 
 
-    The group association persists for the user until it's explicitly updated or unsets. Updates to groups aren't retroactive.
+    Once set, the group association persists for the user **forever**. Users cannot be removed from user-level groups.
+
+    Updates to groups aren't retroactive.
 
 - :material-numeric-2-circle:{ .lg .middle } **Group Identify**
 
