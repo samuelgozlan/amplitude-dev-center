@@ -2,7 +2,7 @@
 title: Default Event Tracking Advanced
 ---
 
-Amplitude's Default Event Tracking Advanced plugin extends the events and properties that Amplitude tracks by default, and enables Visual Tagger to enable you to define events based on elements on your site. For more information about Visual Tagger, see [Visual Tagger](#).
+Amplitude's Default Event Tracking Advanced plugin extends the events and properties that Amplitude tracks by default, and enables Visual Tagger to enable you to define events based on elements on your site. For more information about Visual Tagger, see [Visual Tagger](https://help.amplitude.com/hc/en-us/articles/24094812669979-Visual-tag-editor).
 
 --8<-- "includes/alpha-release.md"
 
@@ -152,4 +152,4 @@ To disable default event tracking, remove the plugin from any pages that impleme
 
 ## Visual Tagger
 
-Visual Tagger takes the properties the `[Amplitude] Element Clicked` and `[Amplitude] Element Changed` events capture and uses them to define Dynamic Events. For more information, see [Visual Tagger](#)
+Visual Tagger takes the properties the `[Amplitude] Element Clicked` and `[Amplitude] Element Changed` events capture and uses them to define Dynamic Events. For more information, see [Visual Tagger](https://help.amplitude.com/hc/en-us/articles/24094812669979-Visual-tag-editor)
