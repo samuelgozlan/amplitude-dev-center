@@ -52,13 +52,9 @@ After you create the destination, you must configure the settings.
       2. Map the **event_time** Amplitude property to the **Conversion Date Time** property in Google Ads
 10. Save when finished.
 
-#### Enable integration
+#### Setup Tracking Conversion in Google Ads
 
-The final step is enabling the destination. You must enable the destination to start streaming events.
-
-1. Navigate back to the **Settings** tab and click **Edit**.
-2. Toggle **Status** from **Disabled** to **Enabled**.
-3. Save when finished.
+When setting up Tracking Conversions on Google Ads, you will need to pick the following option from the Google Ads UI. This will allow the offline conversions to be recorded in Google Ads in the *Goals* section of Google Ads. Please note, there is some delay on Google Ads end that there may be delays of up to 60 minutes for the metrics to show up after events are streamed from Amplitude.
 
 ## Common issues
 
