@@ -12,10 +12,9 @@ To migrate to `@amplitude/analytics-browser`, update your dependencies and instr
 
 !!! warning "Breaking changes"
 
-    Migrate to @amplitude/analytics-browser result in significant changes that could potentially cause disruptions. We recommend checking the SDK documentation and the [comparison section](./#comparison) for detailed information.
+    Migration to `@amplitude/analytics-browser` may result in changes that can cause disruption to Web Attribution your implementation. Before you upgrade, you can choose if attribution occurs during a session, or not. After you upgrade, attribution can happen during the session, and is no longer configurable.
 
-    Web Attribution:
-    -  SDK tracks attributions with a new campaign on a new session or during a session, and it's not configurable. 
+    In both versions, attribution can happen during initialization.
 
 ### Terminology
 
