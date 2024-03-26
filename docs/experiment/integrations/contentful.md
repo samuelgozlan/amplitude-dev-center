@@ -17,6 +17,7 @@ The Contentful plugin for Amplitude Experiment enables businesses to create vari
 To use the plugin, ensure you have the following:
 
 - Access to an Amplitude plan with Amplitude Experiment enabled.
+- The Contentful Plugin for Amplitude Experiment, to be sent by the Amplitude Experiment team.
 - Your Amplitude Org URL value. This value appears in the URL you use to access Amplitude: `https://app.amplitude.com/experiment/<ORG_URL>/dashboard`
 - A Management API key, which you can find in the Experiment side bar.
 
