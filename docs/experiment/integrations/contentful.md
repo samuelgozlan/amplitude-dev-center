@@ -26,7 +26,7 @@ Complete the following steps in Contentful and Amplitude to add and activate the
 
 ### Install the plugin
 
-1. In Contentful, search for #### in the Contentful App Marketplace. Click #### to install the plugin.
+1. Install the plugin you receive from the Amplitude Experiment team.
 2. In the plugin configuration, enter the Org URL and Management API key you created in Experiment. Click **Install to selected environments**.
 3. Click **Save** to complete the plugin setup.
 
