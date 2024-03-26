@@ -20,7 +20,7 @@ To use the plugin, ensure you have the following:
 - Your Amplitude Org URL value. This value appears in the URL you use to access Amplitude: `https://app.amplitude.com/experiment/<ORG_URL>/dashboard`
 - A Management API key, which you can find in the Experiment side bar.
 
-## Installation
+## Installation and use
 
 Complete the following steps in Contentful and Amplitude to add and activate the Contentful plugin for Amplitude Experiment.
 
