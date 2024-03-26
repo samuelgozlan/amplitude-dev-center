@@ -5,7 +5,7 @@ title: Contentful Plugin for Amplitude Experiment
 !!!beta "Closed Beta"
     The Amplitude Experiment Contentful plugin is in closed beta. Contact your Amplitude representative or email experiment@amplitude.com if you're interested.
 
-Amplitude Experiment is built for flexibility to fit in with any architecture and a variety of needs. This app offers an easy and flexible way to build out your content on top of Amplitude Experiment to help grow your marketing efforts. Contentful is a headless CMS which enables businesses to create, manage, and distribute digital content. Together, Amplitude Experiment allows businesses to create variations of content and have Amplitude Experiment power what variant is shown to users.
+The Contentful plugin for Amplitude Experiment enables businesses to create variations of content in Contentful, and use Experiment to control which variant users see, and track performance of those variants.
 
 ## Features
 
@@ -14,38 +14,54 @@ Amplitude Experiment is built for flexibility to fit in with any architecture an
 
 ## Requirements
 
-To use this plugin, you'll need the following:
+To use the plugin, ensure you have the following:
 
 - Access to an Amplitude plan with Amplitude Experiment enabled.
+- Your Amplitude Org URL value. This value appears in the URL you use to access Amplitude: `https://app.amplitude.com/experiment/<ORG_URL>/dashboard`
 - A Management API key, which you can find in the Experiment side bar.
 
 ## Installation
 
-### Step 1 - Install the app in your Contentful instance under the Apps tab
+Complete the following steps in Contentful and Amplitude to add and activate the Contentful plugin for Amplitude Experiment.
 
-Type in your Org URL (if you are not sure, check out your url: `https://app.amplitude.com/experiment/<ORG_URL>/dashboard`).
+### Install the plugin
 
-Provide your management API key created in the Getting Started section.  For security purposes, management API keys aren't visible to others on your team looking once you install the app.
+1. In Contentful, search for #### in the Contentful App Marketplace. Click #### to install the plugin.
+2. In the plugin configuration, enter the Org URL and Management API key you created in Experiment. Click **Install to selected environments**.
+3. Click **Save** to complete the plugin setup.
 
-You should now be able to see a Content model in Contentful under the Content model tab called “Variant Container.”
+When you enable the plugin, a `Variant Container` content model appears on the Content Model tab. 
 
-### Step 2 - Add a variant container to one of your content models
+### Add a variant container to one of your content models
 
-Let’s say that you have a landing page that you would like to add a hero banner to, and have this hero banner be controlled by an Amplitude Experiment. In Contentful, open up your landing page Content model. Then click the “+ Add field” button. Click on “Reference” as the option.
+The variant container in Contentful works with Amplitude Experiment to decide which variant of your experiment displays to each user.
 
-Type in a name for your field. In our example, we’ll name our field “Hero.” Leave the type as “One reference.” Under the following modal that pops up in the Validation section, click “Accept only specified entry type” and select “Variant Container.” That way, authors can only add a variant container to the field that is read from the front end, and the front end code can always expect the API response to be the same format.
+For best results, Amplitude recommends you a **Reference** content type to hold experiments. In the Reference content type
 
-### Step 3 - Author content
+To add a variant container:
 
-You can now go into your landing page, or whatever content was configured to include this variant container, and add your variant container. First, type in the experiment flag key. Once selecting a flag, the variants section of the Variant Container should be populated with the associated variants. You can link an existing Contentful entry, or create a new one.
+1. Open the content model of the page to which you'll add the variant container.
+2. Click **+ Add field**. Select a **Reference** field.
+3. Provide a name for the field. For best results, enter a name that corresponds with the purpose of the field. For example, `Hero Banner` or `Demo CTA`.
+4. Select **One reference** as the Type. Click **Add and configure.**
+5. On the Name and field ID tab of the field configuration, select **Accept only specified entry type**, and select **Variant container**. This ensures consistency with the Contentful API response when it serves page content.
+6. Click **Confirm** to create the field, and click **Save** to update the content model.
 
-If you want to make changes to your Amplitude Experiment, you can do so by clicking the right hand side bar link that says “View/Edit in Amplitude.” The changes should be synced within several seconds on the left hand side panel when you switch back to Contentful.
+### Add content
 
-Make sure to publish your Variant Container, the associated entries that were added to the Variant Container, and the landing page (or whatever is hosting the Variant Container).
+After you configure the variant container and reference field, open the page on which you want to add an experiment.
 
-### Step 4 - Integrate with your front end
+1. In the Content editor, select the page.
+2. Find the field you created in the previous step. It should have an **+ Add content** selector. Select **Variant Container** as the content to add.
+3. In the field configuration, enter the **Flag Key** of the experiment. The Flag Key field shows matching keys as you type.
+4. When you select the Flag Key, any variants associated with that key appear in the **Variants** section.
+5. For each variant, select to **Link an existing entry** or **Create new content type** to populate the variant.
+6. Click **Publish** to publish the variant container.
+7. Click **Publish** to publish the updated page with the experiment enabled.
 
-The JSON response returned from Contentful should look like this:
+### Integrate with your front end
+
+Contentful returns JSON when a user requests the page.
 
 ```json
 {
@@ -153,9 +169,12 @@ The JSON response returned from Contentful should look like this:
 }
 ```
 
-There’s some helpful metadata about the experiment embedded under “experiment” and “experimentId” (this corresponds to the experiment’s flag key) for your convenience. In your frontend, you’ll use two fields: “meta,” and “variationsCollection.” In summary, you’ll be using Amplitude Experiment in your front end to get the variation for the user in your application. Then, you’ll check against the meta dictionary to see what the associated Contentful entry ID is for this particular variant. Then, in `variationsCollection` you can iterate through the array of linked entries, and find the entry with the ID you found in the `meta` dictionary.
+The `experiment` object contains helpful metadata about the experiment. To render the front end and include the experiment, use the `meta` and `variationsCollection` objects. Amplitude Experiment delivers the variant identifier, and matches it to an option in the `meta` object. After the variant is set, you can:
 
-Here is a code example in React and Typescript:
+- Iterate through items in the `variationsCollection` object to show the variation with the matching ID. 
+- Make a direct call to Contentful with the variant ID to avoid searching through the array.
+
+For more information, see the following React / Typescript example:
 
 ```typescript
 import { Experiment } from '@amplitude/experiment-js-client';
@@ -186,6 +205,4 @@ import { Experiment } from '@amplitude/experiment-js-client';
  }, [heroBanner, userId]);
 ```
 
-One thing to note in the code above is that your application code should account for the default case where users may receive "off" as the returned value from `experiment.variant()`.
-
-Note: You can either search in the variationsCollection for the appropriate linked entry to save an API call to Contentful, or you can just use the entry ID from the meta dictionary, and make another call to Contentful if you don’t want to search through the array.
+Be sure to account for cases where users receive `off` as the value that `experiment.variant()` returns.
