@@ -163,7 +163,7 @@ extra:
   browser:
     session_replay:
       plugin:
-        version: 1.0.2
+        version: 1.1.0
 # Navigation
 nav:
 - Documentation:
@@ -532,6 +532,7 @@ nav:
         - Ampli Codegen: data/sdks/typescript-react-native/ampli.md
       - Flutter:
         - data/sdks/flutter/index.md
+        # - Migration Guide: data/sdks/flutter/migration.md
       - Python:
         - data/sdks/python/index.md
         - Ampli Codegen: data/sdks/python/ampli.md
