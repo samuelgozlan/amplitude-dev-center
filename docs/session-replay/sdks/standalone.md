@@ -343,13 +343,12 @@ const segmentAnalytics = AnalyticsBrowser.load({
 
 // A plugin must be added so that events sent through Segment will have
 // session replay properties and the correct session id
-const segmentPlugin: () => Plugin = () => {
+const segmentPlugin = () => {
   return {
-    name: 'segment',
-    type: 'enrichment',
+    name: "segment",
+    type: "destination",
     execute: async (event) => {
       const properties = event.event_properties || {};
-
       segmentAnalytics.track(event.event_type, properties, {
         integrations: {
           Amplitude: {
@@ -357,10 +356,14 @@ const segmentPlugin: () => Plugin = () => {
           },
         },
       });
-      return Promise.resolve(event);
-    }
-  }
-}
+      return {
+        code: 200,
+        event: event,
+        message: "OK",
+      };
+    },
+  };
+}; 
 
 const AMPLITUDE_API_KEY = 'api-key' // must match that saved with Segment
 
