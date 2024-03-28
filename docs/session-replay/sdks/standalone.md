@@ -166,7 +166,6 @@ When Amplitude captures a replay, it doesn't download and store CSS files or oth
 - Assets on your site move or change name. This can happen when you deploy a new version of your application.
 - Assets on your site are behind access controls that prevent Amplitude from fetching them.
 
-
 To help resolve CSS loading issues:
 
 - Ensure your domain is publicly accessible. If you store assets on `localhost`, try moving them to a staging environment.
