@@ -19,10 +19,10 @@ plugins:
         fill: "#1E61F0"
         text: "#FFFFFF"
       cards_font: IBM Plex Sans
-  - privacy:
-      external_links: true
-      external_links_attr_map:
-        target: _blank
+  # - privacy:
+  #     external_links: true
+  #     external_links_attr_map:
+  #       target: _blank
   - markdownextradata:
       jinja_options:
         variable_start_string: '@{$'
