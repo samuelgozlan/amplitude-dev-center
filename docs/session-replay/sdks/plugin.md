@@ -182,7 +182,7 @@ When Amplitude captures a replay, it doesn't download and store CSS files or oth
 
 To help resolve CSS loading issues:
 
-- Ensure your domain is publicly accessible. If you store assets on `localhost`, try moving them to a staging environment.
+- Ensure your domain is publicly accessible. If you work in a local environment, Amplitude may not have access to assets stored on `localhost`.
 - Your CDN should keep track of old stylesheets for older replays. If the content of the same stylesheet changes over time, try to append a unique string or hash to the asset URL. For example, `stylesheet.css?93f8b89`.
 - Add `app.amplitude.com` or `app.eu.amplitude.com` to the list of domains that your server's CORS configuration permits.
 
