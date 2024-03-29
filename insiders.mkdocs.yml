@@ -14,11 +14,11 @@ plugins:
       j2_variable_start_string: '@{{'
       j2_variable_end_string: '}}'
   - glightbox # enables image light box
-  - social: #insiders
-      cards_color:
-        fill: "#1E61F0"
-        text: "#FFFFFF"
-      cards_font: IBM Plex Sans
+  # - social: #insiders
+  #     cards_color:
+  #       fill: "#1E61F0"
+  #       text: "#FFFFFF"
+  #     cards_font: IBM Plex Sans
   - privacy:
       external_links: true
       external_links_attr_map:
