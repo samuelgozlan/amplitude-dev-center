@@ -68,3 +68,9 @@ It may take a few minutes depending on the size of your cohort to see the correc
 1. Create a marketing campaign targeted at a cohort of users created on Amplitude
 2. Automate emails from Marketo based on activities tracked in a cohort
 3. Reduce the number of fields in Marketo by syncing cohorts to lists instead of fields
+
+## Common issues
+
+### User discrepancies between Amplitude and Marketo
+
+- Some destinations like Marketo may return a 2XXs response indicating the cohort sync has synced successfully out from Amplitude. However sometimes, the 3rd party destination will silently drop users who don't meet their criteria, and this exclusion might not be communicated back to Amplitude. To check whether a user was successfully transferred, you can review the CSV file from Amplitude. While Amplitude strives to identify cases where users aren't included at third-party platforms by analyzing response codes, fully detecting every instance of silent user exclusion due to technical constraints may not always be achievable. If you encounter issues or have queries, check out this [guide](https://help.amplitude.com/hc/en-us/articles/360060055531-Sync-to-third-party-destinations) for more information on how you can investigate and diagnose cohort sync discrepancies in a self-serve manner.
