@@ -46,6 +46,18 @@ After you create the destination, you must configure the settings.
 
 ### Setup Tracking Conversion in Google Ads
 
+1. In Google Ads, click on **Goals**.
+2. Click **New conversion action**.
+3. Click **Import data from Google Analytics or another source**.
+4. Check **Manual import using API or uploads**.
+5. Check **Track conversions from clicks**.
+6. Choose your Goal and action optimization
+7. Enter your Conversion name
+8. Choose the value setting which lets you track how much these conversions are worth to your business.
+9. Select how many conversions to count per click or interaction.
+10. Select your Click-through conversion window
+11. Select your attribution type.
+
 When setting up Tracking Conversions on Google Ads, you will need to pick the following option from the Google Ads UI. This will allow the offline conversions to be recorded in Google Ads in the `Goals` section of Google Ads. Please note, there is some delay on Google Ads and there may be delays of up to 60 minutes for the metrics to show up after events are streamed from Amplitude.
 
    ![screenshot of how to track conversions in Google Ads streaming](../../assets/images/google-ads-streaming-tracking-conversions.png)
