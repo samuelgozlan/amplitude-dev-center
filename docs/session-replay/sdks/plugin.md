@@ -62,6 +62,8 @@ window.amplitude.add(sessionReplayTracking);
 </script>
 ```
 
+--8<-- "includes/session-replay/instrumentation-level.md"
+
 !!! tip "Compatability with Google Tag Manager"
     The Session Replay plugin scripts load asynchronously when you add them to the `<head>` tag of your page. As a result, this implementation isn't compatible with Google Tag Manager. For more information, see [Session Replay Implementation with Google Tag Manager](/session-replay/tag-managers/google-tag-manager).
 
