@@ -12,7 +12,7 @@ To migrate to `@amplitude/analytics-browser`, update your dependencies and instr
 
 !!! warning "Breaking changes"
 
-    Migration to `@amplitude/analytics-browser` may result in changes that can cause disruption to Web Attribution your implementation. Before you upgrade, you can choose if attribution occurs during a session, or not. After you upgrade, attribution can happen during the session, and is no longer configurable.
+    Migration to `@amplitude/analytics-browser` may result in changes that can cause disruption to Web Attribution in your implementation. Before you upgrade, you can choose if attribution occurs during a session, or not. After you upgrade, attribution can happen during the session, and is no longer configurable.
 
     In both versions, attribution can happen during initialization.
 
