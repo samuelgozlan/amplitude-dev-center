@@ -18,7 +18,6 @@ Amplitude's Databricks import source enables you to import data from Databricks 
 
 ## Limitations
 
-- Databricks import doesn't support export data.
 - User stream view isn't available for data ingested with this feature.
 
 For guided instructions to setting up this integration, view the [Loom video](https://www.loom.com/share/a00f8905170e4c83977ae6fb2f0dcde7?sid=5a77e8c9-d34b-42b0-a179-679669c8bdbe).
