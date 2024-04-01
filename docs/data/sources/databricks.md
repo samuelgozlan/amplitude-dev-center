@@ -31,7 +31,7 @@ Before you start to configure the Databricks source in Amplitude, complete the f
 
 Amplitude creates workflows in this cluster on your behalf to start sync jobs. When complete, copy the **Server hostname** and **Http path** values to use in a later step. Find both values on the **Configuration -> JDBC/ODBC** tab. For more information about cluster types, see [Compute](https://docs.databricks.com/en/compute/index.html).
 
-Ensure that the new cluster is able to run jobs by NOT having configs below in cluster's policy. See details in [doc](https://docs.databricks.com/en/administration-guide/clusters/policy-definition.html#workload).
+Ensure that the new cluster can run jobs by NOT having configs below in cluster's policy. See details in Databricks' article [Policy definition](https://docs.databricks.com/en/administration-guide/clusters/policy-definition.html#workload).
 
 ```
 "workload_type.clients.jobs": {
