@@ -18,9 +18,8 @@ Amplitude's Databricks import source enables you to import data from Databricks 
 
 ## Limitations
 
-- Databricks import doesn't support export data to your own destinations.
+- Databricks import doesn't support export data.
 - User stream view isn't available for data ingested with this feature.
-- End-to-end latency (from when Amplitude fetches the data, to when you can query it) is between 30 and 60 minutes. Actual latency can vary depending on the workload.
 
 For guided instructions to setting up this integration, view the [Loom video](https://www.loom.com/share/a00f8905170e4c83977ae6fb2f0dcde7?sid=5a77e8c9-d34b-42b0-a179-679669c8bdbe).
 
@@ -31,6 +30,15 @@ Before you start to configure the Databricks source in Amplitude, complete the f
 ### Find or create an all-purpose compute cluster
 
 Amplitude creates workflows in this cluster on your behalf to start sync jobs. When complete, copy the **Server hostname** and **Http path** values to use in a later step. Find both values on the **Configuration -> JDBC/ODBC** tab. For more information about cluster types, see [Compute](https://docs.databricks.com/en/compute/index.html).
+
+Ensure that the new cluster is able to run jobs by NOT having configs below in cluster's policy. See details in [doc](https://docs.databricks.com/en/administration-guide/clusters/policy-definition.html#workload).
+
+```
+"workload_type.clients.jobs": {
+    "type": "fixed",
+    "value": false
+}
+```
 
 ### Authentication
 
