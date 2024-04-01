@@ -48,7 +48,6 @@ Amplitude recommends that you create a [service principal](https://docs.databric
     - If you use AWS or GCP Databricks, follow the instructions in the article [Databricks personal access tokens for service principals](https://docs.databricks.com/en/dev-tools/auth/pat.html#databricks-personal-access-tokens-for-service-principals).
     - If you use Azure-based Databricks, follow the instructions in the article [Manage personal access tokens for a service principal](https://learn.microsoft.com/en-us/azure/databricks/administration-guide/users-groups/service-principals#manage-personal-access-tokens-for-a-service-principal).
 
-
 The service principal you created above requires the following permissions in Databricks:
 
 | Permission | Reason                                                                               | Location in Databricks                                         |
@@ -62,7 +61,6 @@ The service principal you created above requires the following permissions in Da
 GRANT MODIFY ON ANY FILE TO `<service_principal_uuid>`;
 GRANT SELECT ON ANY FILE TO `<service_principal_uuid>`;
 ```
-
 
 ### Enable CDF on your table(s)
 
