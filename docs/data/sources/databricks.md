@@ -38,7 +38,7 @@ Ensure that the new cluster is able to run jobs by NOT having configs below in c
     "type": "fixed",
     "value": false
 }
-```
+```json
 
 ### Authentication
 
