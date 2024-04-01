@@ -1,29 +1,29 @@
 ---
-title: Moloco Event Streaming (RMP)
-description: Stream Amplitude events to Moloco (RMP).
+title: Moloco Commerce Media (MCM)
+description: Stream Amplitude events to Moloco (MCM).
 ---
 
-[Moloco](https://www.linkedin.com/company/moloco/) is a machine learning company that provides performance solutions for digital advertising. Their products include the Moloco Cloud DSP for mobile advertising and the Moloco Retail Media Platform (RMP) for online retailers. Both products are powered by Moloco's machine-learning engine, which optimizes campaigns and provides personalized recommendations to customers.
+[Moloco](https://www.linkedin.com/company/moloco/) is a machine learning company that provides performance solutions for digital advertising. Their products include the Moloco Cloud DSP for mobile advertising and the Moloco Commerce Media (MCM) for online retailers. Both products are powered by Moloco's machine-learning engine, which optimizes campaigns and provides personalized recommendations to customers.
 
-This integration lets you stream events and event properties from Amplitude to Moloco Retail Media Platform (RMP).
+This integration lets you stream events and event properties from Amplitude to Moloco Commerce Media (MCM).
 
 ## Considerations
 
-Keep these things in mind when sending events to Moloco Retail Media Platform (RMP):
+Keep these things in mind when sending events to Moloco Commerce Media (MCM):
 
 - You must enable this integration in each Amplitude project you want to use it in.
-- The Amplitude integration is only compatible with Retail Media Platform (RMP). 
-- You need a Moloco Retail Media Platform (RMP) account to enable this integration.
-- Amplitude matches the **User_id** to the ID field within Moloco Retail Media Platform (RMP) to associated events. If a user with that id doesn't exist within Moloco Retail Media Platform (RMP), a user is created. Make sure that the Amplitude **User_id** field matches the Moloco **Identity ID** to avoid user duplication.
+- The Amplitude integration is only compatible with Moloco Commerce Media (MCM). 
+- You need a Moloco Commerce Media (MCM) account to enable this integration.
+- Amplitude matches the **User_id** to the ID field within Moloco Commerce Media (MCM) to associated events. If a user with that id doesn't exist within Moloco Commerce Media (MCM), a user is created. Make sure that the Amplitude **User_id** field matches the Moloco **Identity ID** to avoid user duplication.
 - Amplitude sends all user properties along with the event.
 
 ## Setup
 
 ### Prerequisites
 
-To configure an Event Streaming integration from Amplitude to Moloco Retail Media Platform (RMP), you need the following information from Moloco Retail Media Platform (RMP):
+To configure an Event Streaming integration from Amplitude to Moloco Commerce Media (MCM), you need the following information from Moloco Commerce Media (MCM):
 
-- **REST API Key:** To start sending data into Moloco Retail Media Platform (RMP), you first have to get your API Key. It is used to authenticate your requests to the API and connect the data with your account. Find this in your Moloco Retail Media Platform (RMP) account. 
+- **REST API Key:** To start sending data into Moloco Commerce Media (MCM), you first have to get your API Key. It is used to authenticate your requests to the API and connect the data with your account. Find this in your Moloco Commerce Media (MCM) account. 
 
 ### Amplitude setup
 

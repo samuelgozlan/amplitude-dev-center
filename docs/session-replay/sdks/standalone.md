@@ -44,7 +44,7 @@ Configure your application code.
 
 1. Call `sessionReplay.init` to begin collecting replays. Pass the API key, session identifier, and device identifier.
 2. When the session identifier changes, pass the new value to Amplitude with `sessionReplay.setSessionId`.
-3. Collect Session Replay properties to send with other event properties with `sessionReplay.getSessionReplayProperties`
+3. Collect Session Replay properties to send with other event properties with `sessionReplay.getSessionReplayProperties`. See [Add Session Replay ID to your events](#add-session-replay-id-to-your-events) for more information.
 
 ```javascript
 import * as sessionReplay from "@amplitude/session-replay-browser";
@@ -68,6 +68,25 @@ sessionReplay.setSessionId(sessionId);
 const sessionReplayProperties = sessionReplay.getSessionReplayProperties();
 3rdPartyAnalytics.track('event', {...eventProperties, ...sessionReplayProperties})
 ```
+
+--8<-- "includes/session-replay/instrumentation-level.md"
+
+## Add Session Replay ID to your events
+
+The Session Replay SDK outputs the Session Replay properties that you need to add to your custom event instrumentation. `getSessionReplayProperties` returns event properties, namely the `[Amplitude] Session Replay ID` event property that you need to add to events before you send them to Amplitude. An example response of getSessionReplayProperties is: 
+
+```js
+{
+    "[Amplitude] Session Replay ID": "6eb24f81-a106-45b0-879c-65248d7b8911/1710374872575"
+}
+```
+
+!!!info
+    `getSessionReplayProperties` may return an empty object if Session Replay doesn't capture the session (for example, due to sampling or if the page is out of focus).
+
+`[Amplitude] Session Replay ID` is a unique identifier for the replay, and is different from `[Amplitude] Session ID`, which is the identifier for the user's session.
+
+The [Session Replay Browser Plugin](/session-replay/sdks/plugin) handles this by default, since Amplitude manages event instrumentation. With the Standalone SDK, you need to instrument your application to add this property to any events that occur during capture. 
 
 ## Configuration
 
@@ -148,6 +167,12 @@ When Amplitude captures a replay, it doesn't download and store CSS files or oth
 
 - Assets on your site move or change name. This can happen when you deploy a new version of your application.
 - Assets on your site are behind access controls that prevent Amplitude from fetching them.
+
+To help resolve CSS loading issues:
+
+- Ensure your domain is publicly accessible. If you store assets on `localhost`, try moving them to a staging environment.
+- Your CDN should keep track of old stylesheets for older replays. If the content of the same stylesheet changes over time, try to append a unique string or hash to the asset URL. For example, `stylesheet.css?93f8b89`.
+- Add `app.amplitude.com` or `app.eu.amplitude.com` to the list of domains that your server's CORS configuration permits.
 
 ### Session replays don't appear in Amplitude 
 
@@ -326,13 +351,12 @@ const segmentAnalytics = AnalyticsBrowser.load({
 
 // A plugin must be added so that events sent through Segment will have
 // session replay properties and the correct session id
-const segmentPlugin: () => Plugin = () => {
+const segmentPlugin = () => {
   return {
-    name: 'segment',
-    type: 'enrichment',
+    name: "segment",
+    type: "destination",
     execute: async (event) => {
       const properties = event.event_properties || {};
-
       segmentAnalytics.track(event.event_type, properties, {
         integrations: {
           Amplitude: {
@@ -340,10 +364,14 @@ const segmentPlugin: () => Plugin = () => {
           },
         },
       });
-      return Promise.resolve(event);
-    }
-  }
-}
+      return {
+        code: 200,
+        event: event,
+        message: "OK",
+      };
+    },
+  };
+}; 
 
 const AMPLITUDE_API_KEY = 'api-key' // must match that saved with Segment
 

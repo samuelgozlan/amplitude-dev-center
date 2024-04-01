@@ -6,7 +6,7 @@ For more information about individual statuses and errors, see the [Session Repl
 
 (alpha) When Amplitude captures a replay, it doesn't transfer or store styles or other static assets that are part of your application. 
 
-The following are not supported at this time:
+Session Replay doesn't support the following in this version:
 
 - Images
 - Drawables
@@ -15,7 +15,7 @@ The following are not supported at this time:
 
 ### View components don't appear in replay
 
-(alpha) Session replay is in alpha and does not currently support all Android View components.
+(alpha) Session replay is in alpha and doesn't support all Android View components.
 
 | View Feature              | Support Level | Notes                                                                                                        |
 |---------------------------|---------------|--------------------------------------------------------------------------------------------------------------|
@@ -36,10 +36,10 @@ The following are not supported at this time:
 | Text: font                | In progress   |                                                                                                              |
 | Text: fontFamily          | Full          |                                                                                                              |
 | Text: all caps            | None          | Issue in Android SDK. `isAllCaps` doesn't work.                                                              |
-| Text: compound drawables  | Partial       | Left/right drawables added to text views have placeholders. Top/bottom drawables are not currently supported |
+| Text: compound drawables  | Partial       | Left/right drawables added to text views have placeholders. Top/bottom drawables aren't supported |
 | Touch: up                 | Full          |                                                                                                              |
 | Touch: down               | Full          |                                                                                                              |
 | Touch: move               | In progress   |                                                                                                              |
 | WebView                   | In progress   |                                                                                                              |
 | MapView                   | In progress   |                                                                                                              |
-| Canvas Views              | In progress   | Views that draw to a custom Canvas are not currently supported.                                              |
+| Canvas Views              | In progress   | Views that draw to a custom Canvas aren't  supported.                                              |

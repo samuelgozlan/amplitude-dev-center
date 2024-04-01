@@ -2,10 +2,10 @@
 title: Databricks Import
 ---
 
-Amplitude's Databricks import source enables you to import data from Databricks to your Amplitude account. Databricks import uses the Databricks Change Data Feed feature to securely access and extract live data from your Databricks workspace.
+Amplitude's Databricks import source enables you to import data from Databricks to your Amplitude account. Databricks import uses the [Databricks Change Data Feed](https://docs.databricks.com/en/delta/delta-change-data-feed.html#use-delta-lake-change-data-feed-on-databricks) feature to securely access and extract live data from your Databricks workspace.
 
-!!! alpha
-    Amplitude provides this feature as a preview, and may change or update the feature without prior notice.
+!!! beta
+    This feature is in Beta. Amplitude may make changes to this feature without prior notification. For help, contact [Amplitude Support](https://help.amplitude.com/hc/en-us/requests/new). 
 
 ## Features
 
@@ -18,8 +18,7 @@ Amplitude's Databricks import source enables you to import data from Databricks 
 
 ## Limitations
 
-- Databricks import doesn't support data well.
-- This integration supports importing data from Databricks.
+- Databricks import doesn't support export data to your own destinations.
 - User stream view isn't available for data ingested with this feature.
 - End-to-end latency (from when Amplitude fetches the data, to when you can query it) is between 30 and 60 minutes. Actual latency can vary depending on the workload.
 
@@ -27,28 +26,36 @@ Amplitude's Databricks import source enables you to import data from Databricks 
 
 Before you start to configure the Databricks source in Amplitude, complete the following tasks in Databricks.
 
+### Find or create an all-purpose compute cluster
+
+Amplitude creates workflows in this cluster on your behalf to start sync jobs. When complete, copy the **Server hostname** and **Http path** values to use in a later step. Find both values on the **Configuration -> JDBC/ODBC** tab. For more information about cluster types, see [Compute](https://docs.databricks.com/en/compute/index.html).
+
 ### Authentication
 
-Amplitude's Databricks import supports authentication through a Databricks Workspace User, or Service Principal. Choose Workspace User authentication for faster setup, or Service Principal authentication for finer grained control. 
+Amplitude's Databricks import supports authentication with [personal access tokens for Databricks workspace users](https://docs.databricks.com/en/dev-tools/auth/pat.html#pat-user), or [personal access tokens for Service Principals](https://docs.databricks.com/en/dev-tools/auth/pat.html#pat-sp). Choose Workspace User authentication for faster setup, or Service Principal authentication for finer grained control. For more information, see Databrick's article [Authentication for Databricks Automation](https://docs.databricks.com/en/dev-tools/auth/index.html#authentication-for-databricks-automation---overview)
 
 #### Get a personal access token (PAT) for the workspace user
 
 Amplitude's Databricks import uses Personal Access Tokens to authenticate. For the quickest setup, create a PAT for your workspace user in Databricks. For more information, see Databricks' article [Personal Access Tokens for Workspace Users](https://docs.databricks.com/en/dev-tools/auth/pat.html#databricks-personal-access-tokens-for-workspace-users)
 
-#### Create a service principal (optional)
+#### Create a personal access token (PAT) service principal (optional)
 
-Amplitude recommends that you create a service principal in Databricks to allow for more granular control of access.
+Amplitude recommends that you create a [service principal](https://docs.databricks.com/en/administration-guide/users-groups/service-principals.html) in Databricks to allow for more granular control of access.
 
 1. Follow the Databricks instructions to create a service principal in [Databricks | OAuth machine-to-machine (M2M) authentication](https://docs.databricks.com/en/dev-tools/auth/oauth-m2m.html). Copy the **UUID** for use in a later step.
-2. Generate a PAT for the Service Principal
+2. Generate a PAT on this Service Principal.
+    
+    - If you use AWS or GCP Databricks, follow the instructions in the article [Databricks personal access tokens for service principals](https://docs.databricks.com/en/dev-tools/auth/pat.html#databricks-personal-access-tokens-for-service-principals).
+    - If you use Azure-based Databricks, follow the instructions in the article [Manage personal access tokens for a service principal](https://learn.microsoft.com/en-us/azure/databricks/administration-guide/users-groups/service-principals#manage-personal-access-tokens-for-a-service-principal).
+
 
 The service principal you created above requires the following permissions in Databricks:
 
 | Permission | Reason                                                                               | Location in Databricks                                         |
 | ---------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
-| Workspace  | Grants access to your Databricks workspace.                                          | *Workspace → <workspace_name> → Permissions → Add permissions* |
-| Table      | Grants access to list tables and read data.                                          | *Catalog → pick the catalog→ Permissions → Grant*              |
-| Cluster    | Grants access to connect to the cluster and run workflows on your behalf             | *Compute → All-purpose compute → Edit Permission*              |
+| Workspace  | Grants access to your Databricks workspace.                                          | *Workspace → <workspace_name> → Permissions → Add permissions* <br/> Add the service principal you create with the User permission, click Save. |
+| Table      | Grants access to list tables and read data.                                          | *Catalog → pick the catalog→ Permissions → Grant* <br/> Select the `Data Reader` permission (`USE CATALOG`, `USE SCHEMA`, `EXECUTE`, `READ VOLUME`, `SELECT`).             |
+| Cluster    | Grants access to connect to the cluster and run workflows on your behalf             | *Compute → All-purpose compute → Edit Permission*  <br/> Add the `Add Can Attach To` permission to the service principal.            |
 | Export     | Enables the service principal to unload your data through spark and export it to S3. | Run the SQL commands below in any notebook.                                    |
 
 ```sql title="Databricks Export permission commands"
@@ -56,9 +63,6 @@ GRANT MODIFY ON ANY FILE TO `<service_principal_uuid>`;
 GRANT SELECT ON ANY FILE TO `<service_principal_uuid>`;
 ```
 
-### Find or create an all-purpose compute cluster
-
-Amplitude creates workflows in this cluster on your behalf to start sync jobs. When complete, copy the **Server hostname** and **Http path** values to use in a later step. Find both values on the **Configuration -> JDBC/ODBC** tab. For more information, see [Databricks | Create a cluster](https://docs.databricks.com/en/dev-tools/auth/oauth-m2m.html)
 
 ### Enable CDF on your table(s)
 

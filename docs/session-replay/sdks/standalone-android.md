@@ -33,7 +33,7 @@ Add the [latest version](https://central.sonatype.com/artifact/com.amplitude/ses
 === "Gradle"
 
     ```kotlin
-    implementation("com.amplitude:session-replay-android:{$ android.session_replay.version $}")
+    implementation("com.amplitude:session-replay-android:@{$ android.session_replay.version $}")
     ```
 
 Configure your application code.
@@ -41,6 +41,7 @@ Configure your application code.
 1. Create a  `val sessionReplay = SessionReplay()` object to begin collecting replays. Pass the API key, session identifier, and device identifier.
 2. When the session identifier changes, pass the new value to Amplitude with `sessionReplay.setSessionId`.
 3. Collect Session Replay properties to send with other event properties with `sessionReplay.getSessionReplayProperties`
+4. Call `sessionReplay.flush` to send session replay data to Amplitude. Always call `flush` before exiting the app or sending it to the background. For longer sessions, call flush frequently to prevent high memory use (alpha).
 
 ```kotlin
 import com.amplitude.android.sessionreplay.SessionReplay
@@ -69,6 +70,10 @@ ThirdPartyAnalytics.track(
 ThirdPartyAnalytics.setSessionId(sessionId)
 // Update the session ID in session replay
 sessionReplay.setSessionId(ThirdPartyAnalytics.getSessionId())
+
+// Send session replay data to the server
+// This should always be called before app exit
+sessionReplay.flush()
 ```
 
 ## Configuration
@@ -177,7 +182,7 @@ Ensure your app has access to the internet then try again.
 
 #### Failed to flush recording before exiting the app
 
-Session replay data is stored in memory only. This can lead to data loss between app starts.
+Session replay stores data in memory only. This can lead to data loss between app starts.
 
 Make sure to call `sessionReplay.flush()` to flush all pending session replay data before app exit.
 
@@ -191,7 +196,7 @@ As mentioned above, the default `sampleRate` for Session Replay is `0`. Update t
 
 Session replay doesn't require that all events in a session have the `[Amplitude] Session Replay ID` property, only that one event in the session has it. Reasons why `[Amplitude] Session Replay ID`  may not be present in an event include:
 
-- The user may have opted out or may not be part of the sample set given the current `sampleRate`. Increasing the `sampleRate` will capture more sessions.
+- The user may have opted out or may not be part of the sample set given the current `sampleRate`. Increasing the `sampleRate` captures more sessions.
 - Amplitude events may still send through your provider, but `getSessionReplayProperties()` doesn't return the `[Amplitude] Session Replay ID` property. This can result from `optOut` and `sampleRate` configuration settings. Check that `optOut` and `sampleRate` are set to include the session.
 
 ### Session Replay processing errors
@@ -204,4 +209,4 @@ In general, replays should be available within minutes of ingestion. Delays or e
 - Page instrumentation. If Session Replay isn't implemented on all pages a user visits, their session may not capture properly.
 - Replays older than the set [retention period](#retention-period) (defaults to 90 days).
 
-*[alpha]: This product is in alpha. This feature be improved in future versions.
+*[alpha]: This product is in active development. Improvements will be made to this feature.

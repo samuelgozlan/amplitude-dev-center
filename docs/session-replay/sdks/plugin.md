@@ -62,6 +62,8 @@ window.amplitude.add(sessionReplayTracking);
 </script>
 ```
 
+--8<-- "includes/session-replay/instrumentation-level.md"
+
 !!! tip "Compatability with Google Tag Manager"
     The Session Replay plugin scripts load asynchronously when you add them to the `<head>` tag of your page. As a result, this implementation isn't compatible with Google Tag Manager. For more information, see [Session Replay Implementation with Google Tag Manager](/session-replay/tag-managers/google-tag-manager).
 
@@ -75,7 +77,7 @@ Pass the following option when you initialize the Session Replay plugin:
 
 ### Track default session events
 
-Session replay requires that you configure default session event tracking. This ensures that Session Replay captures Session Start and Session End events. If you didn't capture these events before you implement Session Replay, expect an increase in event volume. For more information about session tracking, see [Browser SDK 2.0 | Tracking Sessions](/data/sdks/browser-2/#tracking-sessions).
+Session Replay enables session tracking by default. This ensures that Session Replay captures Session Start and Session End events. If you didn't capture these events before you implement Session Replay, expect an increase in event volume. For more information about session tracking, see [Browser SDK 2.0 | Tracking Sessions](/data/sdks/browser-2/#tracking-sessions).
 
 === "SDK Configuration"
 
@@ -108,6 +110,9 @@ Session replay requires that you configure default session event tracking. This 
         sampleRate: 1, // 100% sample rate, should reduce for production traffic.  
     }); 
     ```
+
+    Amplitude requires at least one event in any captured session to enable playback of the replay. Amplitude recommends that you leave Session Tracking enabled, as that triggers `[Amplitude] Session Start` at the beginning of the session. If you disable session tracking, configure another event to fire early in the session for best results.
+  
 --8<-- "includes/session-replay/mask-onscreen-data.md"
 
 ### User opt-out
@@ -177,9 +182,15 @@ When Amplitude captures a replay, it doesn't download and store CSS files or oth
 - Assets on your site move or change name. This can happen when you deploy a new version of your application.
 - Assets on your site are behind access controls that prevent Amplitude from fetching them.
 
+To help resolve CSS loading issues:
+
+- Ensure your domain is publicly accessible. If you work in a local environment, Amplitude may not have access to assets stored on `localhost`.
+- Your CDN should keep track of old stylesheets for older replays. If the content of the same stylesheet changes over time, try to append a unique string or hash to the asset URL. For example, `stylesheet.css?93f8b89`.
+- Add `app.amplitude.com` or `app.eu.amplitude.com` to the list of domains that your server's CORS configuration permits.
+
 ### Captured sessions contain limited information
 
-Session Replay requires that the Browser SDK send Session Start and Session End events, at a minimum. If you instrument events outside of the Browser SDK, Amplitude doesn't tag those events as part of the session replay. This means you can't use tools like Funnel, Segmentation, or Journeys charts to find session replays. You can find session replays with the User Sessions chart or through User Lookup.
+The Session Replay Plugin enables session tracking by default. If you instrument events outside of the Browser SDK, Amplitude doesn't tag those events as part of the session replay. This means you can't use tools like Funnel, Segmentation, or Journeys charts to find session replays. You can find session replays with the User Sessions chart or through User Lookup.
 
 If you use a method other than the Browser SDK to instrument your events, consider using the [Session Replay Standalone SDK](/session-replay/sdks/standalone/).
 
