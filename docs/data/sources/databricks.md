@@ -18,7 +18,7 @@ Amplitude's Databricks import source enables you to import data from Databricks 
 
 ## Limitations
 
-- User stream view isn't available for data ingested with this feature.
+- User Look-Up page won't be able to display most recent 100 events ingested through this feature yet
 
 For guided instructions to setting up this integration, view the [Loom video](https://www.loom.com/share/a00f8905170e4c83977ae6fb2f0dcde7?sid=5a77e8c9-d34b-42b0-a179-679669c8bdbe).
 
