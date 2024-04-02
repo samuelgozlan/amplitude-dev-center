@@ -32,7 +32,7 @@ Amplitude creates workflows in this cluster on your behalf to start sync jobs. W
 
 Ensure that the new cluster can run jobs by NOT having configs below in cluster's policy. See details in Databricks' article [Policy definition](https://docs.databricks.com/en/administration-guide/clusters/policy-definition.html#workload).
 
-```
+```json
 "workload_type.clients.jobs": {
     "type": "fixed",
     "value": false
