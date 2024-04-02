@@ -37,6 +37,7 @@ Ensure that the new cluster can run jobs by NOT having configs below in cluster'
     "type": "fixed",
     "value": false
 }
+```
 
 ### Authentication
 
