@@ -202,7 +202,8 @@ A successful request returns a `200 OK` response and a JSON object with the expe
         "endDate": null,
         "experimentType": "hypothesis-testing",
         "deleted": false,
-        "tags": []
+        "tags": [],
+        "createdBy: "x@amplitude.com"
     }
     ```
 
