@@ -215,7 +215,7 @@ You can also use advanced configuration for better control of how marketing attr
 ???config "Marketing attribution options"
     |<div class="big-column">Name</div>|Value|Description|
     |-|-|-|
-    `config.defaultTracking.attribution.excludeReferrers` | Optional. Array of `string` or `RegExp` | Sets rules to determine which referrers are excluded from being tracked as traffic source. Use string values for exact matching and RegExp values for pattern matching against the referring domain. By default the current domain (and all its subdomains) are excluded referrers. |
+    `config.defaultTracking.attribution.excludeReferrers` | Optional. Array of `string` or `RegExp` | Sets rules to determine which referrers are excluded from being tracked as traffic source. Use string values for exact matching and RegExp values for pattern matching against the referring domain. When this option isn't set, the current domain (and its subdomains) are excluded referrers. If explicitly adding an external referrer to exclude, you must also add the current domain (and its subdomains) as additional referrers to exclude. |
     `config.defaultTracking.attribution.initialEmptyValue` | Optional. `string` | Sets the value to represent undefined/no initial campaign parameter for first-touch attribution. The default value is `"EMPTY`. |
     `config.defaultTracking.attribution.resetSessionOnNewCampaign` | Optional. `boolean` | Configures Amplitude to start a new session if any campaign parameter changes. The default value is `false`. |
 
