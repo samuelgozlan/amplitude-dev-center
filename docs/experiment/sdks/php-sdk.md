@@ -1,5 +1,5 @@
 ---
-title: Experiment PHP SDK (Beta)
+title: Experiment PHP SDK
 description: Official documentation for Amplitude Experiment's server-side PHP SDK implementation.
 icon: simple/php
 ---
@@ -8,7 +8,7 @@ Official documentation for Amplitude Experiment's server-side PHP SDK implementa
 
 ![Packagist](https://img.shields.io/packagist/v/amplitude/experiment-php-server.svg)
 
-!!!beta "SDK Resources"
+!!!info "SDK Resources"
      [:material-github: GitHub](https://github.com/amplitude/experiment-php-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-php-server/releases)
 
 ### Install
