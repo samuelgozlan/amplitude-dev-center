@@ -1260,6 +1260,23 @@ Learn more about [Middleware](../../sdk-middleware).
     let amplitude = Amplitude.instanceWithName("my-unqiue-instance-name")
     ```
 
+--8<-- "includes/sdk-ios/privacy-manifest.md"
+
+| Domain | Description |
+| ------ | ----------- |
+| https://api2.amplitude.com | The default HTTP V2 endpoint. |
+| https://api.eu.amplitude.com | EU endpoint if `Amplitude.instance().setServerZone(AMPServerZone.EU)`.|
+| https://regionconfig.amplitude.com | Batch endpoint if `Amplitude.instance().useDynamicConfig = true`.|
+| https://regionconfig.eu.amplitude.com | Batch EU endpoint if `Amplitude.instance().setServerZone(AMPServerZone.EU)` and `Amplitude.instance().useDynamicConfig = true`.|
+
+#### NSPrivacyAccessedAPITypes
+
+The SDK doesn't use any API by default. Learn more [here](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api).
+
+#### Create your app's privacy report
+
+Follow the steps on how to [create your app's privacy](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests#4239187). 
+
 ### More resources
 
 If you have any problems or issues with the SDK, [create a GitHub issue](https://github.com/amplitude/Amplitude-iOS/issues/new) or submit a request on [Amplitude Help](https://help.amplitude.com/hc/en-us/requests/new).
