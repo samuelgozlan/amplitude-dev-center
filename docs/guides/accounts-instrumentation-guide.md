@@ -19,7 +19,7 @@ This guide aims to help you plan your Accounts instrumentation and also offers g
 
 - Changes to account groups and group properties are applied only to new data moving forward.
 - Historical data can't be retroactively updated to include account groups and group properties.
-- Amplitude recommends that you make a copy of this [planning workbook](https://docs.google.com/spreadsheets/d/1U4tXFWBzl1LETzjYR_DLBamwgpYt4kRSXyS9K4qdaU0/edit#gid=479331585) to help plan your Accounts implementation.
+- Amplitude recommends that you make a copy of this [planning workbook](https://docs.google.com/spreadsheets/d/1-SpVgrNip3Wy3FfmGlBn4HaETUcamKF1evvvZPio7Jc/edit#gid=376832599) to help plan your Accounts implementation.
 
 ## Limits 
 
