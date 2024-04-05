@@ -31,3 +31,10 @@ Amplitude provides a plugin for use with Amplitude's Browser SDK and a standalon
     Use this SDK if you instrumented your web app third-party analytics, like Segment.
 
     [:octicons-arrow-right-24: Standalone SDK](/session-replay/sdks/standalone/)
+
+</div>
+
+## Tag Managers
+
+Session Replay supports instrumentation with [Google Tag Manager](/session-replay/tag-managers/google-tag-manager/).
+
