@@ -1,0 +1,63 @@
+---
+title: Amplitude Wordpress Plugin
+---
+
+The Amplitude Wordpress plugin enables you to instrument your Wordpress site with an advanced version of Default Event Tracking (DET).
+
+--8<-- "includes/open-beta.md"
+
+Amplitude's Wordpress plugin installs a version of the [Browser SDK](/data/sdks/typescript-browser/), and adds the script before the `</head>` tag on each of your site's pages. This enables an [advanced](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/plugin-default-event-tracking-advanced-browser) version of Default Event Tracking that tracks the following events and associated properties:
+
+- Page viewed
+- Form started
+- Form submitted
+- File downloaded
+- Start session
+- End session
+- Element clicked (new in advanced DET)
+- Element changed (new in advanced DET)
+
+If you enable Session Replay in the plugin's settings, the plugin also initializes and adds the [Session Replay Browser SDK Plugin](/session-replay/sdks/plugin/).
+
+## Install the plugin
+
+Follow these instructions to install the Amplitude Wordpress plugin.
+
+1. Download the [plugin](https://drive.google.com/file/d/1sL4oWdQyhUND7fq9trWc9tgzpYOHKgEK/view?usp=sharing)
+2. Log in to the Wordpress dashboard with Administrator privileges.
+3. Click **Plugins** from the sidebar.
+4. Click **Add New Plugin**.
+5. Click **Choose File**, and select `wordpress-plugin-beta.zip` that you downloaded in Step 1.
+6. Click **Install Now**.
+7. Click **Activate Plugin**.
+
+## Configure the plugin
+
+With the Amplitude Wordpress plugin settings page open:
+
+
+1. Enter your Amplitude Project's [API key](/analytics/find-api-credentials/).
+2. (Optional) Enable Session Replay and set the [Sample Rate](/session-replay/sdks/standalone/#sampling-rate) with the slider.
+3. Click **Save**.
+
+After you enable the plugin, confirm in Amplitude that your project receives data from the plugin.
+
+### Remove "Amplitude" from the Wordpress sidebar
+
+To remove the Amplitude tab from the Wordpress dashboard:
+
+1. Open the Amplitude plugin's settings page in Wordpress.
+2. Deselect the box that sets plugin visibility in the sidebar.
+3. Click **Save**.
+
+## Session Replay
+
+If you enable Session Replay in the plugin, you may not see replays appear in Amplitude. This can happen for a few reasons:
+
+- Users must complete their interaction with the site, which happens when they close the browser or leave the site. Wait at least five minutes after a session ends to attempt to view the replay in Amplitude. You may need to refresh the Amplitude page you're on.
+- The sample rate you select determines the percentage of sessions that Session Replay captures. If you set the sample rate below `1`, Amplitude may not capture the specific session in question.
+- You don't have Session Replay enabled on your account.
+
+## Advanced Default Event Tracking
+
+The Wordpress plugin installs a version of the Browser SDK that enables a version of Default Event Tracking

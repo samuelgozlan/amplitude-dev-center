@@ -230,3 +230,4 @@ Nami
 Contentful
 [Dd]rawables
 Bento
+Wordpress
