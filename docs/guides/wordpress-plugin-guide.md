@@ -23,13 +23,12 @@ If you enable Session Replay in the plugin's settings, the plugin also initializ
 
 Follow these instructions to install the Amplitude Wordpress plugin.
 
-1. Download the [plugin](https://drive.google.com/file/d/1sL4oWdQyhUND7fq9trWc9tgzpYOHKgEK/view?usp=sharing)
-2. Log in to the Wordpress dashboard with Administrator privileges.
-3. Click **Plugins** from the sidebar.
-4. Click **Add New Plugin**.
-5. Click **Choose File**, and select `wordpress-plugin-beta.zip` that you downloaded in Step 1.
-6. Click **Install Now**.
-7. Click **Activate Plugin**.
+1. Log in to Wordpress and open your site's dashboard.
+2. Click **Plugins** from the sidebar.
+3. Click **Add New Plugin**.
+4. Search for `Amplitude`.
+5. Click **Install Now** on the Amplitude plugin.
+6. When installation is complete, click **Activate Plugin**.
 
 ## Configure the plugin
 
@@ -40,14 +39,6 @@ With the Amplitude Wordpress plugin settings page open:
 3. Click **Save**.
 
 After you enable the plugin, confirm in Amplitude that your project receives data from the plugin.
-
-### Remove "Amplitude" from the Wordpress sidebar
-
-To remove the Amplitude tab from the Wordpress dashboard:
-
-1. Open the Amplitude plugin's settings page in Wordpress.
-2. Deselect the box that sets plugin visibility in the sidebar.
-3. Click **Save**.
 
 ## Session Replay
 
