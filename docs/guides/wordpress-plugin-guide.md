@@ -60,4 +60,16 @@ If you enable Session Replay in the plugin, you may not see replays appear in Am
 
 ## Advanced Default Event Tracking
 
-The Wordpress plugin installs a version of the Browser SDK that enables a version of Default Event Tracking
+The Wordpress plugin installs a version of the Browser SDK that enables a version of Default Event Tracking that tracks to extra events:
+
+- [Amplitude] Element Clicked
+- [Amplitude] Element Changed
+
+These are high-volume events with a high degree of cardinality with the property values. However, Amplitude limits the "noise" to these two events and a specific set of properties, limiting the impact on your taxonomy.
+
+This approach differs from auto track or auto capture because it targets two specific interactions, and targets a small set of elements to limit the impact of any noise in your data.
+
+### Impact on event volume
+
+Advanced Default Event Tracking impacts event volume because it adds new tracking, resulting in more captured events. The amount of this increase depends on your organization. If you start with few precisely tracked events, Amplitude expects that you would see a large increase in event volume. If your organization has an extensive tracking plan, with many precisely tracked events, the impact is lower.
+
