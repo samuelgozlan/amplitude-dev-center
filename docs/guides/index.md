@@ -106,4 +106,5 @@ Getting started with Amplitude can be daunting. These guides break down sophisti
     Add Amplitude tracking to your Wordpress site with the Amplitude Wordpress plugin
 
     [:octicons-arrow-right-24: Read the guide](../guides/wordpress-plugin-guide)
+    
 </div>

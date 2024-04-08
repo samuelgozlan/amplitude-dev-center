@@ -35,7 +35,6 @@ Follow these instructions to install the Amplitude Wordpress plugin.
 
 With the Amplitude Wordpress plugin settings page open:
 
-
 1. Enter your Amplitude Project's [API key](/analytics/find-api-credentials/).
 2. (Optional) Enable Session Replay and set the [Sample Rate](/session-replay/sdks/standalone/#sampling-rate) with the slider.
 3. Click **Save**.
@@ -72,4 +71,3 @@ This approach differs from auto track or auto capture because it targets two spe
 ### Impact on event volume
 
 Advanced Default Event Tracking impacts event volume because it adds new tracking, resulting in more captured events. The amount of this increase depends on your organization. If you start with few precisely tracked events, Amplitude expects that you would see a large increase in event volume. If your organization has an extensive tracking plan, with many precisely tracked events, the impact is lower.
-
