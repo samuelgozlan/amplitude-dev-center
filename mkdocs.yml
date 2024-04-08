@@ -164,6 +164,11 @@ extra:
     session_replay:
       plugin:
         version: 1.1.0
+    sdk:
+      version: 2.5.2
+    plugin:
+      deta:
+        version: 0.8.0
 # Navigation
 nav:
 - Documentation:
@@ -417,7 +422,6 @@ nav:
       - Guides:
         - Getting Started:
           - experiment/guides/getting-started/index.md
-          - experiment/guides/getting-started/create-a-deployment.md
           - experiment/guides/getting-started/create-a-flag.md
           - experiment/guides/getting-started/fetch-variants.md
           - experiment/guides/getting-started/track-exposure.md
@@ -514,6 +518,7 @@ nav:
         - v2.0:
           - data/sdks/browser-2/index.md
           - Ampli Codegen: data/sdks/browser-2/ampli.md
+          - Default Event Tracking Advanced plugin: data/sdks/browser-2/deta.md
         - v1.0:
           - data/sdks/typescript-browser/index.md
           - Ampli Codegen: data/sdks/typescript-browser/ampli.md
