@@ -1,6 +1,6 @@
 ## Jetpack Compose
 
-Additional setup is required for `@Composable` Compose views to be captured.
+Capturing `@Composable` Compose views requires extra setup.
 
 Add the Compose UI Tooling library to your project.
 
