@@ -61,5 +61,6 @@ Your metrics may occasionally update days after a click occurs. This can happen 
 
 - When a conversion occurs days after the initial click
 - When the source detects and removes invalid traffic
+
 Hence, if Google updates the data afterward - the import job needs to run again to get the updated numbers.
 For more information, see [About data freshness](https://support.google.com/google-ads/answer/2544985?hl=en) in Google's documentation. 
