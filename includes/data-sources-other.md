@@ -14,7 +14,7 @@
 - :blitzllama: [Blitzllama](../data/sources/blitzllama.md)
 - :branch: [Branch](../data/sources/branch.md)
 - :braze: [Braze](../data/sources/braze.md)
-- :candu [Candu](../data/sources/candu.md)
+- :candu: [Candu](../data/sources/candu.md)
 - :census: [Census](../data/sources/census.md)
 - :chameleon: [Chameleon](../data/sources/chameleon.md)
 - :clevertap: [CleverTap](../data/sources/clevertap.md)
