@@ -7,7 +7,7 @@ description: Easily send Amplitude cohorts to Salesforce Marketing Cloud for tar
 
 Salesforce Marketing Cloud provides marketing engagement automation that allows you to engage your users. Using this integration enables your marketing and growth teams to use behavioral data to better target campaigns and increase user engagement.
 
-This integration combines Amplitude's analytics with Salesforce Marketing Cloud. You can export [Behavioral Cohorts](https://help.amplitude.com/hc/en-us/articles/231881448-Amplitude-2-0-Behavioral-Cohorts) from Amplitude to Salesforce Marketing Cloud so that you can better engage your users.
+This integration combines Amplitude's analytics with Salesforce Marketing Cloud. You can export [Behavioral Cohorts](https://help.amplitude.com/hc/en-us/articles/231881448-Amplitude-2-0-Behavioral-Cohorts) from Amplitude to Salesforce Marketing Cloud so that you can better engage your users. Note that this integration only sends IDs you select to your Salesforce Marketing Cloud. In order to send events and properties to Salesforce, you will need to use the [Salesforce Marketing Cloud Event Streaming](https://www.docs.developers.amplitude.com/data/destinations/marketing-cloud-event-streaming/) integration.
 
 !!!info "Key differences between v1 and v2"
 
