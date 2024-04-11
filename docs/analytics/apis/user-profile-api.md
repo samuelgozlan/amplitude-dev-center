@@ -68,6 +68,8 @@ The User Profile API serves Amplitude user profiles, which include user properti
 
     This feature is available in accounts with Amplitude Audiences.
 
+    There is a max number of recommended items that can be returned by API, default value is 50 and max value is 100. This can be changed on Amplitude Recommendation page.
+
 Retrieve a single recommendation by ID.
 
 ### Request
@@ -149,6 +151,8 @@ Retrieve a single recommendation by ID.
 !!!note "Feature availability"
 
     This feature is available in accounts with Amplitude Audiences.
+
+    There is a max number of recommended items that can be returned by API, default value is 50 and max value is 100. This can be changed on Amplitude Recommendation page.
 
 Retrieves multiple recommendations for a user.
 
