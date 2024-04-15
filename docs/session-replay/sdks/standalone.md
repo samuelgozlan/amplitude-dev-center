@@ -11,7 +11,7 @@ This article covers the installation of Session Replay using the standalone SDK.
 
 ## Before you begin
 
-Use the latest version of the Session Replay standalone SDK above version 1.0.1. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/session-replay-browser/CHANGELOG.md) on GitHub.
+Use the latest version of the Session Replay standalone SDK above version @{$ browser.session_replay.standalone.version $}. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/session-replay-browser/CHANGELOG.md) on GitHub.
 
 Session Replay Standalone SDK requires that:
 
