@@ -62,3 +62,6 @@ This approach differs from auto track or auto capture because it targets two spe
 ### Impact on event volume
 
 Advanced Default Event Tracking impacts event volume because it adds new tracking, resulting in more captured events. The amount of this increase depends on your organization. If you start with few precisely tracked events, Amplitude expects that you would see a large increase in event volume. If your organization has an extensive tracking plan, with many precisely tracked events, the impact is lower.
+
+!!!tip "Contact Amplitude for help with this plugin"
+    For help or support with this plugin, contact [plugins@amplitude.com](mailto:plugins@amplitude.com).
