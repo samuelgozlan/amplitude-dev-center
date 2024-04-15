@@ -478,6 +478,7 @@ nav:
   - Migrate from mParticle: guides/mparticle-migration-guide.md
   - Migrate from Adobe: guides/adobe-migration-guide.md
   - Cookies and Consent Management: guides/cookies-consent-mgmt-guide.md
+  - Wordpress Plugin Guide: guides/wordpress-plugin-guide.md
 - APIs:
   - analytics/apis/index.md
   - Find your API credentials: analytics/find-api-credentials.md

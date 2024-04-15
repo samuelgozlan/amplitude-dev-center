@@ -99,4 +99,12 @@ Getting started with Amplitude can be daunting. These guides break down sophisti
 
     [:octicons-arrow-right-24: Read the guide](../guides/cookies-consent-mgmt-guide)
     
+- :material-power-plug:{ .lg .middle}__Amplitude Wordpress Plugin__
+
+    ---
+
+    Add Amplitude tracking to your Wordpress site with the Amplitude Wordpress plugin
+
+    [:octicons-arrow-right-24: Read the guide](../guides/wordpress-plugin-guide)
+    
 </div>
