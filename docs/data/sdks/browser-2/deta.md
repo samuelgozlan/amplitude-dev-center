@@ -149,7 +149,3 @@ To disable default event tracking, remove the plugin from any pages that impleme
 
     amplitude.add(defaultEventTrackingAdvancedPlugin());
     ```
-
-## Visual Tagger
-
-Visual Tagger takes the properties the `[Amplitude] Element Clicked` and `[Amplitude] Element Changed` events capture and uses them to define Dynamic Events. For more information, see [Visual Tagger](https://help.amplitude.com/hc/en-us/articles/24094812669979-Visual-tag-editor)
