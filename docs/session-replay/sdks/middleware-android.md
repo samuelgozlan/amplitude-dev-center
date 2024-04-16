@@ -48,10 +48,8 @@ import com.amplitude.api.SessionReplayMiddleware
 // Initialize (maintenance) Amplitude Analytics SDK instance
 val amplitude = Amplitude.getInstance()
     .initialize(this, AMPLITUDE_API_KEY)
-    .setUserId("sr-sample-middleware-user")
-    .setLogLevel(Log.VERBOSE)
-    .enableForegroundTracking(this)
-    // Note: Middleware doesn't currently support flushEventsOnClose
+    // Note: Middleware doesn't currently support setFlushEventsOnClose()
+    // You will need to call sessionReplayMiddleware.flush() explicitly
     // .setFlushEventsOnClose(true)
 
 // Create Session Replay Middleware
