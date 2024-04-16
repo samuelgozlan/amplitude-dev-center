@@ -2,11 +2,11 @@
 title: Amplitude Wordpress Plugin
 ---
 
-The Amplitude Wordpress plugin enables you to instrument your Wordpress site with an advanced version of Default Event Tracking (DET).
+The Amplitude Wordpress plugin enables you to instrument your Wordpress site with an advanced version of Autocapture.
 
 --8<-- "includes/open-beta.md"
 
-Amplitude's Wordpress plugin installs a version of the [Browser SDK](/data/sdks/typescript-browser/), and adds the script before the `</head>` tag on each of your site's pages. This enables an [advanced](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/plugin-default-event-tracking-advanced-browser) version of Default Event Tracking that tracks the following events and associated properties:
+Amplitude's Wordpress plugin installs a version of the [Browser SDK](/data/sdks/typescript-browser/), and adds the script before the `</head>` tag on each of your site's pages. This enables an [advanced](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/plugin-default-event-tracking-advanced-browser) version of Autocapture that tracks the following events and associated properties:
 
 - Page viewed
 - Form started
@@ -48,9 +48,9 @@ If you enable Session Replay in the plugin, you may not see replays appear in Am
 - The sample rate you select determines the percentage of sessions that Session Replay captures. If you set the sample rate below `1`, Amplitude may not capture the specific session in question.
 - You don't have Session Replay enabled on your account.
 
-## Advanced Default Event Tracking
+## Autocapture
 
-The Wordpress plugin installs a version of the Browser SDK that enables a version of Default Event Tracking that tracks to extra events:
+The Wordpress plugin installs a version of the Browser SDK that enables a version of Autocapture that tracks to extra events:
 
 - [Amplitude] Element Clicked
 - [Amplitude] Element Changed
@@ -61,7 +61,7 @@ This approach differs from auto track or auto capture because it targets two spe
 
 ### Impact on event volume
 
-Advanced Default Event Tracking impacts event volume because it adds new tracking, resulting in more captured events. The amount of this increase depends on your organization. If you start with few precisely tracked events, Amplitude expects that you would see a large increase in event volume. If your organization has an extensive tracking plan, with many precisely tracked events, the impact is lower.
+Autocapture impacts event volume because it adds new tracking, resulting in more captured events. The amount of this increase depends on your organization. If you start with few precisely tracked events, Amplitude expects that you would see a large increase in event volume. If your organization has an extensive tracking plan, with many precisely tracked events, the impact is lower.
 
 !!!tip "Contact Amplitude for help with this plugin"
     For help or support with this plugin, contact [plugins@amplitude.com](mailto:plugins@amplitude.com).
