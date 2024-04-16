@@ -76,6 +76,8 @@ sessionReplay.setSessionId(ThirdPartyAnalytics.getSessionId())
 sessionReplay.flush()
 ```
 
+--8<-- "includes/session-replay/compose-support-android.md"
+
 ## Configuration
 
 Pass the following configuration options when you initialize the Session Replay SDK.

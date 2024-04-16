@@ -23,8 +23,18 @@ To use privacy methods first import the SessionReplay class. Then call one of th
 import com.amplitude.android.SessionReplay
 ```
 
-| Method               | Description                                                                                                                                                                                                                                                                          |
-|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `unmask(view: View)` | Session Replay masks all text input views by default. When a users enters text into an input view, Session Replay captures asterisks in place of text. To *unmask* a text input, call `SessionReplay.unmask(view)` where `view` is a reference to the text input you want to unmask. |
-| `mask(view: View)`   | To mask text within non-input views, call `SessionReplay.mask(view)` where `view` is a reference to the text input you want to mask. When masked, Session Replay captures masked text as a series of asterisks.                                                                      |
-| `block(view: View)`  | To block a non-text view, call `SessionReplay.unmask(view)` where `view` is a reference to the you want to block. Session Replay replaces blocked views with a placeholder of the same dimensions.                                                                                   |
+| Method               | Description                                                                                                                                                                                                                                                                         |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `unmask(view: View)` | Session Replay masks all text input views by default. When a user enters text into an input view, Session Replay captures asterisks in place of text. To *unmask* a text input, call `SessionReplay.unmask(view)` where `view` is a reference to the text input you want to unmask. |
+| `mask(view: View)`   | To mask text within non-input views, call `SessionReplay.mask(view)` where `view` is a reference to the text input you want to mask. When masked, Session Replay captures masked text as a series of asterisks.                                                                     |
+| `block(view: View)`  | To block a non-text view, call `SessionReplay.unmask(view)` where `view` is a reference to the View you want to block. Session Replay replaces blocked views with a placeholder of the same dimensions.                                                                             |
+
+#### Privacy Modifiers for Jetpack Compose
+
+Three privacy Modifiers are included. `Modifier.unmask().mask().block()`. When combined the most private modifier wins.
+
+| Method               | Description                                                                                                                                                                                                                                   |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `unmask()` | Session Replay masks all text input views by default. When a user enters text into an input view, Session Replay captures asterisks in place of text. To *unmask* a text input, add `Modifier.unmask()` to the Composable you want to unmask. |
+| `mask()`   | To mask text within non-input views, call `Modifier.mask()` to the Composable you want to mask. When masked, Session Replay captures masked text as a series of asterisks.                                                                    |
+| `block()`  | To block a non-text view, call `Modifier.block()` to the Composable you want to block. Session Replay replaces blocked views with a placeholder of the same dimensions.                                                                       |
