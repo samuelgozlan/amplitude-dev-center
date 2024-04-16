@@ -7,7 +7,7 @@ title: Session Replay Standalone SDK for Android (ALPHA)
 !!!note "Session Replay Instrumentation"
     Session Replay isn't enabled by default, and requires setup beyond the standard Amplitude instrumentation.
  
-This article covers the installation of Session Replay for Android using the standalone SDK. If you use a provider other than Amplitude for in-product analytics, choose this option. If your site is already instrumented with Amplitude Android SDK, use the [Session Replay Android SDK Plugin](/session-replay/sdks/plugin-android).
+This article covers the installation of Session Replay for Android using the standalone SDK. If you use a provider other than Amplitude for in-product analytics, choose this option. If your app is already instrumented with Amplitude Android SDK, use the [Session Replay Android SDK Plugin](/session-replay/sdks/plugin-android).
 
 --8<-- "includes/session-replay/performance-android.md"
 
@@ -128,14 +128,14 @@ val sessionReplay = SessionReplay(
 
 ### Disable replay collection
 
-Once enabled, Session Replay runs on your site until either:
+Once enabled, Session Replay runs on your app until either:
 
-- The user leaves your site
+- The user leaves your app
 - You call `sessionReplay.shutdown()`
 
-Call `sessionReplay.shutdown()` before a user navigates to a restricted area of your site to disable replay collection while the user is in that area. 
+Call `sessionReplay.shutdown()` before a user navigates to a restricted area of your app to disable replay collection while the user is in that area. 
 
-Create a new instance `sessionReplay = SessionReplay(apiKey = API_KEY, /* options */)` to re-enable replay collection when the return to an unrestricted area of your site.
+Create a new instance `sessionReplay = SessionReplay(apiKey = API_KEY, /* options */)` to re-enable replay collection when the return to an unrestricted area of your app.
 
 You can also use a feature flag product like Amplitude Experiment to create logic that enables or disables replay collection based on criteria like location. For example, you can create a feature flag that targets a specific user group, and add that to your initialization logic:
 
