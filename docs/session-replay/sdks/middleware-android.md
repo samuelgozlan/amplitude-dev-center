@@ -51,8 +51,8 @@ val amplitude = Amplitude.getInstance()
     .setUserId("sr-sample-middleware-user")
     .setLogLevel(Log.VERBOSE)
     .enableForegroundTracking(this)
-// Note: Middleware doesn't support flushEventsOnClose
-//    .setFlushEventsOnClose(true)
+    // Note: Middleware doesn't currently support flushEventsOnClose
+    // .setFlushEventsOnClose(true)
 
 // Create Session Replay Middleware
 val sessionReplayMiddleware = SessionReplayMiddleware(amplitude, sampleRate = 1.0)
