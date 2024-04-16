@@ -69,6 +69,8 @@ sessionReplayMiddleware.flush()
 // override fun Activity.onPause() { sessionReplayMiddleware.flush() }
 ```
 
+--8<-- "includes/session-replay/compose-support-android.md"
+
 ## Configuration
 
 Pass the following option when you initialize the Session Replay middleware:
