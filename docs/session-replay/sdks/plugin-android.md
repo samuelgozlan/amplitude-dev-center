@@ -32,7 +32,7 @@ Add the [latest version](https://central.sonatype.com/artifact/com.amplitude/plu
     // Install latest version from Maven Central
     implementation("com.amplitude:plugin-session-replay-android:@{$ android.session_replay.version $}")
     // You will also need the Amplitude Analytics SDK if it's not already installed
-    implementation("com.amplitude:analytics-android:[1.0.0, 2.0.0)")
+    implementation("com.amplitude:analytics-android:[1.16.7, 2.0.0)")
     ```
 
 Configure your application code.
@@ -53,7 +53,12 @@ val amplitude = Amplitude(Configuration(
 // Recording will be handled automatically
 val sessionReplayPlugin = SessionReplayPlugin(sampleRate = 1.0)
 amplitude.add(sessionReplayPlugin)
+
+// Send replay data to the server
+amplitude.flush()
 ```
+
+--8<-- "includes/session-replay/compose-support-android.md"
 
 ## Configuration
 
