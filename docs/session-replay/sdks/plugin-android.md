@@ -238,4 +238,4 @@ In general, replays should be available within minutes of ingestion. Delays or e
 - Page instrumentation. If Session Replay isn't implemented on all pages a user visits, their session may not capture properly.
 - Replays older than the set [retention period](#retention-period) (defaults to 90 days).
 
-*[alpha]: This product is in active development. Improvements will be made to this feature.
+*[alpha]: This product is in active development.
