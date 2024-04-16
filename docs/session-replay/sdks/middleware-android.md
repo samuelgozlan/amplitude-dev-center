@@ -170,7 +170,7 @@ If you use a method other than the Android SDK to instrument your events, consid
 
 ### Replay length and session length don't match
 
-In some scenarios, the length of a replay may exceed the time between the `[Amplitude] Start Session` and `[Amplitude] End Session` events. This happens when a user closes the `[Amplitude] End Session` occurs, but before the Android SDK and Session Replay middleare can process it. When the user visits the app again, the SDK and middleware process the event and send it to Amplitude, along with the replay. You can verify this scenario occurs if you see a discrepancy between the `End Session Client Event Time` and the `Client Upload Time`.
+In some scenarios, the length of a replay may exceed the time between the `[Amplitude] Start Session` and `[Amplitude] End Session` events. This happens when a user closes the `[Amplitude] End Session` occurs, but before the Android SDK and Session Replay middleware can process it. When the user visits the app again, the SDK and middleware process the event and send it to Amplitude, along with the replay. You can verify this scenario occurs if you see a discrepancy between the `End Session Client Event Time` and the `Client Upload Time`.
 
 ### Session replays don't appear in Amplitude
 
@@ -222,4 +222,4 @@ In general, replays should be available within minutes of ingestion. Delays or e
 - Page instrumentation. If Session Replay isn't implemented on all pages a user visits, their session may not capture properly.
 - Replays older than the set [retention period](#retention-period) (defaults to 90 days).
 
-*[alpha]: This product is in active development. Improvements will be made to this feature.
+*[alpha]: This product is in active development.
