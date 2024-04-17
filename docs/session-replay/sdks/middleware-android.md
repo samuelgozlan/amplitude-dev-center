@@ -22,7 +22,7 @@ Use the latest version of the Session Replay Middleware above version `@{$ andro
 The Session Replay Middleware requires that:
 
 1. Your application is Android-based.
-2. You are using `2.40.1` or higher of the [(maintenance) Amplitude Android SDK](/data/sdks/android/)
+2. You are using `2.40.1` or higher of the [(maintenance) Amplitude Android SDK](/data/sdks/android/).
 3. You can provide a device ID to the SDK.
 
 --8<-- "includes/session-replay/supported-versions-android.md"
