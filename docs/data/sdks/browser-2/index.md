@@ -215,7 +215,7 @@ You can also use advanced configuration for better control of how marketing attr
 ???config "Marketing attribution options"
     |<div class="big-column">Name</div>|Value|Description|
     |-|-|-|
-    `config.defaultTracking.attribution.excludeReferrers` | Optional. Array of `string` or `RegExp` | Sets rules to determine which referrers are excluded from being tracked as traffic source. Use string values for exact matching and RegExp values for pattern matching against the referring domain. When this option isn't set, the current domain (and its subdomains) are excluded referrers. If explicitly adding an external referrer to exclude, you must also add the current domain (and its subdomains) as additional referrers to exclude. |
+    `config.defaultTracking.attribution.excludeReferrers` | Optional. Array of `string` or `RegExp` | Sets rules to determine which referrers are excluded from being tracked as traffic source. Use string values for exact matching and [RegExp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) values for pattern matching against the referring domain. When this option isn't set, the current domain (and its subdomains) are excluded referrers. If explicitly adding an external referrer to exclude, you must also add the current domain (and its subdomains) as additional referrers to exclude. Learn more [here](#exclude-referrers). |
     `config.defaultTracking.attribution.initialEmptyValue` | Optional. `string` | Sets the value to represent undefined/no initial campaign parameter for first-touch attribution. The default value is `"EMPTY`. |
     `config.defaultTracking.attribution.resetSessionOnNewCampaign` | Optional. `boolean` | Configures Amplitude to start a new session if any campaign parameter changes. The default value is `false`. |
 
@@ -230,6 +230,16 @@ amplitude.init(AMPLITUDE_API_KEY, {
   },
 });
 ```
+
+###### Exclude referrers
+
+!!! note 
+  
+    All sub-configurations of `config.defaultTracking.attribution` take effect only on user properties and do **NOT** affect the event properties of the default page view events. 
+
+The default value of `config.defaultTracking.attribution.excludeReferrers` is the top level domain with cookie storage enabled. For example, if you initialize the SDK on `https://www.docs.developers.amplitude.com/`, the SDK first checks `amplitude.com`. If it doesn't allow cookie storage, then the SDK checks `developers.amplitude.com` and subsequent subdomains. If it allows cookie storage, then the SDK sets `excludeReferrers` to an RegExp object `/amplitude\.com$/` which matches and then exlucdes tracking referrers from all subdomains of `amplitude.com`, for example, `data.amplitude.com`, `analytics.amplitude.com` and etc. 
+
+In addition to excluding referrers from the default configuration, you can add other domains by setting the custom `excludeReferrers`. Custom `excludeReferrers` overrides the default values. For example, to also exclude referrers from `google.com`, set `excludeReferrers` to `[/amplitude\.com$/, 'google.com']`.
 
 #### Tracking page views
 
