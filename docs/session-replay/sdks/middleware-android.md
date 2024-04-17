@@ -22,7 +22,8 @@ Use the latest version of the Session Replay Middleware above version `@{$ andro
 The Session Replay Middleware requires that:
 
 1. Your application is Android-based.
-2. You can provide a device ID to the SDK.
+2. You are using `2.40.1` or higher of the [(maintenance) Amplitude Android SDK](/data/sdks/android/).
+3. You can provide a device ID to the SDK.
 
 --8<-- "includes/session-replay/supported-versions-android.md"
 
@@ -36,7 +37,7 @@ Add the [latest version](https://central.sonatype.com/artifact/com.amplitude/mid
     // Install latest version from Maven Central
     implementation("com.amplitude:middleware-session-replay-android:@{$ android.session_replay.version $}")
     // You will also need the (maintenance) Amplitude Analytics SDK if it's not already installed
-    implementation("com.amplitude:android-sdk:[2.0.0,3.0.0)")
+    implementation("com.amplitude:android-sdk:[2.40.1,3.0.0)")
     ```
 
 Configure your application code.
@@ -48,9 +49,9 @@ import com.amplitude.api.SessionReplayMiddleware
 // Initialize (maintenance) Amplitude Analytics SDK instance
 val amplitude = Amplitude.getInstance()
     .initialize(this, AMPLITUDE_API_KEY)
-    // Note: Middleware doesn't currently support setFlushEventsOnClose()
-    // You will need to call sessionReplayMiddleware.flush() explicitly
-    // .setFlushEventsOnClose(true)
+    // Replay events will be flushed on close as well
+    // If setFlushEventsOnClose(false) you must call flush() manually
+    .setFlushEventsOnClose(true)
 
 // Create Session Replay Middleware
 val sessionReplayMiddleware = SessionReplayMiddleware(amplitude, sampleRate = 1.0)
@@ -63,7 +64,10 @@ amplitude.addEventMiddleware(sessionReplayMiddleware)
 amplitude.logEvent("Setup (maintenance) Amplitude Android SDK with session replay!")
 
 // Send replay events to the server
-sessionReplayMiddleware.flush()
+amplitude.uploadEvents()
+
+// You can also call flush() on the middleware directly to only send replay events
+// sessionReplayMiddleware.flush()
 
 // Always flush before app exit (onPause)
 // override fun Activity.onPause() { sessionReplayMiddleware.flush() }
